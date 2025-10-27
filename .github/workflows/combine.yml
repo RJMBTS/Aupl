@@ -17,9 +17,9 @@ jobs:
         run: |
           echo "#EXTM3U" > Master.m3u
           while read url; do
-            echo "\n# Begin: $url" >> combined.m3u
+            echo "\n# Begin: $url" >> Master.m3u
             curl -s "$url" >> Master.m3u
-          done < sources.txt
+          done < Sources.txt
 
       - name: Commit and push changes
         run: |
