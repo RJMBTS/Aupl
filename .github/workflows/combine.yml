@@ -1,4 +1,4 @@
-name: Combine M3U Playlists
+name: Master M3U Playlists
 
 on:
   schedule:
@@ -13,18 +13,18 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Combine M3U files
+      - name: Msster M3U files
         run: |
-          echo "#EXTM3U" > combined.m3u
+          echo "#EXTM3U" > Master.m3u
           while read url; do
             echo "\n# Begin: $url" >> combined.m3u
-            curl -s "$url" >> combined.m3u
+            curl -s "$url" >> Master.m3u
           done < sources.txt
 
       - name: Commit and push changes
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          git add combined.m3u
-          git commit -m "Update combined.m3u" || echo "No changes to commit"
+          git add Master.m3u
+          git commit -m "Update Master.m3u" || echo "No changes to commit"
           git push origin main
