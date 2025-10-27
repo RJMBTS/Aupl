@@ -13,7 +13,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Msster M3U files
+      - name: Master M3U files
         run: |
           echo "#EXTM3U" > Master.m3u
           while read url; do
