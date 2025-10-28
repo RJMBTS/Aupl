@@ -1,9 +1,8 @@
 #EXTM3U
 # Pushed and updated by Kittujk
 # @ RJMBTS
-# Last updated: 2025-10-28 14:17:50 IST
+# Last updated: 2025-10-28 14:48:48 IST
 
-#
 
 #EXTINF:-1 tvg-id="1373" group-title="Jiostar" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Disney_Channel.png",Disney Channel
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -5248,7 +5247,6 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Bharat_Express_BTS/output/index.mpd?__hdn
 #EXTHTTP:{"cookie":"__hdnea__=st=1761612114~exp=1761698514~acl=/*~hmac=dbf22faf06d89370fc395bb2976ac115726fcbf20125513d57239918bf0ca94d"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/One_Paschima_BTS/output/index.mpd?__hdnea__=st=1761612114~exp=1761698514~acl=/*~hmac=dbf22faf06d89370fc395bb2976ac115726fcbf20125513d57239918bf0ca94d&xxx=%7Ccookie=__hdnea__=st=1761612114~exp=1761698514~acl=/*~hmac=dbf22faf06d89370fc395bb2976ac115726fcbf20125513d57239918bf0ca94d
 
-#
 
 #EXTINF:-1 tvg-id="SONY SAB HD.in" tvg-name="Sony Sab HD" group-title="Entertainment" tvg-logo="https://i.postimg.cc/LhKxf97t/sonysabhd.webp",Sony Sab HD
 https://dishmt.slivcdn.com/hls/live/2011749/SABHD/master.m3u8?hdnea=exp=1761676344~acl=/*~id=18516302719883672912630061210076~hmac=9361555508bb6301af28eedddee2fe36a6c33569c04bd87e2a17ed5384994ba2
@@ -5310,7 +5308,6 @@ https://dishmt.slivcdn.com/hls/live/2011740/SonyMarathi/master.m3u8?hdnea=exp=17
 #EXTINF:-1 tvg-id="sony-aath" tvg-name="Sony Aath" tvg-language="Bengali" tvg-logo="https://i.postimg.cc/bY12WVTm/SONY-AATH.png" group-title="Entertainment",Sony Aath
 https://dishmt.slivcdn.com/hls/live/2011641/SonyAathSD/master.m3u8?hdnea=exp=1761676344~acl=/*~id=18516302719883672912630061210076~hmac=9361555508bb6301af28eedddee2fe36a6c33569c04bd87e2a17ed5384994ba2
 
-#
 
 #EXTINF:-1 tvg-id="0-9-zeetvhd" group-title="Entertainment" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Zee_TV_HD.png",Zee TV HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
@@ -5588,7 +5585,6 @@ https://z5ak-cmaflive.zee5.com/cmaf/live/2105538/ZeeTalkiesELE/master.m3u8?hdntl
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 https://aasthaott.akamaized.net/110923/smil:aasthatv.smil/playlist.m3u8?hdntl=exp=1761701042~acl=%2f*~data=hdntl~hmac=552c0c8f19db848eeb27ef27f5107853dd0d5e7b6d3b9a51a411b16f9baa0ac6
 
-#
 
 #EXTINF:-1 tvg-id="144" group-title="Entertainment" tvg-logo="https://v3img.voot.com/resizeMedium,w_1090,h_613/v3Storage/assets/colors-hindi--16x9-1714557869344.jpg",Colors HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
