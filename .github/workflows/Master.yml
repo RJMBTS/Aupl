@@ -2,22 +2,24 @@ name: Master M3U Playlists
 
 on:
   schedule:
-    - cron: '*/15 * * * *'  # Runs every 15 minutes
-  workflow_dispatch:     # You can trigger it manually too
+    - cron: '*/15 * * * *'   # Runs every 15 minutes
+  workflow_dispatch:          # Manual trigger option
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Combine M3U files
         run: |
           echo "#EXTM3U" > Master.m3u
-          while read url; do
-            echo "\n# Begin: $url" >> Master.m3u
+          while read -r url; do
+            echo -e "\n# Begin: $url" >> Master.m3u
             curl -s "$url" >> Master.m3u
           done < Sources.txt
 
