@@ -33,7 +33,7 @@ jobs:
 
           # Read each URL from Sources.txt and combine
           while read -r url; do
-            echo -e "\n# Begin: $url" >> Master.m3u
+            echo -e "\n#" >> Master.m3u
             # Fetch content and clean unwanted lines
             curl -s "$url" | grep -v -E '^#EXTM3U|^# Pushed and updated by|^# Join Telegram' >> Master.m3u
           done < Sources.txt
