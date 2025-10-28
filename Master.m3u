@@ -1,23 +1,9 @@
 #EXTM3U
 # Pushed and updated by Kittujk
 # @ RJMBTS
-# Last updated: 2025-10-28 13:53:39 IST
+# Last updated: 2025-10-28 14:17:50 IST
 
-# Begin: https://raw.githubusercontent.com/himanshu-temp/m3u/refs/heads/main/jiotv%2B.m3u
-
-#EXTM3U
-
-#EXTINF:-1 channel-id="IN4900003U3-in" tvg-id="IN4900003U3" tvg-chno="1003" tvg-name="ETv Comedy" tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/IN4900003U3_20250811T033449SQUARE.png" group-title="ETv",ETv Comedy
-https://jmp2.uk/stvp-IN4900003U3
-
-#EXTINF:-1 channel-id="IN4900004LP-in" tvg-id="IN4900004LP" tvg-chno="1128" tvg-name="ETv Josh" tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/IN4900004LP_20250811T033452SQUARE.png" group-title="ETv",ETv Josh
-https://jmp2.uk/stvp-IN4900004LP
-
-#EXTINF:-1 channel-id="IN4900002RV-in" tvg-id="IN4900002RV" tvg-chno="1456" tvg-name="ETv Music" tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/IN4900002RV_20250811T033455SQUARE.png" group-title="ETv",ETv Music
-https://jmp2.uk/stvp-IN4900002RV
-
-#EXTINF:-1 channel-id="IN4900001AQ-in" tvg-id="IN4900001AQ" tvg-chno="1095" tvg-name="ETv News" tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/IN4900001AQ_20250811T033458SQUARE.png" group-title="ETv",ETv News
-https://jmp2.uk/stvp-IN4900001AQ
+#
 
 #EXTINF:-1 tvg-id="1373" group-title="Jiostar" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Disney_Channel.png",Disney Channel
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -5262,7 +5248,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Bharat_Express_BTS/output/index.mpd?__hdn
 #EXTHTTP:{"cookie":"__hdnea__=st=1761612114~exp=1761698514~acl=/*~hmac=dbf22faf06d89370fc395bb2976ac115726fcbf20125513d57239918bf0ca94d"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/One_Paschima_BTS/output/index.mpd?__hdnea__=st=1761612114~exp=1761698514~acl=/*~hmac=dbf22faf06d89370fc395bb2976ac115726fcbf20125513d57239918bf0ca94d&xxx=%7Ccookie=__hdnea__=st=1761612114~exp=1761698514~acl=/*~hmac=dbf22faf06d89370fc395bb2976ac115726fcbf20125513d57239918bf0ca94d
 
-# Begin: https://raw.githubusercontent.com/himanshu-temp/m3u/refs/heads/main/sony.m3u
+#
 
 #EXTINF:-1 tvg-id="SONY SAB HD.in" tvg-name="Sony Sab HD" group-title="Entertainment" tvg-logo="https://i.postimg.cc/LhKxf97t/sonysabhd.webp",Sony Sab HD
 https://dishmt.slivcdn.com/hls/live/2011749/SABHD/master.m3u8?hdnea=exp=1761676344~acl=/*~id=18516302719883672912630061210076~hmac=9361555508bb6301af28eedddee2fe36a6c33569c04bd87e2a17ed5384994ba2
@@ -5324,7 +5310,7 @@ https://dishmt.slivcdn.com/hls/live/2011740/SonyMarathi/master.m3u8?hdnea=exp=17
 #EXTINF:-1 tvg-id="sony-aath" tvg-name="Sony Aath" tvg-language="Bengali" tvg-logo="https://i.postimg.cc/bY12WVTm/SONY-AATH.png" group-title="Entertainment",Sony Aath
 https://dishmt.slivcdn.com/hls/live/2011641/SonyAathSD/master.m3u8?hdnea=exp=1761676344~acl=/*~id=18516302719883672912630061210076~hmac=9361555508bb6301af28eedddee2fe36a6c33569c04bd87e2a17ed5384994ba2
 
-# Begin: https://raw.githubusercontent.com/himanshu-temp/m3u/refs/heads/main/zee5.m3u
+#
 
 #EXTINF:-1 tvg-id="0-9-zeetvhd" group-title="Entertainment" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Zee_TV_HD.png",Zee TV HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
@@ -5602,7 +5588,7 @@ https://z5ak-cmaflive.zee5.com/cmaf/live/2105538/ZeeTalkiesELE/master.m3u8?hdntl
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 https://aasthaott.akamaized.net/110923/smil:aasthatv.smil/playlist.m3u8?hdntl=exp=1761701042~acl=%2f*~data=hdntl~hmac=552c0c8f19db848eeb27ef27f5107853dd0d5e7b6d3b9a51a411b16f9baa0ac6
 
-# Begin: https://raw.githubusercontent.com/alex8875/m3u/refs/heads/main/jcinema.m3u
+#
 
 #EXTINF:-1 tvg-id="144" group-title="Entertainment" tvg-logo="https://v3img.voot.com/resizeMedium,w_1090,h_613/v3Storage/assets/colors-hindi--16x9-1714557869344.jpg",Colors HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
