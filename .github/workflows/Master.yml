@@ -6,7 +6,7 @@ on:
   workflow_dispatch:         # Manual trigger option
 
 permissions:
-  contents: write
+  contents: write            # Allow workflow to push changes
 
 jobs:
   build:
@@ -20,10 +20,22 @@ jobs:
 
       - name: Combine M3U files
         run: |
-          echo "#EXTM3U" > Master.m3u
+          # Get current date & time in IST
+          timestamp=$(TZ="Asia/Kolkata" date +"%Y-%m-%d %H:%M:%S %Z")
+
+          # Create header once at the top
+          {
+            echo "#EXTM3U"
+            echo "# Pushed and updated by Kittujk"
+            echo "# @ RJMBTS"
+            echo "# Last updated: $timestamp"
+          } > Master.m3u
+
+          # Read each URL from Sources.txt and combine
           while read -r url; do
             echo -e "\n# Begin: $url" >> Master.m3u
-            curl -s "$url" >> Master.m3u
+            # Fetch content and clean unwanted lines
+            curl -s "$url" | grep -v -E '^#EXTM3U|^# Pushed and updated by|^# Join Telegram' >> Master.m3u
           done < Sources.txt
 
       - name: Commit and push changes
