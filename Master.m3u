@@ -1,7 +1,8 @@
 #EXTM3U
 
-# Pushed and updated by Kittujk
-# @ RJMBTS
+# Begin: https://raw.githubusercontent.com/himanshu-temp/m3u/refs/heads/main/jiotv%2B.m3u
+# Pushed and updated by CloudPlay
+# Join Telegram @ https://t.me/cloudply
 
 #EXTM3U
 #EXTINF:-1 tvg-id="1373" group-title="Jiostar" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Disney_Channel.png",Disney Channel
@@ -5246,6 +5247,9 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Bharat_Express_BTS/output/index.mpd?__hdn
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux;Android 15) ExoPlayerLib/2.11.6 YGX/69.69.69.69
 #EXTHTTP:{"cookie":"__hdnea__=st=1761612114~exp=1761698514~acl=/*~hmac=dbf22faf06d89370fc395bb2976ac115726fcbf20125513d57239918bf0ca94d"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/One_Paschima_BTS/output/index.mpd?__hdnea__=st=1761612114~exp=1761698514~acl=/*~hmac=dbf22faf06d89370fc395bb2976ac115726fcbf20125513d57239918bf0ca94d&xxx=%7Ccookie=__hdnea__=st=1761612114~exp=1761698514~acl=/*~hmac=dbf22faf06d89370fc395bb2976ac115726fcbf20125513d57239918bf0ca94d
+# Begin: https://raw.githubusercontent.com/himanshu-temp/m3u/refs/heads/main/sony.m3u
+# Pushed and updated by CloudPlay
+# Join Telegram @ https://t.me/cloudply
 
 #EXTM3U
 #EXTINF:-1 tvg-id="SONY SAB HD.in" tvg-name="Sony Sab HD" group-title="Entertainment" tvg-logo="https://i.postimg.cc/LhKxf97t/sonysabhd.webp",Sony Sab HD
