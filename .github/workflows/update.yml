@@ -22,10 +22,13 @@ jobs:
           python-version: 3.11
           cache: "pip"
 
-      - name: Install dependencies
+      - name: Create requirements.txt
         run: |
-          python -m pip install --upgrade pip
-          pip install --no-cache-dir requests pytz
+          echo "requests" > requirements.txt
+          echo "pytz" >> requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
       - name: Run auto update script
         run: python aumpl.py
