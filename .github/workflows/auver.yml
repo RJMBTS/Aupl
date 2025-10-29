@@ -1,0 +1,63 @@
+name: Auto Update + Vercel Deploy
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"   # runs every 15 minutes
+  workflow_dispatch:          # allow manual trigger from Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🧩 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+
+      - name: 📦 Install dependencies
+        run: pip install requests
+
+      - name: ⚙️ Run auto update script
+        run: python aumpl.py
+
+      - name: 🧹 Check for changes
+        id: git-check
+        run: |
+          git config user.name "RJM Bot"
+          git config user.email "rjm-bot@example.com"
+          if [[ -n "$(git status --porcelain)" ]]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: 💾 Commit and push changes
+        if: steps.git-check.outputs.changed == 'true'
+        run: |
+          git add Master.m3u auscl.m3u channels/ index.m3u
+          git commit -m "Auto update playlists and regenerate channels [skip ci]"
+          git push
+          echo "✅ Updates committed and pushed."
+
+      - name: 💤 No changes found
+        if: steps.git-check.outputs.changed == 'false'
+        run: echo "No updates — skipping commit."
+
+      - name: 🚀 Trigger Vercel Deployment
+        if: steps.git-check.outputs.changed == 'true'
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+        run: |
+          echo "🚀 Triggering Vercel deployment..."
+          npx vercel --token $VERCEL_TOKEN --prod --confirm --yes
