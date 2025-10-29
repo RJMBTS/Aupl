@@ -1,9 +1,5 @@
 #EXTM3U
-<<<<<<< Updated upstream
-# Last updated on 2025-10-29 21:14:44 UTC
-=======
-# Last updated on 2025-10-29 21:14:49 UTC
->>>>>>> Stashed changes
+# Last updated on 2025-10-29 21:20:10 UTC
 
 #EXTINF:-1 tvg-id="1400" group-title="Music" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/MTV_Beats_SD.png",MTV Beats SD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
