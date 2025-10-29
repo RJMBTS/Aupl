@@ -31,7 +31,7 @@ jobs:
         run: |
           git config user.name "RJM Bot"
           git config user.email "rjm-bot@example.com"
-          git add Master.m3u auscl.m3u channels/ index.m3u
+          git add Master.m3u auscl.m3u channels/ Onetv.m3u
           if ! git diff --cached --quiet; then
             git commit -m "Auto update playlists and regenerate channels [skip ci]"
             git push
