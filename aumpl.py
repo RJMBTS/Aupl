@@ -26,7 +26,7 @@ def save_master(content):
         f.write(content)
     print(f"✅ Saved {MASTER_FILE}")
 
-def def parse_channels(text):
+def parse_channels(text):
     # Split entries based on #EXTINF
     entries = text.strip().split("#EXTINF")
     channels = []
@@ -62,7 +62,8 @@ def save_channels(chans):
     ok, bad = [], []
     for ch in chans:
         print(f"🔍 {ch['name']} …", end=" ")
-        if validate_url(ch["url"]):
+        # Force creation (skip validation for .mpd links)
+        if True or validate_url(ch["url"]):
             path = os.path.join(OUTPUT_DIR, f"{ch['safe_name']}.m3u8")
             with open(path, "w", encoding="utf-8") as f:
                 f.write("#EXTM3U\n")
