@@ -1,0 +1,44 @@
+{
+  "version": 2,
+  "public": true,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "routes": [
+    {
+      "src": "/channels/(.*)\\.m3u8",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "no-store"
+      },
+      "dest": "/channels/$1.m3u8"
+    },
+    {
+      "src": "/channels/(.*)\\.m3u",
+      "headers": {
+        "Content-Type": "application/x-mpegURL",
+        "Cache-Control": "no-store"
+      },
+      "dest": "/channels/$1.m3u"
+    },
+    {
+      "src": "/channels/(.*)\\.mpd",
+      "headers": {
+        "Content-Type": "application/dash+xml",
+        "Cache-Control": "no-store"
+      },
+      "dest": "/channels/$1.mpd"
+    },
+    {
+      "src": "/channels/(.*)\\.ts",
+      "headers": {
+        "Content-Type": "video/mp2t",
+        "Cache-Control": "no-store"
+      },
+      "dest": "/channels/$1.ts"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}
