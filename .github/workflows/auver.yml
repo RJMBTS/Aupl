@@ -1,56 +1,86 @@
-name: Auto Update Onetv + Deploy to Vercel
+name: Auto Update and Deploy OneTV
 
 on:
   schedule:
-    - cron: "*/15 * * * *"  # every 15 minutes
+    - cron: '0 */6 * * *'  # runs every 6 hours
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
-  build:
+  update:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Setup Python
+      # Step 2: Set up Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.11
+          python-version: '3.11'
 
+      # Step 3: Install dependencies
       - name: Install dependencies
         run: |
-          echo "requests" > requirements.txt
-          echo "pytz" >> requirements.txt
+          echo "pytz" > requirements.txt
           pip install -r requirements.txt
 
-      - name: Run auto update script
-        run: python aumpl.py
+      # Step 4: Show current time (UTC+5:30)
+      - name: Show current India time (UTC+5:30)
+        run: |
+          python - <<'EOF'
+          import datetime, pytz
+          india = pytz.timezone("Asia/Kolkata")
+          print("🕒 Current India time:", datetime.datetime.now(india).strftime("%Y-%m-%d %H:%M:%S %Z%z"))
+          EOF
 
+      # Step 5: Run Python script
+      - name: Run Python script
+        run: |
+          python aumpl.py
+
+      # Step 6: Commit and push updates
       - name: Commit and push updates
         run: |
           git config user.name "RJM Bot"
           git config user.email "rjm-bot@example.com"
+
+          git fetch origin main
           git add Master.m3u auscl.m3u channels/ Onetv.m3u
+
           if ! git diff --cached --quiet; then
             git commit -m "Auto update playlists and regenerate channels [skip ci]"
-            git pull --rebase origin main || true
-            git push origin main
+
+            # Handle conflicts automatically
+            git pull origin main --rebase || {
+              echo "⚠️ Merge conflict detected — keeping local version for Onetv.m3u"
+              git checkout --ours Onetv.m3u || true
+              git add Onetv.m3u
+              git rebase --continue || true
+            }
+
+            git push origin main --force-with-lease
           else
-            echo "No updates found."
+            echo "✅ No updates found."
           fi
 
-      # ✅ Install and deploy using the already-linked Vercel project
+      # Step 7: Set up Node.js for Vercel deployment
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Step 8: Install Vercel CLI
       - name: Install Vercel CLI
         run: npm install -g vercel
 
-      - name: Trigger Vercel Deployment
+      # Step 9: Trigger Vercel deployment
+      - name: 🚀 Deploy to Vercel
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
           echo "🚀 Triggering Vercel deployment..."
-          vercel pull --yes --environment=production --token=$VERCEL_TOKEN
-          vercel deploy --yes --prod --token=$VERCEL_TOKEN
+          vercel --yes --prod --token $VERCEL_TOKEN --confirm
