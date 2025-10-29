@@ -16,16 +16,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # ✅ Create requirements.txt first
+      - name: Create requirements.txt
+        run: |
+          echo "requests" > requirements.txt
+          echo "pytz" >> requirements.txt
+
+      # ✅ Now setup Python (cache will detect requirements.txt)
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: 3.11
           cache: "pip"
-
-      - name: Create requirements.txt
-        run: |
-          echo "requests" > requirements.txt
-          echo "pytz" >> requirements.txt
 
       - name: Install dependencies
         run: pip install -r requirements.txt
@@ -47,13 +49,4 @@ jobs:
           fi
 
       - name: Install Vercel CLI
-        run: npm install -g vercel
-
-      - name: Trigger Vercel Deployment
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-        run: |
-          echo "🚀 Triggering Vercel deployment..."
-          vercel deploy --yes --token $VERCEL_TOKEN --org-id $VERCEL_ORG_ID --project-id $VERCEL_PROJECT_ID --prod
+        run:
