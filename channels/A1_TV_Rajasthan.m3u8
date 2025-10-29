@@ -1,5 +1,9 @@
 #EXTM3U
+<<<<<<< Updated upstream
 # Last updated on 2025-10-29 21:14:44 UTC
+=======
+# Last updated on 2025-10-29 21:14:49 UTC
+>>>>>>> Stashed changes
 
 #EXTINF:-1 tvg-id="926" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/A1_TV_Rajasthan.png",A1 TV Rajasthan
 #KODIPROP:inputstream.adaptive.license_type=clearkey
