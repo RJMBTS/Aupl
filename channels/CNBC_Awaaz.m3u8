@@ -1,5 +1,9 @@
 #EXTM3U
+<<<<<<< Updated upstream
 # Last updated on 2025-10-29 20:57:36 UTC
+=======
+# Last updated on 2025-10-29 20:57:42 UTC
+>>>>>>> Stashed changes
 
 #EXTINF:-1 tvg-id="190" group-title="Business" tvg-logo="https://v3img.voot.com/resizeMedium,w_1090,h_613/v3Storage/assets/cnbc-awaaz-16x9-1702387934761.jpg",CNBC Awaaz
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
