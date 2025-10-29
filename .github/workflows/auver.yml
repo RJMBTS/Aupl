@@ -20,10 +20,12 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: 3.11
+          cache: "pip"
 
-      - name: Install dependencies
+      - name: Upgrade pip and install dependencies
         run: |
-          pip install requests pytz
+          python -m pip install --upgrade pip
+          pip install --no-cache-dir requests pytz
 
       - name: Run auto update script
         run: python aumpl.py
