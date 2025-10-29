@@ -3,7 +3,7 @@ name: Auto Update Master and Channels + Deploy to Vercel
 on:
   schedule:
     - cron: "*/15 * * * *"   # every 15 minutes
-  workflow_dispatch:          # allow manual trigger
+  workflow_dispatch:          # manual trigger allowed
 
 permissions:
   contents: write
@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # ensures full commit history for rebase
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -27,12 +29,19 @@ jobs:
       - name: Run auto update script
         run: python aumpl.py
 
-      - name: Commit and push changes
+      - name: Commit and push changes safely
         run: |
           git config user.name "RJM Bot"
           git config user.email "rjm-bot@example.com"
-          git pull --rebase origin main || true
-          git add Master.m3u auscl.m3u channels/ index.m3u
+          
+          # Handle possible changes safely
+          git add -A
+          git stash --include-untracked || true
+          git pull origin main --rebase || true
+          git stash pop || true
+
+          # Commit and push
+          git add -A
           if ! git diff --cached --quiet; then
             git commit -m "Auto update playlists and regenerate channels [skip ci]"
             git push origin main
