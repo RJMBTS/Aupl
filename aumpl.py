@@ -1,72 +1,46 @@
 import os
-import datetime
+import re
 import pytz
-import requests
+from datetime import datetime
 
 # File paths
 MASTER_FILE = "Master.m3u"
-AUSCL_FILE = "auscl.m3u"
-INDEX_FILE = "Onetv.m3u"
+OUTPUT_MASTER = "Onetv.m3u"
 CHANNELS_DIR = "channels"
 
-# Ensure channels directory exists
+# Ensure output directory
 os.makedirs(CHANNELS_DIR, exist_ok=True)
 
+# Read master playlist
+if not os.path.exists(MASTER_FILE):
+    raise FileNotFoundError(f"{MASTER_FILE} not found")
 
-def generate_onetv_file():
-    """Generate Onetv.m3u with local IST time and footer credits"""
-    # Use India timezone
-    ist = pytz.timezone("Asia/Kolkata")
-    now = datetime.datetime.now(ist)
-    timestamp = now.strftime("%Y-%m-%d %H:%M:%S %Z%z")
+with open(MASTER_FILE, "r", encoding="utf-8") as f:
+    content = f.read()
 
-    header = f"""#EXTM3U
-# This channel file was auto-generated from Master.m3u
-# Last updated on {timestamp}
+# Extract all channel entries
+pattern = r'(#EXTINF:-1[^\n]*\n(?:#KODIPROP[^\n]*\n)*#EXTVLCOPT[^\n]*\n(?:#EXTHTTP[^\n]*\n)?(https?://[^\n]+))'
+matches = re.findall(pattern, content)
 
-"""
+india_time = datetime.now(pytz.timezone("Asia/Kolkata")).strftime("%Y-%m-%d %H:%M:%S %Z%z")
 
-    footer = (
-        "\n# --------------------------------------------------\n"
-        "# Developed by Kittujk & Maintained by RJMBTS\n"
-        "# --------------------------------------------------\n"
-    )
+# Write to Onetv.m3u
+with open(OUTPUT_MASTER, "w", encoding="utf-8") as out:
+    out.write("#EXTM3U\n")
+    out.write(f"# Auto-generated from Master.m3u — Last updated on {india_time}\n\n")
 
-    # Read content from Master.m3u
-    if not os.path.exists(MASTER_FILE):
-        print(f"❌ {MASTER_FILE} not found.")
-        return
+    for idx, (block) in enumerate(matches, start=1):
+        out.write(block.strip() + "\n\n")
 
-    with open(MASTER_FILE, "r", encoding="utf-8") as f:
-        content = f.read()
+        # Extract name for file naming
+        name_match = re.search(r',(.+)$', block, re.MULTILINE)
+        if name_match:
+            name = re.sub(r'[^a-zA-Z0-9_-]', '_', name_match.group(1))
+            chan_file = os.path.join(CHANNELS_DIR, f"{name}.m3u8")
 
-    # Combine and write to Onetv.m3u
-    with open(INDEX_FILE, "w", encoding="utf-8") as f:
-        f.write(header + content + footer)
+            with open(chan_file, "w", encoding="utf-8") as cf:
+                cf.write("#EXTM3U\n")
+                cf.write(f"# Last updated on {india_time}\n\n")
+                cf.write(block.strip() + "\n")
 
-    print(f"✅ {INDEX_FILE} updated successfully at {timestamp}")
-
-
-def main():
-    print("🚀 Starting playlist update process...")
-
-    # Example: clone Master.m3u into auscl.m3u
-    if os.path.exists(MASTER_FILE):
-        with open(MASTER_FILE, "r", encoding="utf-8") as f:
-            data = f.readlines()
-
-        with open(AUSCL_FILE, "w", encoding="utf-8") as f:
-            f.write("#EXTM3U\n")
-            for line in data:
-                f.write(line)
-
-        print(f"✅ {AUSCL_FILE} updated.")
-
-    # Generate the main index playlist
-    generate_onetv_file()
-
-    print("✅ Playlist generation completed.")
-
-
-if __name__ == "__main__":
-    main()
+print(f"✅ Generated {len(matches)} channels.")
