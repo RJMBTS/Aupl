@@ -1,53 +1,42 @@
-name: Auto Update Master and Channels + Deploy to Vercel
+name: Auto Update and Deploy to Vercel
 
 on:
   schedule:
-    - cron: "*/15 * * * *"   # Every 15 minutes
-  workflow_dispatch:          # Allow manual trigger
-
-permissions:
-  contents: write
+    - cron: "0 */6 * * *"  # Every 6 hours
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0   # Full history for pull/rebase
 
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.11
+          python-version: '3.x'
 
-      - name: Install dependencies
-        run: pip install requests
+      - name: Install Dependencies
+        run: |
+          pip install requests
 
-      - name: Run auto update script
-        run: python aumpl.py
+      - name: Run aumpl.py to Regenerate Playlists
+        run: |
+          python aumpl.py
 
-      - name: Commit and push changes safely
+      - name: Configure Git
         run: |
           git config user.name "RJM Bot"
-          git config user.email "rjm-bot@example.com"
+          git config user.email "bot@rjmbts.in"
 
-          # Handle local modifications safely before pulling
-          git add -A
-          git stash --include-untracked || true
-          git pull origin main --rebase || true
-          git stash pop || true
-
-          # Commit and push if there are updates
-          git add -A
-          if ! git diff --cached --quiet; then
-            git commit -m "Auto update playlists and regenerate channels [skip ci]"
-            git push origin main
-          else
-            echo "No updates found."
-          fi
+      - name: Commit and Push Changes
+        run: |
+          git add Master.m3u auscl.m3u channels/ index.m3u || true
+          git commit -m "Auto update playlists and regenerate channels [skip ci]" || echo "No changes to commit"
+          git pull --rebase origin main || true
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/RJMBTS/Aupl.git main || echo "No push needed"
 
       - name: Trigger Vercel Deployment
         env:
@@ -56,8 +45,9 @@ jobs:
           echo "🚀 Triggering Vercel deployment..."
           npm install -g vercel
 
-          # Link to existing Vercel project
-          vercel link --yes --token=$VERCEL_TOKEN --scope rjmbts-works
-
-          # Deploy to production (auto-detects linked project)
-          vercel deploy --prod --yes --token=$VERCEL_TOKEN --scope rjmbts-works
+          # ✅ Deploy to your existing Vercel project (onetv)
+          vercel deploy --prod --yes \
+            --token=$VERCEL_TOKEN \
+            --scope=rjmbts-works \
+            --name=onetv \
+            --confirm
