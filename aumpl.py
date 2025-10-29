@@ -1,4 +1,5 @@
 import os
+import re
 import datetime
 import requests
 
@@ -32,7 +33,9 @@ def parse_channels(master_text):
                 break
         if url:
             name = meta.split(",")[-1].strip()
-            channels.append((name, "#EXTINF:" + meta + "\n" + "\n".join(lines[1:])))
+            logo_match = re.search(r'tvg-logo="([^"]+)"', meta)
+            logo = logo_match.group(1) if logo_match else ""
+            channels.append((name, logo, "#EXTINF:" + meta + "\n" + "\n".join(lines[1:])))
     return channels
 
 
@@ -40,7 +43,7 @@ def write_channel_files(channels):
     os.makedirs(CHANNELS_DIR, exist_ok=True)
     now = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
 
-    for name, content in channels:
+    for name, _, content in channels:
         safe_name = name.replace(" ", "_").replace("/", "_")
         file_path = os.path.join(CHANNELS_DIR, f"{safe_name}.m3u8")
 
@@ -54,25 +57,23 @@ def write_channel_files(channels):
 def write_auscl(channels):
     with open(AUSCL_FILE, "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
-        for _, content in channels:
+        for _, _, content in channels:
             f.write(content + "\n")
 
 
 def write_index(channels):
     with open(INDEX_FILE, "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
-        for name, _ in channels:
+        for name, _, _ in channels:
             f.write(f"#EXTINF:-1,{name}\n")
             f.write(f"https://nrtv-one.vercel.app/channels/{name.replace(' ', '_')}.m3u8\n")
 
 
-def generate_html_index():
+def generate_html_index(channels):
     print("Generating index.html...")
     now = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
-    files = [f for f in os.listdir(CHANNELS_DIR) if f.endswith(".m3u8")]
-    files.sort()
 
-    html_content = f"""<!DOCTYPE html>
+    html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -90,25 +91,37 @@ def generate_html_index():
       color: #58a6ff;
       margin-bottom: 1rem;
     }}
-    ul {{
-      list-style: none;
-      padding: 0;
-      max-width: 600px;
+    .grid {{
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 1rem;
+      max-width: 1000px;
       margin: auto;
     }}
-    li {{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .card {{
       background: #161b22;
-      margin: 0.5rem 0;
-      padding: 0.7rem 1rem;
-      border-radius: 0.5rem;
+      padding: 1rem;
+      border-radius: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    }}
+    img {{
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      border-radius: 0.4rem;
+      margin-bottom: 0.6rem;
+      background: #0d1117;
     }}
     a {{
       color: #58a6ff;
       text-decoration: none;
-      word-break: break-word;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+      word-wrap: break-word;
     }}
     button {{
       background: #238636;
@@ -131,34 +144,32 @@ def generate_html_index():
 </head>
 <body>
   <h1>📺 OneTV Channels</h1>
-  <p>Click a channel name to open or copy its link below.</p>
-
-  <ul>
+  <p>Browse and copy links below.</p>
+  <div class="grid">
 """
 
-    for f in files:
-        name = os.path.splitext(f)[0]
-        link = f"/channels/{f}"
-        html_content += f"""
-    <li>
+    for name, logo, _ in channels:
+        safe_name = name.replace(" ", "_")
+        link = f"https://nrtv-one.vercel.app/channels/{safe_name}.m3u8"
+        html += f"""
+    <div class="card">
+      <img src="{logo or 'https://via.placeholder.com/90x90?text=No+Logo'}" alt="{name} logo" />
       <a href="{link}" target="_blank">{name}</a>
-      <button onclick="navigator.clipboard.writeText('{f'https://nrtv-one.vercel.app{link}'}'); this.textContent='Copied!'; setTimeout(()=>this.textContent='Copy Link',2000);">Copy Link</button>
-    </li>
+      <button onclick="navigator.clipboard.writeText('{link}'); this.textContent='Copied!'; setTimeout(()=>this.textContent='Copy Link',2000);">Copy Link</button>
+    </div>
 """
 
-    html_content += f"""
-  </ul>
-
+    html += f"""
+  </div>
   <div class="footer">
     Last updated on {now}
   </div>
 </body>
-</html>
-"""
+</html>"""
 
     with open(HTML_FILE, "w", encoding="utf-8") as f:
-        f.write(html_content)
-    print("✅ index.html updated.")
+        f.write(html)
+    print("✅ index.html with logos updated.")
 
 
 if __name__ == "__main__":
@@ -167,5 +178,5 @@ if __name__ == "__main__":
     write_channel_files(channels)
     write_auscl(channels)
     write_index(channels)
-    generate_html_index()
-    print("🎉 All tasks complete!")
+    generate_html_index(channels)
+    print("🎉 All tasks complete with logo view!")
