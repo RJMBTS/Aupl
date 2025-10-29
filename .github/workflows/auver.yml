@@ -2,7 +2,7 @@ name: Auto Update and Deploy OneTV
 
 on:
   schedule:
-    - cron: '0 */6 * * *'  # runs every 6 hours
+    - cron: '0 */6 * * *'  # every 6 hours
   workflow_dispatch:
 
 jobs:
@@ -25,10 +25,11 @@ jobs:
       # Step 3: Install dependencies
       - name: Install dependencies
         run: |
-          echo "pytz" > requirements.txt
+          echo "requests" > requirements.txt
+          echo "pytz" >> requirements.txt
           pip install -r requirements.txt
 
-      # Step 4: Show current time (UTC+5:30)
+      # Step 4: Show current India time (UTC+5:30)
       - name: Show current India time (UTC+5:30)
         run: |
           python - <<'EOF'
@@ -39,8 +40,7 @@ jobs:
 
       # Step 5: Run Python script
       - name: Run Python script
-        run: |
-          python aumpl.py
+        run: python aumpl.py
 
       # Step 6: Commit and push updates
       - name: Commit and push updates
@@ -54,7 +54,7 @@ jobs:
           if ! git diff --cached --quiet; then
             git commit -m "Auto update playlists and regenerate channels [skip ci]"
 
-            # Handle conflicts automatically
+            # Handle merge conflicts safely
             git pull origin main --rebase || {
               echo "⚠️ Merge conflict detected — keeping local version for Onetv.m3u"
               git checkout --ours Onetv.m3u || true
@@ -67,7 +67,7 @@ jobs:
             echo "✅ No updates found."
           fi
 
-      # Step 7: Set up Node.js for Vercel deployment
+      # Step 7: Set up Node.js for Vercel
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
