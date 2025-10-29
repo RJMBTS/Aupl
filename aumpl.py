@@ -26,16 +26,30 @@ def save_master(content):
         f.write(content)
     print(f"✅ Saved {MASTER_FILE}")
 
-def parse_channels(text):
-    pattern = re.compile(r'#EXTINF:-1\s+(.*?)\n(https?://[^\s]+)')
-    matches = pattern.findall(text)
-    chans = []
-    for meta, url in matches:
+def def parse_channels(text):
+    # Split entries based on #EXTINF
+    entries = text.strip().split("#EXTINF")
+    channels = []
+    for entry in entries:
+        if not entry.strip():
+            continue
+        lines = entry.strip().splitlines()
+        # The first line after #EXTINF contains metadata and name
+        meta = lines[0]
         name_match = re.search(r',([^,]+)$', meta.strip())
         name = name_match.group(1).strip() if name_match else "Unknown"
-        safe_name = re.sub(r'[^a-zA-Z0-9_]', '_', name)
-        chans.append({"name": name, "safe_name": safe_name, "url": url})
-    return chans
+
+        # Find the first http/https line in the rest
+        url = None
+        for line in lines:
+            if line.strip().startswith("http"):
+                url = line.strip()
+                break
+
+        if url:
+            safe_name = re.sub(r'[^a-zA-Z0-9_]', '_', name)
+            channels.append({"name": name, "safe_name": safe_name, "url": url})
+    return channels
 
 def validate_url(url):
     try:
