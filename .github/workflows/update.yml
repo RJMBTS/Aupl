@@ -1,8 +1,8 @@
-name: Auto Update Master and Channels
+name: Auto Update Onetv + Deploy to Vercel
 
 on:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "*/15 * * * *"  # every 15 minutes
   workflow_dispatch:
 
 permissions:
@@ -20,22 +20,37 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: 3.11
+          cache: "pip"
 
       - name: Install dependencies
-        run: pip install requests
+        run: |
+          python -m pip install --upgrade pip
+          pip install --no-cache-dir requests pytz
 
       - name: Run auto update script
         run: python aumpl.py
 
-      - name: Commit and push changes
+      - name: Commit and push updates
         run: |
           git config user.name "RJM Bot"
           git config user.email "rjm-bot@example.com"
           git add Master.m3u auscl.m3u channels/ Onetv.m3u
           if ! git diff --cached --quiet; then
             git commit -m "Auto update playlists and regenerate channels [skip ci]"
-            git push
+            git pull --rebase origin main || true
+            git push origin main
           else
             echo "No updates found."
           fi
 
+      - name: Install Vercel CLI
+        run: npm install -g vercel
+
+      - name: Trigger Vercel Deployment
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          echo "🚀 Triggering Vercel deployment..."
+          vercel deploy --yes --token $VERCEL_TOKEN --org-id $VERCEL_ORG_ID --project-id $VERCEL_PROJECT_ID --prod
