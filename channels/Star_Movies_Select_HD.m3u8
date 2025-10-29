@@ -1,5 +1,9 @@
 #EXTM3U
+<<<<<<< Updated upstream
 # Last updated on 2025-10-29 21:02:24 UTC
+=======
+# Last updated on 2025-10-29 21:02:29 UTC
+>>>>>>> Stashed changes
 
 #EXTINF:-1 tvg-id="1110" group-title="Jiostar" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Movies_Select_HD.png",Star Movies Select HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey

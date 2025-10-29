@@ -1,5 +1,9 @@
 #EXTM3U
+<<<<<<< Updated upstream
 # Last updated on 2025-10-29 21:02:24 UTC
+=======
+# Last updated on 2025-10-29 21:02:29 UTC
+>>>>>>> Stashed changes
 
 #EXTINF:-1 tvg-id="631" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/MBC.png",MBC
 #KODIPROP:inputstream.adaptive.license_type=clearkey
