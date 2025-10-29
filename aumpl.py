@@ -4,15 +4,14 @@ import os
 import shutil
 import datetime
 
-# 🔗 Remote playlist source
+# 🔗 Remote playlist source (Master)
 SOURCE_URL = "https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u"
 
-# 📂 File paths
+# 📁 File paths
 MASTER_FILE = "Master.m3u"
 AUSCL_FILE = "auscl.m3u"
 OUTPUT_DIR = "channels"
 INDEX_FILE = "index.m3u"
-TIMEOUT = 5
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -33,7 +32,7 @@ def parse_channels(text):
     for p in parts:
         if not p.strip():
             continue
-        entry = "#EXTINF" + p  # restore the marker
+        entry = "#EXTINF" + p
         lines = entry.strip().splitlines()
         name_match = re.search(r',([^,]+)$', lines[0])
         name = name_match.group(1).strip() if name_match else "Unknown"
@@ -63,8 +62,7 @@ def save_channels(chans):
         try:
             with open(path, "w", encoding="utf-8") as f:
                 f.write("#EXTM3U\n")
-                f.write(f"# This channel file was auto-generated from Master.m3u on {timestamp}\n")
-                f.write(f"# Source: {SOURCE_URL}\n\n")
+                f.write(f"# Last updated on {timestamp}\n\n")
                 f.write(ch["entry"].strip() + "\n")
             ok.append(ch)
             print(f"✅ {ch['name']}")
@@ -74,7 +72,8 @@ def save_channels(chans):
     return ok, bad
 
 def build_index(chans):
-    lines = ["#EXTM3U"]
+    timestamp = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
+    lines = ["#EXTM3U", f"# Last updated on {timestamp}", ""]
     for ch in chans:
         lines.append(f"#EXTINF:-1,{ch['name']}")
         lines.append(f"https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/channels/{ch['safe_name']}.m3u8")
