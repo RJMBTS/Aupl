@@ -43,14 +43,14 @@ jobs:
             echo "No updates found."
           fi
 
+      # ✅ Install and deploy using the already-linked Vercel project
       - name: Install Vercel CLI
         run: npm install -g vercel
 
       - name: Trigger Vercel Deployment
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: |
           echo "🚀 Triggering Vercel deployment..."
-          vercel deploy --yes --token $VERCEL_TOKEN --org-id $VERCEL_ORG_ID --project-id $VERCEL_PROJECT_ID --prod
+          vercel pull --yes --environment=production --token=$VERCEL_TOKEN
+          vercel deploy --yes --prod --token=$VERCEL_TOKEN
