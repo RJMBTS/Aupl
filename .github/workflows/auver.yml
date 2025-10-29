@@ -3,7 +3,7 @@ name: Auto Update Master and Channels + Deploy to Vercel
 on:
   schedule:
     - cron: "*/15 * * * *"   # every 15 minutes
-  workflow_dispatch:          # manual trigger allowed
+  workflow_dispatch:          # allow manual trigger
 
 permissions:
   contents: write
@@ -16,7 +16,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # ensures full commit history for rebase
+          fetch-depth: 0   # full history for safe rebasing
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -33,14 +33,14 @@ jobs:
         run: |
           git config user.name "RJM Bot"
           git config user.email "rjm-bot@example.com"
-          
-          # Handle possible changes safely
+
+          # Safely handle any changes before pulling
           git add -A
           git stash --include-untracked || true
           git pull origin main --rebase || true
           git stash pop || true
 
-          # Commit and push
+          # Commit and push if changes exist
           git add -A
           if ! git diff --cached --quiet; then
             git commit -m "Auto update playlists and regenerate channels [skip ci]"
@@ -50,9 +50,10 @@ jobs:
           fi
 
       - name: Trigger Vercel Deployment
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
           echo "🚀 Triggering Vercel deployment..."
           npm install -g vercel
-          vercel --token=${{ secrets.VERCEL_TOKEN }} --prod --yes \
-            --scope=${{ secrets.VERCEL_ORG_ID }} \
-            --project=${{ secrets.VERCEL_PROJECT_ID }}
+          vercel link --yes --token=$VERCEL_TOKEN
+          vercel deploy --prod --yes --token=$VERCEL_TOKEN
