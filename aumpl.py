@@ -1,103 +1,171 @@
-import requests
-import re
 import os
-import shutil
 import datetime
+import requests
 
-# 🔗 Remote playlist source (Master)
-SOURCE_URL = "https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u"
-
-# 📁 File paths
-MASTER_FILE = "Master.m3u"
-AUSCL_FILE = "auscl.m3u"
-OUTPUT_DIR = "channels"
+# === CONFIG ===
+MASTER_URL = "https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u"
+CHANNELS_DIR = "channels"
 INDEX_FILE = "index.m3u"
+AUSCL_FILE = "auscl.m3u"
+HTML_FILE = "index.html"
 
-os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-def fetch_source():
-    print("🌐 Fetching source M3U…")
-    r = requests.get(SOURCE_URL)
-    r.raise_for_status()
-    return r.text
+def fetch_master():
+    print("Fetching Master.m3u...")
+    response = requests.get(MASTER_URL)
+    response.raise_for_status()
+    return response.text
 
-def save_master(content):
-    with open(MASTER_FILE, "w", encoding="utf-8") as f:
-        f.write(content)
-    print(f"✅ Saved {MASTER_FILE}")
 
-def parse_channels(text):
-    parts = text.split("#EXTINF")
+def parse_channels(master_text):
     channels = []
-    for p in parts:
-        if not p.strip():
+    blocks = master_text.split("#EXTINF:")
+    for block in blocks[1:]:
+        lines = block.strip().splitlines()
+        if not lines:
             continue
-        entry = "#EXTINF" + p
-        lines = entry.strip().splitlines()
-        name_match = re.search(r',([^,]+)$', lines[0])
-        name = name_match.group(1).strip() if name_match else "Unknown"
-
+        meta = lines[0]
         url = None
-        for line in lines:
-            if line.strip().startswith("http"):
+        for line in lines[1:]:
+            if line.startswith("http"):
                 url = line.strip()
                 break
-
         if url:
-            safe_name = re.sub(r'[^a-zA-Z0-9_]', '_', name)
-            full_entry = "\n".join(lines)
-            channels.append({
-                "name": name,
-                "safe_name": safe_name,
-                "url": url,
-                "entry": full_entry
-            })
+            name = meta.split(",")[-1].strip()
+            channels.append((name, "#EXTINF:" + meta + "\n" + "\n".join(lines[1:])))
     return channels
 
-def save_channels(chans):
-    ok, bad = [], []
-    timestamp = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
-    for ch in chans:
-        path = os.path.join(OUTPUT_DIR, f"{ch['safe_name']}.m3u8")
-        try:
-            with open(path, "w", encoding="utf-8") as f:
-                f.write("#EXTM3U\n")
-                f.write(f"# Last updated on {timestamp}\n\n")
-                f.write(ch["entry"].strip() + "\n")
-            ok.append(ch)
-            print(f"✅ {ch['name']}")
-        except Exception as e:
-            print(f"❌ {ch['name']} ({e})")
-            bad.append(ch)
-    return ok, bad
 
-def build_index(chans):
-    timestamp = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
-    lines = ["#EXTM3U", f"# Last updated on {timestamp}", ""]
-    for ch in chans:
-        lines.append(f"#EXTINF:-1,{ch['name']}")
-        lines.append(f"https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/channels/{ch['safe_name']}.m3u8")
+def write_channel_files(channels):
+    os.makedirs(CHANNELS_DIR, exist_ok=True)
+    now = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
+
+    for name, content in channels:
+        safe_name = name.replace(" ", "_").replace("/", "_")
+        file_path = os.path.join(CHANNELS_DIR, f"{safe_name}.m3u8")
+
+        with open(file_path, "w", encoding="utf-8") as f:
+            f.write("#EXTM3U\n")
+            f.write(f"# This channel file was auto-generated on {now}\n\n")
+            f.write(content + "\n")
+        print(f"✅ Generated {file_path}")
+
+
+def write_auscl(channels):
+    with open(AUSCL_FILE, "w", encoding="utf-8") as f:
+        f.write("#EXTM3U\n")
+        for _, content in channels:
+            f.write(content + "\n")
+
+
+def write_index(channels):
     with open(INDEX_FILE, "w", encoding="utf-8") as f:
-        f.write("\n".join(lines))
-    print(f"📃 index.m3u built ({len(chans)} entries)")
+        f.write("#EXTM3U\n")
+        for name, _ in channels:
+            f.write(f"#EXTINF:-1,{name}\n")
+            f.write(f"https://nrtv-one.vercel.app/channels/{name.replace(' ', '_')}.m3u8\n")
 
-def duplicate_to_auscl():
-    if os.path.exists(MASTER_FILE):
-        shutil.copyfile(MASTER_FILE, AUSCL_FILE)
-        print(f"📋 Copied Master.m3u → auscl.m3u")
 
-def main():
-    try:
-        master = fetch_source()
-        save_master(master)
-        chans = parse_channels(master)
-        print(f"🧩 Found {len(chans)} channels")
-        ok, bad = save_channels(chans)
-        build_index(ok)
-        duplicate_to_auscl()
-        print(f"\n✅ Done: {len(ok)} channels created, {len(bad)} failed.")
-    except Exception as e:
-        print(f"❌ Error: {e}")
+def generate_html_index():
+    print("Generating index.html...")
+    now = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
+    files = [f for f in os.listdir(CHANNELS_DIR) if f.endswith(".m3u8")]
+    files.sort()
+
+    html_content = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OneTV Channels</title>
+  <style>
+    body {{
+      font-family: system-ui, sans-serif;
+      background: #0d1117;
+      color: #c9d1d9;
+      padding: 2rem;
+      text-align: center;
+    }}
+    h1 {{
+      color: #58a6ff;
+      margin-bottom: 1rem;
+    }}
+    ul {{
+      list-style: none;
+      padding: 0;
+      max-width: 600px;
+      margin: auto;
+    }}
+    li {{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #161b22;
+      margin: 0.5rem 0;
+      padding: 0.7rem 1rem;
+      border-radius: 0.5rem;
+    }}
+    a {{
+      color: #58a6ff;
+      text-decoration: none;
+      word-break: break-word;
+    }}
+    button {{
+      background: #238636;
+      color: white;
+      border: none;
+      border-radius: 0.3rem;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }}
+    button:hover {{
+      background: #2ea043;
+    }}
+    .footer {{
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: #8b949e;
+    }}
+  </style>
+</head>
+<body>
+  <h1>📺 OneTV Channels</h1>
+  <p>Click a channel name to open or copy its link below.</p>
+
+  <ul>
+"""
+
+    for f in files:
+        name = os.path.splitext(f)[0]
+        link = f"/channels/{f}"
+        html_content += f"""
+    <li>
+      <a href="{link}" target="_blank">{name}</a>
+      <button onclick="navigator.clipboard.writeText('{f'https://nrtv-one.vercel.app{link}'}'); this.textContent='Copied!'; setTimeout(()=>this.textContent='Copy Link',2000);">Copy Link</button>
+    </li>
+"""
+
+    html_content += f"""
+  </ul>
+
+  <div class="footer">
+    Last updated on {now}
+  </div>
+</body>
+</html>
+"""
+
+    with open(HTML_FILE, "w", encoding="utf-8") as f:
+        f.write(html_content)
+    print("✅ index.html updated.")
+
 
 if __name__ == "__main__":
-    main()
+    master = fetch_master()
+    channels = parse_channels(master)
+    write_channel_files(channels)
+    write_auscl(channels)
+    write_index(channels)
+    generate_html_index()
+    print("🎉 All tasks complete!")
