@@ -1,9 +1,5 @@
 #EXTM3U
-<<<<<<< Updated upstream
-# Last updated on 2025-10-29 20:57:36 UTC
-=======
-# Last updated on 2025-10-29 20:57:42 UTC
->>>>>>> Stashed changes
+# Last updated on 2025-10-29 20:58:46 UTC
 
 #EXTINF:-1 tvg-id="2252" group-title="Music" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Desi_Music_Station.png",Desi Music Station
 #KODIPROP:inputstream.adaptive.license_type=clearkey
