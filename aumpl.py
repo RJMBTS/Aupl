@@ -12,7 +12,7 @@ HTML_FILE = "index.html"
 
 
 def fetch_master():
-    print("Fetching Master.m3u...")
+    print("🌐 Fetching Master.m3u...")
     response = requests.get(MASTER_URL)
     response.raise_for_status()
     return response.text
@@ -49,9 +49,9 @@ def write_channel_files(channels):
 
         with open(file_path, "w", encoding="utf-8") as f:
             f.write("#EXTM3U\n")
-            f.write(f"# This channel file was auto-generated on {now}\n\n")
+            f.write(f"# Last updated on {now}\n\n")
             f.write(content + "\n")
-        print(f"✅ Generated {file_path}")
+        print(f"✅ Created: {file_path}")
 
 
 def write_auscl(channels):
@@ -59,6 +59,7 @@ def write_auscl(channels):
         f.write("#EXTM3U\n")
         for _, _, content in channels:
             f.write(content + "\n")
+    print("📄 auscl.m3u updated.")
 
 
 def write_index(channels):
@@ -67,11 +68,15 @@ def write_index(channels):
         for name, _, _ in channels:
             f.write(f"#EXTINF:-1,{name}\n")
             f.write(f"https://nrtv-one.vercel.app/channels/{name.replace(' ', '_')}.m3u8\n")
+    print("📃 index.m3u generated.")
 
 
 def generate_html_index(channels):
-    print("Generating index.html...")
+    print("🖥️ Generating index.html...")
     now = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
+
+    # Sort alphabetically by name
+    channels = sorted(channels, key=lambda c: c[0].lower())
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -93,7 +98,7 @@ def generate_html_index(channels):
     }}
     .grid {{
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
       gap: 1rem;
       max-width: 1000px;
       margin: auto;
@@ -144,7 +149,7 @@ def generate_html_index(channels):
 </head>
 <body>
   <h1>📺 OneTV Channels</h1>
-  <p>Browse and copy links below.</p>
+  <p>Click a channel to open or copy its link.</p>
   <div class="grid">
 """
 
@@ -169,7 +174,7 @@ def generate_html_index(channels):
 
     with open(HTML_FILE, "w", encoding="utf-8") as f:
         f.write(html)
-    print("✅ index.html with logos updated.")
+    print("✅ index.html generated with logos, copy buttons, and alphabetical order.")
 
 
 if __name__ == "__main__":
@@ -179,4 +184,4 @@ if __name__ == "__main__":
     write_auscl(channels)
     write_index(channels)
     generate_html_index(channels)
-    print("🎉 All tasks complete with logo view!")
+    print("🎉 All tasks complete successfully!")
