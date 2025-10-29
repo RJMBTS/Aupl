@@ -75,7 +75,7 @@ def generate_html_index(channels):
     print("🖥️ Generating index.html...")
     now = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
 
-    # Sort alphabetically by name
+    # Sort alphabetically
     channels = sorted(channels, key=lambda c: c[0].lower())
 
     html = f"""<!DOCTYPE html>
@@ -96,6 +96,17 @@ def generate_html_index(channels):
       color: #58a6ff;
       margin-bottom: 1rem;
     }}
+    input {{
+      width: 90%;
+      max-width: 500px;
+      padding: 0.6rem;
+      border-radius: 0.4rem;
+      border: 1px solid #30363d;
+      background: #161b22;
+      color: #c9d1d9;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }}
     .grid {{
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -112,6 +123,10 @@ def generate_html_index(channels):
       align-items: center;
       justify-content: space-between;
       box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      transition: transform 0.2s;
+    }}
+    .card:hover {{
+      transform: scale(1.03);
     }}
     img {{
       width: 90px;
@@ -149,15 +164,15 @@ def generate_html_index(channels):
 </head>
 <body>
   <h1>📺 OneTV Channels</h1>
-  <p>Click a channel to open or copy its link.</p>
-  <div class="grid">
+  <input type="text" id="searchBox" placeholder="Search for channels... (e.g. Star, Sony, Zee)" onkeyup="filterChannels()" />
+  <div class="grid" id="channelGrid">
 """
 
     for name, logo, _ in channels:
         safe_name = name.replace(" ", "_")
         link = f"https://nrtv-one.vercel.app/channels/{safe_name}.m3u8"
         html += f"""
-    <div class="card">
+    <div class="card" data-name="{name.lower()}">
       <img src="{logo or 'https://via.placeholder.com/90x90?text=No+Logo'}" alt="{name} logo" />
       <a href="{link}" target="_blank">{name}</a>
       <button onclick="navigator.clipboard.writeText('{link}'); this.textContent='Copied!'; setTimeout(()=>this.textContent='Copy Link',2000);">Copy Link</button>
@@ -169,12 +184,23 @@ def generate_html_index(channels):
   <div class="footer">
     Last updated on {now}
   </div>
+
+  <script>
+    function filterChannels() {{
+      const query = document.getElementById('searchBox').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {{
+        const name = card.getAttribute('data-name');
+        card.style.display = name.includes(query) ? '' : 'none';
+      }});
+    }}
+  </script>
 </body>
 </html>"""
 
     with open(HTML_FILE, "w", encoding="utf-8") as f:
         f.write(html)
-    print("✅ index.html generated with logos, copy buttons, and alphabetical order.")
+    print("✅ index.html generated with logos, copy buttons, A–Z sorting, and live search.")
 
 
 if __name__ == "__main__":
