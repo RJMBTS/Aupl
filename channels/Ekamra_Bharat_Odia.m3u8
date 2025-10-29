@@ -1,9 +1,5 @@
 #EXTM3U
-<<<<<<< Updated upstream
-# Last updated on 2025-10-29 21:20:10 UTC
-=======
-# Last updated on 2025-10-29 21:20:14 UTC
->>>>>>> Stashed changes
+# Last updated on 2025-10-29 21:23:17 UTC
 
 #EXTINF:-1 tvg-id="2011" group-title="Infotainment" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Ekamra_Bharat_Odia.png",Ekamra Bharat Odia
 #KODIPROP:inputstream.adaptive.license_type=clearkey

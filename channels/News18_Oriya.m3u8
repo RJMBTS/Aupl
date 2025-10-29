@@ -1,9 +1,5 @@
 #EXTM3U
-<<<<<<< Updated upstream
-# Last updated on 2025-10-29 21:20:10 UTC
-=======
-# Last updated on 2025-10-29 21:20:14 UTC
->>>>>>> Stashed changes
+# Last updated on 2025-10-29 21:23:17 UTC
 
 #EXTINF:-1 tvg-id="696" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/ETV_News_Oriya.png",News18 Oriya
 #KODIPROP:inputstream.adaptive.license_type=clearkey

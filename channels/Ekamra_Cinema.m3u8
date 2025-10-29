@@ -1,9 +1,5 @@
 #EXTM3U
-<<<<<<< Updated upstream
-# Last updated on 2025-10-29 21:20:10 UTC
-=======
-# Last updated on 2025-10-29 21:20:14 UTC
->>>>>>> Stashed changes
+# Last updated on 2025-10-29 21:23:17 UTC
 
 #EXTINF:-1 tvg-id="2016" group-title="Movies" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Ekamra_Cinema.png",Ekamra Cinema
 #KODIPROP:inputstream.adaptive.license_type=clearkey
