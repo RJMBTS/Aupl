@@ -1,9 +1,5 @@
 #EXTM3U
-<<<<<<< Updated upstream
-# Last updated on 2025-10-29 21:02:24 UTC
-=======
-# Last updated on 2025-10-29 21:02:29 UTC
->>>>>>> Stashed changes
+# Last updated on 2025-10-29 21:09:51 UTC
 
 #EXTINF:-1 tvg-id="SONY SPORTS TEN 2 HD.in" tvg-name="Sony Sports Ten 2 HD" group-title="Sports" tvg-logo="https://i.postimg.cc/zG5rY8BH/sonysportsten2hd.webp",Sony TEN 2 HD
 https://dishmt.slivcdn.com/hls/live/2020434-b/TEN2HD/master.m3u8?hdnea=exp=1761812892~acl=/*~id=69702337476328940298090663345700~hmac=b7693b32517fbdddb6ac8fc8741c4be6da2a235912997733f3a6a29aa733c4bc
