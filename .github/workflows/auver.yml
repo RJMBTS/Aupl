@@ -2,8 +2,8 @@ name: Auto Update Master and Channels + Deploy to Vercel
 
 on:
   schedule:
-    - cron: "*/15 * * * *"   # every 15 minutes
-  workflow_dispatch:          # manual trigger allowed
+    - cron: "*/15 * * * *"   # Every 15 minutes
+  workflow_dispatch:          # Allow manual trigger
 
 permissions:
   contents: write
@@ -16,7 +16,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # needed for pull/rebase
+          fetch-depth: 0   # Full history for pull/rebase
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -34,13 +34,13 @@ jobs:
           git config user.name "RJM Bot"
           git config user.email "rjm-bot@example.com"
 
-          # Safely sync with remote before pushing
+          # Handle local modifications safely before pulling
           git add -A
           git stash --include-untracked || true
           git pull origin main --rebase || true
           git stash pop || true
 
-          # Commit and push only if there are real changes
+          # Commit and push if there are updates
           git add -A
           if ! git diff --cached --quiet; then
             git commit -m "Auto update playlists and regenerate channels [skip ci]"
@@ -56,8 +56,8 @@ jobs:
           echo "🚀 Triggering Vercel deployment..."
           npm install -g vercel
 
-          # Explicitly link to existing Vercel project
-          vercel link --yes --token=$VERCEL_TOKEN --project onetv --scope rjmbts-works
+          # Link to existing Vercel project
+          vercel link --yes --token=$VERCEL_TOKEN --scope rjmbts-works
 
-          # Deploy to production
-          vercel deploy --prod --yes --token=$VERCEL_TOKEN --scope rjmbts-works --project onetv
+          # Deploy to production (auto-detects linked project)
+          vercel deploy --prod --yes --token=$VERCEL_TOKEN --scope rjmbts-works
