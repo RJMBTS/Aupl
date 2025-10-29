@@ -22,7 +22,8 @@ jobs:
           python-version: 3.11
 
       - name: Install dependencies
-        run: pip install requests pytz
+        run: |
+          pip install requests pytz
 
       - name: Run auto update script
         run: python aumpl.py
