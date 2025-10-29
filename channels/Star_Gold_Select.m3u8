@@ -1,3 +1,7 @@
 #EXTM3U
-#EXTINF:-1,Star Gold Select
+#EXTINF:-1 tvg-id="1119" group-title="Jiostar" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Gold_Select.png",Star Gold Select
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=09706397be655eb6a26c6ba99b65e6d5:acb1ebe04e2a29fe098d532d7a506846
+#EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux;Android 15) ExoPlayerLib/2.11.6 YGX/69.69.69.69
+#EXTHTTP:{"cookie":"__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Gold_Select_BTS/output/index.mpd?__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5&xxx=%7Ccookie=__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5

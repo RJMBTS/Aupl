@@ -1,3 +1,7 @@
 #EXTM3U
-#EXTINF:-1,India TV
+#EXTINF:-1 tvg-id="235" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/India_TV.png",India TV
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=c6d6b3104f03558283c5bea6bb387a41:561ee86909f10796243328f2dd68c935
+#EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux;Android 15) ExoPlayerLib/2.11.6 YGX/69.69.69.69
+#EXTHTTP:{"cookie":"__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/India_TV_BTS/output/index.mpd?__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5&xxx=%7Ccookie=__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5

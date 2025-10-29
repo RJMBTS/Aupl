@@ -1,3 +1,7 @@
 #EXTM3U
-#EXTINF:-1,Republic Bharat
+#EXTINF:-1 tvg-id="1403" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Republic_Bharat.png",Republic Bharat
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=f1b5a69b12b65551ac77bcbf67f4f5b8:94957f3a3a432841a939e352b18fd08a
+#EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux;Android 15) ExoPlayerLib/2.11.6 YGX/69.69.69.69
+#EXTHTTP:{"cookie":"__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Republic_Bharat_BTS/output/index.mpd?__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5&xxx=%7Ccookie=__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5

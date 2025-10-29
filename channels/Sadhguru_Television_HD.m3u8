@@ -1,3 +1,7 @@
 #EXTM3U
-#EXTINF:-1,Sadhguru Television HD
+#EXTINF:-1 tvg-id="1201" group-title="Devotional" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sadhguru_Television.png",Sadhguru Television HD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=2bf5b7fd9c395f2fab04c3ed5532ad84:70dc780c49deebafaae43e66c6ea9dc5
+#EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux;Android 15) ExoPlayerLib/2.11.6 YGX/69.69.69.69
+#EXTHTTP:{"cookie":"__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Sadhguru_Television_BTS/output/index.mpd?__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5&xxx=%7Ccookie=__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5

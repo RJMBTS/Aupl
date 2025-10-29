@@ -1,3 +1,7 @@
 #EXTM3U
-#EXTINF:-1,DD Gyandarshan
+#EXTINF:-1 tvg-id="1329" group-title="Entertainment" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/DD_Gyandarshan.png",DD Gyandarshan
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=8f80b1ad2b6c547da3c61f19b4e4e420:45c52fab02793483c113ffae73b83afa
+#EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux;Android 15) ExoPlayerLib/2.11.6 YGX/69.69.69.69
+#EXTHTTP:{"cookie":"__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/DD_Gyandarshan_BTS/output/index.mpd?__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5&xxx=%7Ccookie=__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5

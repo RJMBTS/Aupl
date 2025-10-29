@@ -1,3 +1,3 @@
 #EXTM3U
-#EXTINF:-1,SET HD
+#EXTINF:-1 tvg-id="SET HD.in" tvg-name="SET HD" group-title="Entertainment" tvg-logo="https://i.postimg.cc/zXgMfMMw/sethd.webp",SET HD
 https://dishmt.slivcdn.com/hls/live/2011671/SETHD/master.m3u8?hdnea=exp=1761803739~acl=/*~id=34933567409370022116684729109287~hmac=591db4155e72872b7308d8eb5e54ca6f3e6b2438170302b49ada19ad4bd5e95a

@@ -1,3 +1,7 @@
 #EXTM3U
-#EXTINF:-1,Iskon Girgaon
+#EXTINF:-1 tvg-id="1419" group-title="Devotional" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Iskon_Girgaon.png",Iskon Girgaon
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=8afe495c141b5235b2c3c559d9c0b66d:992364772ef95cde0833faaf923c150d
+#EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux;Android 15) ExoPlayerLib/2.11.6 YGX/69.69.69.69
+#EXTHTTP:{"cookie":"__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Iskon_Girgaon_BTS/output/index.mpd?__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5&xxx=%7Ccookie=__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5

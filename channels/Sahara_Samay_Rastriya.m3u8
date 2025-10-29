@@ -1,3 +1,7 @@
 #EXTM3U
-#EXTINF:-1,Sahara Samay Rastriya
+#EXTINF:-1 tvg-id="506" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sahara_Samay_Rastriya.png",Sahara Samay Rastriya
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=9dcc8e283e5e5aa19452d09bf104a5e6:00cec290b61ac4bbf188a71f8695afb3
+#EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux;Android 15) ExoPlayerLib/2.11.6 YGX/69.69.69.69
+#EXTHTTP:{"cookie":"__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Sahara_Samay_Rastriya_BTS/output/index.mpd?__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5&xxx=%7Ccookie=__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5

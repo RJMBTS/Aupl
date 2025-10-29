@@ -1,3 +1,7 @@
 #EXTM3U
-#EXTINF:-1,Swayam Prabha 04
+#EXTINF:-1 tvg-id="984" group-title="Educational" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Swayam_Prabha_04.png",Swayam Prabha 04
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=f481953a795655ddb9b47a92a8a29e2b:7aa0c4108a59953af9c0010f50920106
+#EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux;Android 15) ExoPlayerLib/2.11.6 YGX/69.69.69.69
+#EXTHTTP:{"cookie":"__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Swayam_Prabha_04_BTS/output/index.mpd?__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5&xxx=%7Ccookie=__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5

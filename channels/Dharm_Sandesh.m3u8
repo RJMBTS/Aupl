@@ -1,3 +1,4 @@
 #EXTM3U
-#EXTINF:-1,Dharm Sandesh
+#EXTINF:-1 tvg-id="0-9-9z5398792" group-title="Spiritual" tvg-logo="https://akamaividz.zee5.com/resources/0-9-9z5398792/list/270x152/1170x658c79674cf57ac4de48addad4284053d8e.png",Dharm Sandesh
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 https://aasthaott.akamaized.net/110923/smil:arihant.smil/playlist.m3u8?hdntl=exp=1761828094~acl=%2f*~data=hdntl~hmac=1008ae4c123b9305e2461829e4ab1485aef933cc1882df607773e69b3c906fa3

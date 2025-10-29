@@ -1,3 +1,7 @@
 #EXTM3U
-#EXTINF:-1,NEWS 24 MPCG
+#EXTINF:-1 tvg-id="1817" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/NEWS_24_MPCG.png",NEWS 24 MPCG
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=5e792dc60cbd5c26a86337351ec7a70e:39f76d29755baa583dc7182df61da685
+#EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux;Android 15) ExoPlayerLib/2.11.6 YGX/69.69.69.69
+#EXTHTTP:{"cookie":"__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/NEWS_24_MPCG_BTS/output/index.mpd?__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5&xxx=%7Ccookie=__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5

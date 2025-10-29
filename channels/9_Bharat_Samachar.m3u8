@@ -1,3 +1,7 @@
 #EXTM3U
-#EXTINF:-1,9 Bharat Samachar
+#EXTINF:-1 tvg-id="1451" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/9_Bharat_Samachar.png",9 Bharat Samachar
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=c4eb4c81b6875bd0a1cbd865c9771115:558bc27843c49ce520c1feabe2596199
+#EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux;Android 15) ExoPlayerLib/2.11.6 YGX/69.69.69.69
+#EXTHTTP:{"cookie":"__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/9_Bharat_Samachar_BTS/output/index.mpd?__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5&xxx=%7Ccookie=__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5

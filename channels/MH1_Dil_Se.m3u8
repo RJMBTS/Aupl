@@ -1,3 +1,7 @@
 #EXTM3U
-#EXTINF:-1,MH1 Dil Se
+#EXTINF:-1 tvg-id="1925" group-title="Entertainment" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/MH1_DilSe.png",MH1 Dil Se
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=716450e7a3f0522db29e59c636b6d0ac:ccd8e32ba5c60afe91e634b9f39efcce
+#EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux;Android 15) ExoPlayerLib/2.11.6 YGX/69.69.69.69
+#EXTHTTP:{"cookie":"__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/MH1_DilSe_BTS/output/index.mpd?__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5&xxx=%7Ccookie=__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5

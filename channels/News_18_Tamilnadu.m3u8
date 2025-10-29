@@ -1,3 +1,7 @@
 #EXTM3U
-#EXTINF:-1,News 18 Tamilnadu
+#EXTINF:-1 tvg-id="615" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/News_18_Tamilnadu.png",News 18 Tamilnadu
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=0b2909c488f8586c8d89f4bcbe0d99cc:abe3e6b33083e1cd6f2cf22835228654
+#EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux;Android 15) ExoPlayerLib/2.11.6 YGX/69.69.69.69
+#EXTHTTP:{"cookie":"__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/News_18_Tamilnadu_BTS/output/index.mpd?__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5&xxx=%7Ccookie=__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5

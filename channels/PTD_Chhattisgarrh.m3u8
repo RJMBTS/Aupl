@@ -1,3 +1,7 @@
 #EXTM3U
-#EXTINF:-1,PTD Chhattisgarrh
+#EXTINF:-1 tvg-id="1673" group-title="Educational" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/PTD_Chhattisgarrh.png",PTD Chhattisgarrh
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=852c2ff7da7451ae9f66a0949a31540c:065aa548d38d7294688e8567b88f3554
+#EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux;Android 15) ExoPlayerLib/2.11.6 YGX/69.69.69.69
+#EXTHTTP:{"cookie":"__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/PTD_Chhattisgarrh_MOB/WDVLive/index.mpd?__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5&xxx=%7Ccookie=__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5

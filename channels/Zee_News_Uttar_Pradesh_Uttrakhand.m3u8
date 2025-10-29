@@ -1,3 +1,4 @@
 #EXTM3U
-#EXTINF:-1,Zee News Uttar Pradesh Uttrakhand
+#EXTINF:-1 tvg-id="0-9-channel_265145625" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Zee_News_Uttar_Pradesh_Uttrakhand.png",Zee News Uttar Pradesh Uttrakhand
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 https://z5ak-cmaflive.zee5.com/cmaf/live/2105494/ZEEUPUKELE/master.m3u8?hdntl=exp=1761828094~acl=%2f*~data=hdntl~hmac=1008ae4c123b9305e2461829e4ab1485aef933cc1882df607773e69b3c906fa3

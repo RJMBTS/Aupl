@@ -1,3 +1,7 @@
 #EXTM3U
-#EXTINF:-1,Babulnaath Mumbai
+#EXTINF:-1 tvg-id="1423" group-title="Devotional" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Babulnaath_Mumbai.png",Babulnaath Mumbai
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=08d1566e647a5e73905cac11c0681de9:e8d02d569953357d6fb5c706c921378a
+#EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux;Android 15) ExoPlayerLib/2.11.6 YGX/69.69.69.69
+#EXTHTTP:{"cookie":"__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Babulnaath_Mumbai_BTS/output/index.mpd?__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5&xxx=%7Ccookie=__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5

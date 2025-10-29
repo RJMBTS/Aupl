@@ -1,3 +1,7 @@
 #EXTM3U
-#EXTINF:-1,Vande Gujarat 9
+#EXTINF:-1 tvg-id="1087" group-title="Educational" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Vande_Gujarat_9.png",Vande Gujarat 9
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=9fbcc11de41f57d292dccda5534d979a:7f0fa2ec90abbd8532e382172ed6fbfa
+#EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux;Android 15) ExoPlayerLib/2.11.6 YGX/69.69.69.69
+#EXTHTTP:{"cookie":"__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Vande_Gujarat_9_BTS/output/index.mpd?__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5&xxx=%7Ccookie=__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5

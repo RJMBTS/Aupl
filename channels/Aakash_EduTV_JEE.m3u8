@@ -1,3 +1,7 @@
 #EXTM3U
-#EXTINF:-1,Aakash EduTV JEE
+#EXTINF:-1 tvg-id="1851" group-title="Educational" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Aakash_EduTV_JEE.png",Aakash EduTV JEE
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=7eaaebfc15155236b237d37f1129ea68:fe237803e6fd3e906296c63cb3f39aab
+#EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux;Android 15) ExoPlayerLib/2.11.6 YGX/69.69.69.69
+#EXTHTTP:{"cookie":"__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Aakash_EduTV_JEE_BTS/output/index.mpd?__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5&xxx=%7Ccookie=__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5

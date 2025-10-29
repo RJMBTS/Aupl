@@ -1,3 +1,7 @@
 #EXTM3U
-#EXTINF:-1,Bhojpuri Cinema
+#EXTINF:-1 tvg-id="486" group-title="Movies" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Bhojpuri_Cinema.png",Bhojpuri Cinema
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=a9ad912a180e53ed829aeaad4de8eed3:e550016b276d7d15fd5e16ada6b433c0
+#EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux;Android 15) ExoPlayerLib/2.11.6 YGX/69.69.69.69
+#EXTHTTP:{"cookie":"__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Bhojpuri_Cinema_BTS/output/index.mpd?__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5&xxx=%7Ccookie=__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5
