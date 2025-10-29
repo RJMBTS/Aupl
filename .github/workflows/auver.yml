@@ -1,4 +1,4 @@
-name: Auto Update Master and Channels + Deploy to Vercel
+name: Auto Update Onetv + Deploy to Vercel
 
 on:
   schedule:
@@ -20,17 +20,17 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: 3.11
-          cache: "pip"
 
-      - name: Upgrade pip and install dependencies
+      - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install --no-cache-dir requests pytz
+          echo "requests" > requirements.txt
+          echo "pytz" >> requirements.txt
+          pip install -r requirements.txt
 
       - name: Run auto update script
         run: python aumpl.py
 
-      - name: Commit and push changes
+      - name: Commit and push updates
         run: |
           git config user.name "RJM Bot"
           git config user.email "rjm-bot@example.com"
