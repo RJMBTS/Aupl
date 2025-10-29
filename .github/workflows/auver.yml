@@ -1,53 +1,53 @@
-name: Auto Update and Deploy to Vercel
+name: Auto Update Master and Channels + Deploy to Vercel
 
 on:
   schedule:
-    - cron: "0 */6 * * *"  # Every 6 hours
+    - cron: "*/15 * * * *"  # every 15 minutes
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: 3.11
 
-      - name: Install Dependencies
-        run: |
-          pip install requests
+      - name: Install dependencies
+        run: pip install requests pytz
 
-      - name: Run aumpl.py to Regenerate Playlists
-        run: |
-          python aumpl.py
+      - name: Run auto update script
+        run: python aumpl.py
 
-      - name: Configure Git
+      - name: Commit and push changes
         run: |
           git config user.name "RJM Bot"
-          git config user.email "bot@rjmbts.in"
+          git config user.email "rjm-bot@example.com"
+          git add Master.m3u auscl.m3u channels/ Onetv.m3u
+          if ! git diff --cached --quiet; then
+            git commit -m "Auto update playlists and regenerate channels [skip ci]"
+            git pull --rebase origin main || true
+            git push origin main
+          else
+            echo "No updates found."
+          fi
 
-      - name: Commit and Push Changes
-        run: |
-          git add Master.m3u auscl.m3u channels/ index.m3u || true
-          git commit -m "Auto update playlists and regenerate channels [skip ci]" || echo "No changes to commit"
-          git pull --rebase origin main || true
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/RJMBTS/Aupl.git main || echo "No push needed"
+      - name: Install Vercel CLI
+        run: npm install -g vercel
 
       - name: Trigger Vercel Deployment
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: |
           echo "🚀 Triggering Vercel deployment..."
-          npm install -g vercel
-
-          # ✅ Deploy to your existing Vercel project (onetv)
-          vercel deploy --prod --yes \
-            --token=$VERCEL_TOKEN \
-            --scope=rjmbts-works \
-            --name=onetv \
-            --confirm
+          vercel deploy --yes --token $VERCEL_TOKEN --org-id $VERCEL_ORG_ID --project-id $VERCEL_PROJECT_ID --prod
