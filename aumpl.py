@@ -11,7 +11,7 @@ MASTER_FILE = "Master.m3u"
 AUSCL_FILE = "auscl.m3u"
 OUTPUT_DIR = "channels"
 INDEX_FILE = "index.m3u"
-TIMEOUT = 5  # seconds
+TIMEOUT = 5
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -27,19 +27,19 @@ def save_master(content):
     print(f"✅ Saved {MASTER_FILE}")
 
 def parse_channels(text):
-    # Split entries based on #EXTINF
-    entries = text.strip().split("#EXTINF")
+    # Split entries safely on #EXTINF
+    parts = text.split("#EXTINF")
     channels = []
-    for entry in entries:
-        if not entry.strip():
+    for p in parts:
+        if not p.strip():
             continue
+        entry = "#EXTINF" + p  # put back prefix
         lines = entry.strip().splitlines()
-        # The first line after #EXTINF contains metadata and name
-        meta = lines[0]
-        name_match = re.search(r',([^,]+)$', meta.strip())
+        # Find name from first #EXTINF line
+        name_match = re.search(r',([^,]+)$', lines[0])
         name = name_match.group(1).strip() if name_match else "Unknown"
 
-        # Find the first http/https line in the rest
+        # Find playable URL
         url = None
         for line in lines:
             if line.strip().startswith("http"):
@@ -48,30 +48,27 @@ def parse_channels(text):
 
         if url:
             safe_name = re.sub(r'[^a-zA-Z0-9_]', '_', name)
-            channels.append({"name": name, "safe_name": safe_name, "url": url})
+            full_entry = "\n".join(lines)
+            channels.append({
+                "name": name,
+                "safe_name": safe_name,
+                "url": url,
+                "entry": full_entry
+            })
     return channels
-
-def validate_url(url):
-    try:
-        r = requests.head(url, timeout=TIMEOUT, allow_redirects=True)
-        return r.status_code == 200
-    except requests.RequestException:
-        return False
 
 def save_channels(chans):
     ok, bad = [], []
     for ch in chans:
-        print(f"🔍 {ch['name']} …", end=" ")
-        # Force creation (skip validation for .mpd links)
-        if True or validate_url(ch["url"]):
-            path = os.path.join(OUTPUT_DIR, f"{ch['safe_name']}.m3u8")
+        path = os.path.join(OUTPUT_DIR, f"{ch['safe_name']}.m3u8")
+        try:
             with open(path, "w", encoding="utf-8") as f:
                 f.write("#EXTM3U\n")
-                f.write(f"#EXTINF:-1,{ch['name']}\n{ch['url']}\n")
-            print("✅")
+                f.write(ch["entry"].strip() + "\n")
             ok.append(ch)
-        else:
-            print("❌")
+            print(f"✅ {ch['name']}")
+        except Exception as e:
+            print(f"❌ {ch['name']} ({e})")
             bad.append(ch)
     return ok, bad
 
@@ -85,7 +82,6 @@ def build_index(chans):
     print(f"📃 index.m3u built ({len(chans)} entries)")
 
 def duplicate_to_auscl():
-    """Create a synced copy of Master.m3u as auscl.m3u."""
     if os.path.exists(MASTER_FILE):
         shutil.copyfile(MASTER_FILE, AUSCL_FILE)
         print(f"📋 Copied Master.m3u → auscl.m3u")
@@ -95,14 +91,11 @@ def main():
         master = fetch_source()
         save_master(master)
         chans = parse_channels(master)
-        print(f"🧩 Found {len(chans)} total channels")
+        print(f"🧩 Found {len(chans)} channels")
         ok, bad = save_channels(chans)
         build_index(ok)
         duplicate_to_auscl()
-        print("\n📊 SUMMARY")
-        print(f"✅ Working channels: {len(ok)}")
-        print(f"❌ Skipped channels: {len(bad)}")
-        print(f"📁 Total created: {len(ok)}")
+        print(f"\n✅ Done: {len(ok)} channels created, {len(bad)} failed.")
     except Exception as e:
         print(f"❌ Error: {e}")
 
