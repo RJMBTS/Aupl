@@ -1,5 +1,9 @@
 #EXTM3U
+<<<<<<< Updated upstream
 # Last updated on 2025-10-29 21:20:10 UTC
+=======
+# Last updated on 2025-10-29 21:20:14 UTC
+>>>>>>> Stashed changes
 
 #EXTINF:-1 tvg-id="601" group-title="Devotional" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Ishwar_TV.png",Ishwar TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey

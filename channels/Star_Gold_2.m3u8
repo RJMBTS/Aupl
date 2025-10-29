@@ -1,5 +1,9 @@
 #EXTM3U
+<<<<<<< Updated upstream
 # Last updated on 2025-10-29 21:20:10 UTC
+=======
+# Last updated on 2025-10-29 21:20:14 UTC
+>>>>>>> Stashed changes
 
 #EXTINF:-1 tvg-id="1154" group-title="Jiostar" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Gold_2.png",Star Gold 2
 #KODIPROP:inputstream.adaptive.license_type=clearkey
