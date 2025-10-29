@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="699" group-title="Entertainment" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/DD_Malayalam.png",DD Malayalam
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=34196b45866150ffb2a6ad0b7b3ea915:09cc8250fd06b26f9c68771f537c76c4

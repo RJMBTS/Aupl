@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1077" group-title="Devotional" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sharnam_TV.png",Sharnam TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=bc0723b506dd5cca9f7a1c48dd12f9ff:4ccd040bed99043617d310ece36f9383

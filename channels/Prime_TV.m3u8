@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1695" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Prime_TV.png",Prime TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=01fb9f3e95215bf98ce2872b1e9e2b4c:7dc979ad926099bab2c98b232746888a

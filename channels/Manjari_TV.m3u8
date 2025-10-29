@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1299" group-title="Entertainment" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Manjari_TV.png",Manjari TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=5fcba148ffc15b7998140408dcbdf013:1de04e8f5baf4b28a443a73a34d816c1

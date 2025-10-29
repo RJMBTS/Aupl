@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1073" group-title="Infotainment" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Samara_News.png",Samara News
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=4a42b60a38ef59a8a1772f2f9a25c102:20da3fd817460dda5661c7da0db12680

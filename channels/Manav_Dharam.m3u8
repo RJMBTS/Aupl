@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1607" group-title="Devotional" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Manav_Dharam.png",Manav Dharam
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=feb233a05d1b57a6ab1ba5134c8d489e:0dc7309e879fcc957ee0ca07cd23f6e9

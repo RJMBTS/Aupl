@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1655" group-title="Devotional" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Madha_TV.png",Madha TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=22f517ee2f8a56d9b19fe070fcbfa61e:a282c99253c575ba63c04d9eb3d7795c

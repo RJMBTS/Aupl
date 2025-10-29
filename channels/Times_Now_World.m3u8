@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="876" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Times_Now_HD.png",Times Now World
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=86571e9b7b2b53ca96a3e2d3240209b1:6898df153f27d0ad0263bbd0b1e898ee

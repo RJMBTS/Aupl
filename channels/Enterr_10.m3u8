@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="485" group-title="Entertainment" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Enterr_10.png",Enterr 10
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=fb4ec300d28954b3bfc13826bd4b2c7d:8bcf373a0ade9ed1283420befac2f54c

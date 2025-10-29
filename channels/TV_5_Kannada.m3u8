@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="956" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/TV_5_Kannada.png",TV 5 Kannada
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=0aeefde9631e5ac7bcfa86376f3dd261:805eab020fe5572805add8ae6efe5744

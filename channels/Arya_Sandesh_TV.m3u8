@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="2177" group-title="Devotional" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Arya_Sandesh_Tv.png",Arya Sandesh TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=beffd71ff3af57f7aad7b823e982fda6:3c4868bb7492b025f81a17361ffa7747

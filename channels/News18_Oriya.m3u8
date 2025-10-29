@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="696" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/ETV_News_Oriya.png",News18 Oriya
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=e5f5873ca18153cb909f6dbc340a3394:e481960d6b8b441b2ea3b2bee862ef6e

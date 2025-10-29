@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1918" group-title="Sports" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Jio_Cricket_English.png",Jio Cricket English HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=26f47e5e485b544287e88e3cb7237319:4fdd8958908adee8ce158b739d790ef6

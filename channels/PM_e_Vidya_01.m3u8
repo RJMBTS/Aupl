@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="400" group-title="Educational" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/evidya_1.png",PM e Vidya 01
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=4117125500645aa88e62c1004f94af04:902d71dd11e74d77c23056f2feb52ef9

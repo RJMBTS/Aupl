@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1084" group-title="Educational" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Vande_Gujarat_6.png",Vande Gujarat 6
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=6818d68db7f65c95b69e692a24a025c8:bb378f36f73a7a06921e77d10d292754

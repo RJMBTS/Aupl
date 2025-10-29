@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="612" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/ABP_Majha.png",ABP Majha
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=26ed1161a1755e0a925a58faefd6633e:480aa513396d4401107c37fff6a3ebd2

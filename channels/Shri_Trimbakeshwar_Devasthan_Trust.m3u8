@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1933" group-title="Devotional" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Shri_Trimbakeshwar_Devasthan.png",Shri Trimbakeshwar Devasthan Trust
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=bbdf1d0728a650aabc1de3fe978fa482:a2866efbf3de0a8ec6295420fe7a22bd

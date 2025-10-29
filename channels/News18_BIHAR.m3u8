@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="693" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/ETV_BIHAR.png",News18 BIHAR
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=97caa4f103dd5b8c8e2ca6dce0088f07:aa1a6a8e92644b40590222e98f3b8ba7

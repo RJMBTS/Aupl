@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="955" group-title="Devotional" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Hindu_Dharmam.png",Hindu Dharmam
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=eb74c45c83b75454a4fe5c08d20124f3:15dfe876ef10962480861e4af506b32d

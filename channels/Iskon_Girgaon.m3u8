@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1419" group-title="Devotional" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Iskon_Girgaon.png",Iskon Girgaon
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=8afe495c141b5235b2c3c559d9c0b66d:992364772ef95cde0833faaf923c150d

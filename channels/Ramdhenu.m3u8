@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="639" group-title="Music" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Ramdhenu.png",Ramdhenu
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=40ce1225e23a5904b30ac863b53263c8:f8632305779a25fd2cce36a43490adff

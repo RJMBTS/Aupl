@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="934" group-title="Devotional" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Divya_Vani.png",Divya Vani
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=f7581604b0275eb2af18b2b970775d3e:36088de229ca29e0430446fe310d2ef0

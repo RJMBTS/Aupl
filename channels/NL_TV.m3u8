@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1855" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/NL_TV.png",NL TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=a5a0b647b1a25ff198a01decdcf0b3b7:eecbf2da5913901c83f6ddca1f1f22e1

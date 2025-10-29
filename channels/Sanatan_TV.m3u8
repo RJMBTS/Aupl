@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1554" group-title="Devotional" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sanatan_TV.png",Sanatan TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=cddadfbda3c751a6a9ff1f1398f7b86a:0abc0d58b1fb5bdbc64001b397b74c83

@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="933" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/4_TV.png",4 TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=8ffe835a88ad5f1091c5616b0d1c4133:9fc1704494089cb75981cfe458e12783

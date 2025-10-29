@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1537" group-title="Devotional" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/RadheKrishna_TV.png",RadheKrishna TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=5e7a7028021d5a1ab0a7d93dc6eb058a:255b87c9bae5c01790fe259d1f01ef03

@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="653" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/ETV_Kannada_News.png",News18 Kannada News
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=53385f3981b053e1b98d09ee8f29561c:4d3f0bf720903aa6a2a2899b01d9d65e

@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="952" group-title="Devotional" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/GarvGurbani.png",Garv Punjabi Gurbani
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=9fbaf24ac73751b5ad3722c4518e1e99:52eed73c408076aced4d0d9073197354

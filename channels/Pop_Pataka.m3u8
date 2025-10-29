@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="2037" group-title="Music" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Pop_Pataka.png",Pop Pataka
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=b749eb4e22915c8790e7b0e4039ed189:630d9fb4a75f8884fe6097b2a62a0d3f

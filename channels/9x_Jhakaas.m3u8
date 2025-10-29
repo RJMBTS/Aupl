@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="441" group-title="Music" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/9x_Jhakaas.png",9x Jhakaas
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=eec26d8c68505675a840ac969f571162:13f46ae10e844d5f2b65fe41ebd59e16

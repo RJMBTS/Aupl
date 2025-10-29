@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="775" group-title="Infotainment" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Vanitha.png",Vanitha
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=216bb5f373ac5a63b0b1485694774ff0:b544c9aaf61bdc0a5e95b70d2dbf3212

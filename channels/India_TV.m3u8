@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="235" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/India_TV.png",India TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=c6d6b3104f03558283c5bea6bb387a41:561ee86909f10796243328f2dd68c935

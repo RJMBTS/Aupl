@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="937" group-title="Devotional" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/SaiTV.png",Sai TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=f01da4e9d87a5c68a16523c750eb08a5:2174f947a6bcb190864a910687f3c4b6

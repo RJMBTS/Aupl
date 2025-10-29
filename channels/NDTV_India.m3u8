@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="258" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/NDTV_India.png",NDTV India
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=d56f014696225741a82633b078cb6f39:dab93636838bdb820f29ef6d3e8fe563

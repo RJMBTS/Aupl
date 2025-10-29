@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="606" group-title="Devotional" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Shalom.png",Shalom
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=f0d2874a0b1c5181bcc9af19b094ee88:a7be1a3f0ef49b1fbdab1211b9381f94

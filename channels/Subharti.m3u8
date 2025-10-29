@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1543" group-title="Devotional" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Subharti.png",Subharti
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=1cf9d3f7d06d5d2a99049bbd2891cf5e:d003165e39d0c3952ee183cfecf8cc03

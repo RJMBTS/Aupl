@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1564" group-title="Educational" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Himshiksha_Vocational.png",Himshiksha Vocational
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=f816e6a1e2f85d1888d1cf6372fc3f21:65e59f6d39135a22f90404ceb9bc5ba6

@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="2352" group-title="Educational" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Narikaa.png",Narikaa
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=95039db62c5c58cda8f3fe10b31f1077:e18c902f57eca99cfb8687b3c10875b9

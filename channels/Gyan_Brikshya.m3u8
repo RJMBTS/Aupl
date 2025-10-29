@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1428" group-title="Educational" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Gyan_Brikshya.png",Gyan Brikshya
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=96b46f6146b25aeb86d07f2bf89c33e1:c06a9f0de2b1be7a0ec17b4f59c2b55e

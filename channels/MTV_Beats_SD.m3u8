@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1400" group-title="Music" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/MTV_Beats_SD.png",MTV Beats SD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=950d9e70fc5c5ca6a1bccf3dabac44d9:fc8ddfbb989559cf0d65d5bc4d4601bf

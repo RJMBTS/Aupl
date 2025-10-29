@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="866" group-title="Entertainment" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Jio_Exclusive.png",Jio Exclusive HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=70fe5d9068195768962f9d8082cb19a6:c7d9d5cda12a707f979c7477ab439184

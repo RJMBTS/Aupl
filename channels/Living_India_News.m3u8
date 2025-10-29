@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="831" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Living_India_News.png",Living India News
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=a3b9fe3e02945f629f6a65936641f2d0:232cd59e60d3fef5ae61afac75369214

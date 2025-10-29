@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="2227" group-title="Entertainment" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Jatra_Ekamra.png",Jatra Ekamra
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=f245b85b0f535460b0bbd0cad72a1f1f:ef89c85bf6622c7b055a02375761be78

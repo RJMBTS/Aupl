@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="583" group-title="Infotainment" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/DD_Kisan.png",DD Kisan
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=9e04dc3c464a57ecbbab3b4db57d37f3:e9e0f26c6861df97b2528e07bb74d550

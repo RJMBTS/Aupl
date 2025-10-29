@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1567" group-title="Educational" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/AP_CIE_SIVE.png",AP-CIE-SIVE
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=42ab2a08bfae5707b1ada9be784a0079:5b74bc240df77094293adf98a39806d2

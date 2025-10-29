@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="637" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/North_East_Live.png",North East Live
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=1a158a0a994b5017baca80746e74ad4d:0b1d1628b0e7d028c579a6b97cd6ebc1

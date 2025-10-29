@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1658" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Aalami_Samay.png",Aalami Samay
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=e5241c460eb0510c90786b5dab94f1f9:10d59711711fa0ea5bc250bb5010bef3

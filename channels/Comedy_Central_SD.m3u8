@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1327" group-title="Entertainment" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Comedy_Central_SD.png",Comedy Central SD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=896582e9cd6154f581655af46e2bf7b0:b0e677c1b1813b6a681c0f3d9a081fac

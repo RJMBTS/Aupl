@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1248" group-title="Music" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Bol_Hadippa.png",Bol Hadippa
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=e1bc0ac77a745a2fab54ba6dd260beb3:2d0cf1b66f4f32f32d486bd82aa14880

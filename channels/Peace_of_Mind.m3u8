@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="794" group-title="Devotional" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Peace_of_Mind.png",Peace of Mind
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=457787e269de5dad90ad82419fb8d0b6:74ee68df9620c498c2269929ed9b69c8

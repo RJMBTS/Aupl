@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="988" group-title="Educational" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Swayam_Prabha_09.png",Swayam Prabha 09
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=bbf55bc22e3a55bea60f85b66abb46e8:6ef623bdd80c214e0e0746b25f81c57e

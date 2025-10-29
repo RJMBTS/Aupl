@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="828" group-title="Devotional" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Shubh_TV.png",Shubh TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=04b0d1a8dfe5549180f08c21da42a36c:72bc3d545f7964bbb92c13f7fed3affb

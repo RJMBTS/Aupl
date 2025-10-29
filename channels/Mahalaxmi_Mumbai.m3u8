@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1422" group-title="Devotional" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Mahalaxmi_Mumbai.png",Mahalaxmi Mumbai
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=cf4039496b96525ab0864cf88ec47f74:54d4818800e5c2368b0ed685d286a9bf

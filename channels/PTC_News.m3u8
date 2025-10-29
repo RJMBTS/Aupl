@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1170" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/PTC_News.png",PTC News
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=fee1327252d25521a7bc4b6b28bf66d5:d1527f37e52d4c7382c4b0a6563bbd93

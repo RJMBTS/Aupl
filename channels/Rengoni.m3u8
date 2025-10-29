@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="635" group-title="Entertainment" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Rengoni.png",Rengoni
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=43a74e41aa2d57adb66ec0f7007f80e2:99f840bf19d82aa98632c9af35a86c88

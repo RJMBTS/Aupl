@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1851" group-title="Educational" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Aakash_EduTV_JEE.png",Aakash EduTV JEE
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=7eaaebfc15155236b237d37f1129ea68:fe237803e6fd3e906296c63cb3f39aab

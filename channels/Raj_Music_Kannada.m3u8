@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="743" group-title="Music" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Raj_Music_Kannada.png",Raj Music Kannada
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=13c93012e8895b44a32535d84ce4e218:8acfe4d1ff01800dfdb6c8f2df3bf617

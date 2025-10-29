@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1171" group-title="Entertainment" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/PTC_Punjabi.png",PTC Punjabi
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=f6e3179024d4569d97c5ed006ca35d24:1bc377df43561d40f67c36d2d99b18a9

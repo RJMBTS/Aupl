@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1232" group-title="Entertainment" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Hi_Dost.png",Hi Dost!
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=61d040ff04145a7aa7df02a97b64b6ae:6d5cbe6bd0d1aefe7647c404f692fae5

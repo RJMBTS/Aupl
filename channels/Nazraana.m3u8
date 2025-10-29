@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="2042" group-title="Music" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Nazraana.png",Nazraana
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=4f1dc06efdd65a66a6640e942f633337:b16ed77032cbab20f04b13363d038e3d

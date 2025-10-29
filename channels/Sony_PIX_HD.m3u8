@@ -1,3 +1,6 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="sony-pix-hd" tvg-name="Sony PIX HD" tvg-language="English" tvg-logo="https://i.postimg.cc/hGYnSKpg/SONY-PIX-HD.png" group-title="Movies",Sony PIX HD
-https://dishmt.slivcdn.com/hls/live/2011748/PIXHD/master.m3u8?hdnea=exp=1761803739~acl=/*~id=34933567409370022116684729109287~hmac=591db4155e72872b7308d8eb5e54ca6f3e6b2438170302b49ada19ad4bd5e95a
+https://dishmt.slivcdn.com/hls/live/2011748/PIXHD/master.m3u8?hdnea=exp=1761805570~acl=/*~id=24421832756996860659989716314965~hmac=87673e59f4c1aef2775fefde2a784fe5a15ced76a12bd2615e60505e3c43e46a

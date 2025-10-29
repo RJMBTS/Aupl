@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="2016" group-title="Movies" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Ekamra_Cinema.png",Ekamra Cinema
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=b52b6179448959d8bab3b0fae1b82809:79044d92f96a8155b1c3ac74cfadfcd4

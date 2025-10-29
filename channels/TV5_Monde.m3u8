@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="885" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/TV_5_Monde.png",TV5 Monde
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=cf620970688b5517861d2c060984ac8e:7011ae17cb4003a6d1f0554b568f3c06

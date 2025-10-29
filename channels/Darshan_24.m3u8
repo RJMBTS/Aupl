@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="611" group-title="Devotional" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Darshan_24.png",Darshan 24
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=113e4caf45ec5e7585ab066f2c9c0fbe:5e6e026de0d371e65ba3314628d9f515

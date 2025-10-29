@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1672" group-title="Educational" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Gyanvani_2.png",Gyanvani 2
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=32c6035950165c0ca537c5c279168dd2:d489207c003d63daa13b0e9a5bc6c034

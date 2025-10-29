@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1761" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Aryan_TV_National.png",Aryan TV National
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=68627dfa94b153188f3b1367fa39810e:4720f81666a3b05ecfde861a72a83226

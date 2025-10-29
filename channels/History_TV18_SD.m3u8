@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1471" group-title="Infotainment" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/History_TV18_SD.png",History TV18 SD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=fc8bda6bd61954d69d7d07a31d1af972:0555191ba0e5e4a58f13ef9fec2adcb1

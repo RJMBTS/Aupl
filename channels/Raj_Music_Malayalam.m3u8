@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="739" group-title="Music" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Raj_Music_Malayalam.png",Raj Music Malayalam
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=9187456feb6d567193629ac7ca7eebb3:5831a70275b3c42972bee0abdbd8895c

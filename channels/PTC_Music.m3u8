@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1189" group-title="Music" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/PTC_Music.png",PTC Music
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=eea8cf8faf9c51688a49c5fe403a0a26:d1fade971fcbc766db521bf2614eb611

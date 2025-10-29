@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="522" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Loksabha_TV.png",Sansad TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=2ebd27ae28fa55df845e94ab657d48d2:6786aad045a3467600de03f16824d3a2

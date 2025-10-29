@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="2064" group-title="Music" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Merchant_Records.png",Merchant Records
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=d72ceba2f46a5a52a00c70d6e7c62ca5:6435150f6576c2db45e06e4c394b6f72

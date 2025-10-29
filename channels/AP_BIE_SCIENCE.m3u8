@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1566" group-title="Educational" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/AP_BIE_SCIENCE.png",AP-BIE-SCIENCE
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=e46bd6d8c8845cf3b901c2bc14d0fb14:0f386f1998f0925ec1989bbc0373e4f2

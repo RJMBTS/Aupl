@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="624" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Prag_News.png",Prag News
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=47f85d262f7259288806559d99bd6754:ed3586b6b3ccfbcaa82836c08e7e69bf

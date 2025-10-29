@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="1559" group-title="Devotional" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Jigyasa_TV.png",Jigyasa TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=7ec2f4863f195d83be4dcab10ce2a988:f4ef6d02dc228f398d13ded2a9caa2aa

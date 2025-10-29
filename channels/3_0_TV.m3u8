@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="2003" group-title="Educational" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Crypto_TV.0-TV",3.0 TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=9a751b77986e5e31808ccb365cfadc7a:02de87be647082cbd833cc64aa300b96

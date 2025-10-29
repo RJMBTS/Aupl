@@ -1,4 +1,7 @@
 #EXTM3U
+# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
+# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+
 #EXTINF:-1 tvg-id="808" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Hindi_Khabar.png",Hindi Khabar
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=86681e0d42e95df8b81b0814ac69d7b5:365ea9f84499ce7c285c7279a862f900
