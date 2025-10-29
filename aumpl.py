@@ -1,213 +1,108 @@
-import os
-import re
-import datetime
 import requests
+import os
+from datetime import datetime
+import pytz
 
-# === CONFIG ===
+# ----------------------------
+# Configuration
+# ----------------------------
 MASTER_URL = "https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u"
 CHANNELS_DIR = "channels"
-INDEX_FILE = "index.m3u"
 AUSCL_FILE = "auscl.m3u"
-HTML_FILE = "index.html"
+ONETV_FILE = "Onetv.m3u"  # renamed from index.m3u
+TIMEZONE = pytz.timezone("Asia/Kolkata")  # UTC+5:30
 
-
+# ----------------------------
+# Utility functions
+# ----------------------------
 def fetch_master():
-    print("🌐 Fetching Master.m3u...")
+    print("Fetching latest Master.m3u...")
     response = requests.get(MASTER_URL)
     response.raise_for_status()
     return response.text
 
-
-def parse_channels(master_text):
+def parse_channels(text):
+    lines = text.strip().splitlines()
     channels = []
-    blocks = master_text.split("#EXTINF:")
-    for block in blocks[1:]:
-        lines = block.strip().splitlines()
-        if not lines:
-            continue
-        meta = lines[0]
-        url = None
-        for line in lines[1:]:
-            if line.startswith("http"):
-                url = line.strip()
-                break
-        if url:
-            name = meta.split(",")[-1].strip()
-            logo_match = re.search(r'tvg-logo="([^"]+)"', meta)
-            logo = logo_match.group(1) if logo_match else ""
-            channels.append((name, logo, "#EXTINF:" + meta + "\n" + "\n".join(lines[1:])))
+    current_meta = []
+
+    for line in lines:
+        if line.startswith("#EXTINF"):
+            current_meta = [line]
+        elif line.startswith("#KODIPROP") or line.startswith("#EXTVLCOPT") or line.startswith("#EXTHTTP"):
+            current_meta.append(line)
+        elif line.startswith("http"):
+            # Finalize one channel block
+            current_meta.append(line)
+            channels.append("\n".join(current_meta))
+            current_meta = []
     return channels
 
-
+# ----------------------------
+# File generation
+# ----------------------------
 def write_channel_files(channels):
-    os.makedirs(CHANNELS_DIR, exist_ok=True)
-    now = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
+    if not os.path.exists(CHANNELS_DIR):
+        os.makedirs(CHANNELS_DIR)
 
-    for name, _, content in channels:
-        safe_name = name.replace(" ", "_").replace("/", "_")
-        file_path = os.path.join(CHANNELS_DIR, f"{safe_name}.m3u8")
+    timestamp = datetime.now(TIMEZONE).strftime("%Y-%m-%d %H:%M:%S %Z%z")
 
-        with open(file_path, "w", encoding="utf-8") as f:
+    for i, channel_data in enumerate(channels, start=1):
+        channel_name = None
+        for line in channel_data.splitlines():
+            if line.startswith("#EXTINF"):
+                channel_name = line.split(",")[-1].strip().replace(" ", "_").replace("/", "_")
+                break
+        if not channel_name:
+            channel_name = f"Channel_{i}"
+
+        filename = f"{channel_name}.m3u8"
+        filepath = os.path.join(CHANNELS_DIR, filename)
+
+        with open(filepath, "w", encoding="utf-8") as f:
             f.write("#EXTM3U\n")
-            f.write(f"# Last updated on {now}\n\n")
-            f.write(content + "\n")
-        print(f"✅ Created: {file_path}")
+            f.write(f"# This channel file was auto-generated from Master.m3u\n")
+            f.write(f"# Last updated on {timestamp}\n\n")
+            f.write(channel_data + "\n")
+        print(f"✅ {filename} generated.")
 
+def write_master_variants(master_text):
+    timestamp = datetime.now(TIMEZONE).strftime("%Y-%m-%d %H:%M:%S %Z%z")
 
-def write_auscl(channels):
+    # auscl.m3u
     with open(AUSCL_FILE, "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
-        for _, _, content in channels:
-            f.write(content + "\n")
-    print("📄 auscl.m3u updated.")
+        f.write(f"# Auto-updated from Master.m3u\n")
+        f.write(f"# Last updated on {timestamp}\n\n")
+        f.write(master_text)
 
+    # Onetv.m3u (main entry list)
+    if not os.path.exists(CHANNELS_DIR):
+        os.makedirs(CHANNELS_DIR)
 
-def write_index(channels):
-    with open(INDEX_FILE, "w", encoding="utf-8") as f:
+    channel_files = [f for f in os.listdir(CHANNELS_DIR) if f.endswith(".m3u8")]
+
+    with open(ONETV_FILE, "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
-        for name, _, _ in channels:
+        f.write(f"# OneTV Master Playlist\n")
+        f.write(f"# Last updated on {timestamp}\n\n")
+        for ch in channel_files:
+            name = ch.replace(".m3u8", "").replace("_", " ")
             f.write(f"#EXTINF:-1,{name}\n")
-            f.write(f"https://nrtv-one.vercel.app/channels/{name.replace(' ', '_')}.m3u8\n")
-    print("📃 index.m3u generated.")
+            f.write(f"https://nrtv-one.vercel.app/channels/{ch}\n\n")
 
-
-def generate_html_index(channels):
-    print("🖥️ Generating index.html...")
-    now = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
-
-    # Sort alphabetically
-    channels = sorted(channels, key=lambda c: c[0].lower())
-
-    html = f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OneTV Channels</title>
-  <style>
-    body {{
-      font-family: system-ui, sans-serif;
-      background: #0d1117;
-      color: #c9d1d9;
-      padding: 2rem;
-      text-align: center;
-    }}
-    h1 {{
-      color: #58a6ff;
-      margin-bottom: 1rem;
-    }}
-    input {{
-      width: 90%;
-      max-width: 500px;
-      padding: 0.6rem;
-      border-radius: 0.4rem;
-      border: 1px solid #30363d;
-      background: #161b22;
-      color: #c9d1d9;
-      margin-bottom: 1.5rem;
-      font-size: 1rem;
-    }}
-    .grid {{
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1rem;
-      max-width: 1000px;
-      margin: auto;
-    }}
-    .card {{
-      background: #161b22;
-      padding: 1rem;
-      border-radius: 0.8rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-      transition: transform 0.2s;
-    }}
-    .card:hover {{
-      transform: scale(1.03);
-    }}
-    img {{
-      width: 90px;
-      height: 90px;
-      object-fit: contain;
-      border-radius: 0.4rem;
-      margin-bottom: 0.6rem;
-      background: #0d1117;
-    }}
-    a {{
-      color: #58a6ff;
-      text-decoration: none;
-      font-weight: 500;
-      margin-bottom: 0.4rem;
-      word-wrap: break-word;
-    }}
-    button {{
-      background: #238636;
-      color: white;
-      border: none;
-      border-radius: 0.3rem;
-      padding: 0.4rem 0.8rem;
-      cursor: pointer;
-      transition: 0.2s;
-    }}
-    button:hover {{
-      background: #2ea043;
-    }}
-    .footer {{
-      margin-top: 2rem;
-      font-size: 0.85rem;
-      color: #8b949e;
-    }}
-  </style>
-</head>
-<body>
-  <h1>📺 OneTV Channels</h1>
-  <input type="text" id="searchBox" placeholder="Search for channels... (e.g. Star, Sony, Zee)" onkeyup="filterChannels()" />
-  <div class="grid" id="channelGrid">
-"""
-
-    for name, logo, _ in channels:
-        safe_name = name.replace(" ", "_")
-        link = f"https://nrtv-one.vercel.app/channels/{safe_name}.m3u8"
-        html += f"""
-    <div class="card" data-name="{name.lower()}">
-      <img src="{logo or 'https://via.placeholder.com/90x90?text=No+Logo'}" alt="{name} logo" />
-      <a href="{link}" target="_blank">{name}</a>
-      <button onclick="navigator.clipboard.writeText('{link}'); this.textContent='Copied!'; setTimeout(()=>this.textContent='Copy Link',2000);">Copy Link</button>
-    </div>
-"""
-
-    html += f"""
-  </div>
-  <div class="footer">
-    Last updated on {now}
-  </div>
-
-  <script>
-    function filterChannels() {{
-      const query = document.getElementById('searchBox').value.toLowerCase();
-      const cards = document.querySelectorAll('.card');
-      cards.forEach(card => {{
-        const name = card.getAttribute('data-name');
-        card.style.display = name.includes(query) ? '' : 'none';
-      }});
-    }}
-  </script>
-</body>
-</html>"""
-
-    with open(HTML_FILE, "w", encoding="utf-8") as f:
-        f.write(html)
-    print("✅ index.html generated with logos, copy buttons, A–Z sorting, and live search.")
-
+# ----------------------------
+# Main workflow
+# ----------------------------
+def main():
+    try:
+        master_text = fetch_master()
+        channels = parse_channels(master_text)
+        write_channel_files(channels)
+        write_master_variants(master_text)
+        print("\n🎉 All files generated and updated successfully.")
+    except Exception as e:
+        print(f"❌ Error: {e}")
 
 if __name__ == "__main__":
-    master = fetch_master()
-    channels = parse_channels(master)
-    write_channel_files(channels)
-    write_auscl(channels)
-    write_index(channels)
-    generate_html_index(channels)
-    print("🎉 All tasks complete successfully!")
+    main()
