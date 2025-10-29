@@ -1,6 +1,5 @@
 #EXTM3U
-# This channel file was auto-generated from Master.m3u on 2025-10-29 18:51:12 UTC
-# Source: https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u
+# Last updated on 2025-10-29 19:00:12 UTC
 
 #EXTINF:-1 tvg-id="2183" group-title="Sports" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Q_GameX.png",Q GameX
 #KODIPROP:inputstream.adaptive.license_type=clearkey
