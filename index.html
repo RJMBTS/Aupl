@@ -1,215 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OneTV - NRTV Network</title>
-  <link rel="icon" href="/assets/logo.png" type="image/png" />
+  <link rel="icon" href="assets/logo.png">
   <style>
-    :root {
-      --primary: #0078ff;
-      --background: #f8fafc;
-      --card: #ffffff;
-      --text: #111827;
-    }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--background);
-      color: var(--text);
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    header {
-      background-color: var(--primary);
-      color: white;
-      text-align: center;
-      padding: 1.2rem 1rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.75rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    header img {
-      height: 42px;
-      width: auto;
-      border-radius: 8px;
-    }
-    header h1 {
-      font-size: 1.7rem;
-      margin: 0;
-    }
-    main {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      padding: 2rem 1rem;
-    }
-    .container {
-      max-width: 750px;
-      width: 100%;
-      background: var(--card);
-      border-radius: 1rem;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-      padding: 1.5rem;
-    }
-    .top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-bottom: 1rem;
-    }
-    .search-bar {
-      display: flex;
-      border: 1px solid #d1d5db;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .search-bar input {
-      flex: 1;
-      padding: 0.6rem 0.9rem;
-      border: none;
-      outline: none;
-      font-size: 1rem;
-    }
-    .search-bar button {
-      background: var(--primary);
+      font-family: Arial, sans-serif;
+      background: #0d1117;
       color: #fff;
-      border: none;
-      padding: 0.6rem 1rem;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .search-bar button:hover {
-      background: #005fcc;
-    }
-    .last-updated {
-      font-size: 0.9rem;
-      color: #555;
-      text-align: right;
-      width: 100%;
-    }
-    .channel-list {
-      list-style: none;
-      padding: 0;
       margin: 0;
+      padding: 20px;
     }
-    .channel-list li {
-      background: #f1f5f9;
-      margin-bottom: 0.5rem;
-      padding: 0.8rem 1rem;
-      border-radius: 0.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: background 0.2s ease;
+    h1 {
+      color: #58a6ff;
+      text-align: center;
     }
-    .channel-list li:hover {
-      background: #e2e8f0;
+    .channels {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
     }
-    a {
-      text-decoration: none;
-      color: var(--primary);
-      font-weight: 500;
+    .card {
+      background: #161b22;
+      border-radius: 12px;
+      padding: 10px;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      background: #1f242d;
     }
     footer {
       text-align: center;
-      padding: 1rem;
-      background-color: #f1f5f9;
-      border-top: 1px solid #e5e7eb;
-      font-size: 0.9rem;
-    }
-    footer span {
-      display: block;
-      color: #555;
+      margin-top: 30px;
+      color: #999;
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="/assets/logo.png" alt="OneTV Logo" />
-    <h1>OneTV - NRTV Network</h1>
-  </header>
-
-  <main>
-    <div class="container">
-      <div class="top-bar">
-        <div class="search-bar">
-          <input type="text" id="searchInput" placeholder="Search channels..." />
-          <button onclick="filterChannels()">Search</button>
-        </div>
-        <div class="last-updated" id="lastUpdated">Loading time...</div>
-      </div>
-      <ul class="channel-list" id="channelList">
-        <li>Loading channels...</li>
-      </ul>
-    </div>
-  </main>
+  <h1>📺 OneTV - NRTV Network</h1>
+  <div id="channels" class="channels">Loading channels...</div>
 
   <footer>
-    <span>Developed by <strong>Kittujk</strong></span>
-    <span>Maintained by <strong>RJMBTS</strong></span>
+    Developed by <b>Kittujk</b> & Maintained by <b>RJMBTS</b><br>
+    <small id="timestamp"></small>
   </footer>
 
   <script>
     async function loadChannels() {
       try {
-        const res = await fetch('/channels/');
+        const res = await fetch('Onetv.m3u');
         const text = await res.text();
-        const parser = new DOMParser();
-        const htmlDoc = parser.parseFromString(text, 'text/html');
-        const links = [...htmlDoc.querySelectorAll('a')]
-          .map(a => a.href)
-          .filter(h => h.endsWith('.m3u8'));
-
-        const list = document.getElementById('channelList');
-        list.innerHTML = '';
-
-        if (links.length === 0) {
-          list.innerHTML = '<li>No channels found.</li>';
-          return;
-        }
-
-        links.forEach(link => {
-          const name = decodeURIComponent(link.split('/').pop().replace('.m3u8', ''));
-          const li = document.createElement('li');
-          li.classList.add('channel-item');
-          li.innerHTML = `<span>${name}</span><a href="${link}" target="_blank">Open</a>`;
-          list.appendChild(li);
+        const matches = [...text.matchAll(/#EXTINF:-1[^\n]*,(.*)\n(https[^\n]+)/g)];
+        const container = document.getElementById('channels');
+        container.innerHTML = '';
+        matches.forEach(m => {
+          const name = m[1];
+          const url = m[2];
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `<a href="${url}" target="_blank">${name}</a>`;
+          container.appendChild(card);
         });
-
-        updateTime();
       } catch (e) {
-        document.getElementById('channelList').innerHTML = '<li>Failed to load channels.</li>';
+        document.getElementById('channels').innerText = '⚠️ Failed to load channels';
       }
     }
-
-    function filterChannels() {
-      const filter = document.getElementById('searchInput').value.toLowerCase();
-      const items = document.querySelectorAll('.channel-item');
-      items.forEach(item => {
-        const name = item.querySelector('span').textContent.toLowerCase();
-        item.style.display = name.includes(filter) ? '' : 'none';
-      });
-    }
-
-    function updateTime() {
-      const now = new Date();
-      const offsetMs = 5.5 * 60 * 60 * 1000; // UTC+5:30
-      const istTime = new Date(now.getTime() + offsetMs);
-      const formatted = istTime.toUTCString().replace("GMT", "UTC+5:30");
-      document.getElementById("lastUpdated").textContent =
-        "Last Updated: " + formatted;
-    }
-
-    // Auto-refresh every 15 minutes
-    setInterval(loadChannels, 15 * 60 * 1000);
-
     loadChannels();
+
+    document.getElementById('timestamp').innerText =
+      "Last updated (IST): " + new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
   </script>
 </body>
 </html>
