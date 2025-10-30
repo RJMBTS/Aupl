@@ -33,7 +33,7 @@ jobs:
           git config user.name "RJM Bot"
           git config user.email "rjm-bot@example.com"
 
-          # pull latest changes first
+          # Pull latest before pushing (avoid conflicts)
           git pull --rebase --autostash origin main || true
 
           git add Onetv.m3u auscl.m3u channels/ index.html
@@ -44,10 +44,24 @@ jobs:
             echo "No updates found."
           fi
 
-      - name: 🚀 Trigger Vercel Deployment
+      - name: 🚀 Deploy to Vercel (with retry)
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
-          echo "🚀 Triggering Vercel deployment..."
+          echo "🚀 Starting Vercel deployment with archive compression..."
           npm install -g vercel
-          vercel --yes --prod --token=$VERCEL_TOKEN
+
+          # Try up to 3 times in case of rate-limit or network error
+          for i in 1 2 3; do
+            echo "Attempt #$i to deploy..."
+            vercel --yes --prod --token=$VERCEL_TOKEN --archive=tgz && break || {
+              echo "❌ Deployment failed on attempt #$i."
+              if [ $i -lt 3 ]; then
+                echo "⏳ Waiting 5 minutes before retry..."
+                sleep 300
+              else
+                echo "❌ All attempts failed. Exiting."
+                exit 1
+              fi
+            }
+          done
