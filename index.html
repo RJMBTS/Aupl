@@ -19,24 +19,31 @@
     }
     .channels {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
       gap: 15px;
       margin-top: 20px;
     }
     .card {
       background: #161b22;
-      border-radius: 12px;
+      border-radius: 10px;
       padding: 10px;
       text-align: center;
       transition: 0.3s;
     }
     .card:hover {
-      transform: scale(1.05);
       background: #1f242d;
+      transform: scale(1.05);
+    }
+    .card img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      border-radius: 8px;
+      margin-bottom: 10px;
     }
     footer {
       text-align: center;
-      margin-top: 30px;
+      margin-top: 40px;
       color: #999;
     }
   </style>
@@ -55,25 +62,42 @@
       try {
         const res = await fetch('Onetv.m3u');
         const text = await res.text();
-        const matches = [...text.matchAll(/#EXTINF:-1[^\n]*,(.*)\n(https[^\n]+)/g)];
-        const container = document.getElementById('channels');
-        container.innerHTML = '';
-        matches.forEach(m => {
-          const name = m[1];
-          const url = m[2];
+
+        // ✅ Regex that matches your multi-line blocks
+        const regex = /#EXTINF:[^\n]*tvg-logo="([^"]+)"[^\n]*,(.*?)\n[\s\S]*?(https?:\/\/[^\s]+)/g;
+
+        const channelsDiv = document.getElementById('channels');
+        channelsDiv.innerHTML = '';
+
+        let match;
+        while ((match = regex.exec(text)) !== null) {
+          const logo = match[1];
+          const name = match[2];
+          const url = match[3];
+
           const card = document.createElement('div');
           card.className = 'card';
-          card.innerHTML = `<a href="${url}" target="_blank">${name}</a>`;
-          container.appendChild(card);
-        });
-      } catch (e) {
-        document.getElementById('channels').innerText = '⚠️ Failed to load channels';
+          card.innerHTML = `
+            <img src="${logo}" alt="${name}">
+            <div>${name}</div>
+            <a href="${url}" target="_blank">▶ Watch</a>
+          `;
+          channelsDiv.appendChild(card);
+        }
+
+        if (!channelsDiv.innerHTML) {
+          channelsDiv.innerHTML = '⚠️ No channels found in Onetv.m3u';
+        }
+
+        document.getElementById('timestamp').textContent =
+          "Last updated (IST): " + new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+      } catch (err) {
+        document.getElementById('channels').innerHTML = '⚠️ Failed to load channels.';
+        console.error(err);
       }
     }
-    loadChannels();
 
-    document.getElementById('timestamp').innerText =
-      "Last updated (IST): " + new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+    loadChannels();
   </script>
 </body>
 </html>
