@@ -28,7 +28,7 @@ india_time = datetime.now(pytz.timezone("Asia/Kolkata")).strftime("%Y-%m-%d %H:%
 # --- Write combined Onetv.m3u ---
 with open(OUTPUT_MASTER, "w", encoding="utf-8") as out:
     out.write("#EXTM3U\n")
-    out.write(f"# Auto-generated from Master.m3u — Last updated on {india_time}\n\n")
+    out.write(f"# Developed by Kittujk — Last updated on {india_time}\n\n")
 
     for block in matches:
         out.write(block.strip() + "\n\n")
