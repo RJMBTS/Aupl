@@ -7,21 +7,48 @@
   <link rel="icon" href="assets/logo.png">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Segoe UI", Arial, sans-serif;
       background: #0d1117;
       color: #fff;
       margin: 0;
       padding: 20px;
     }
-    h1 {
-      color: #58a6ff;
+    header {
       text-align: center;
+      margin-bottom: 20px;
+    }
+    header img {
+      height: 60px;
+      vertical-align: middle;
+    }
+    h1 {
+      display: inline-block;
+      color: #58a6ff;
+      font-size: 2em;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    input, select {
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 1em;
+      background: #161b22;
+      color: #fff;
+      width: 200px;
     }
     .channels {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
       gap: 15px;
-      margin-top: 20px;
     }
     .card {
       background: #161b22;
@@ -35,21 +62,42 @@
       transform: scale(1.05);
     }
     .card img {
-      width: 80px;
-      height: 80px;
+      width: 90px;
+      height: 90px;
       object-fit: contain;
       border-radius: 8px;
       margin-bottom: 10px;
+    }
+    .card a {
+      display: inline-block;
+      color: #58a6ff;
+      text-decoration: none;
+      margin-top: 5px;
+    }
+    .card a:hover {
+      text-decoration: underline;
     }
     footer {
       text-align: center;
       margin-top: 40px;
       color: #999;
+      font-size: 0.9em;
     }
   </style>
 </head>
 <body>
-  <h1>📺 OneTV - NRTV Network</h1>
+  <header>
+    <img src="assets/logo.png" alt="OneTV Logo">
+    <h1>OneTV - NRTV Network</h1>
+  </header>
+
+  <div class="controls">
+    <input type="text" id="search" placeholder="🔍 Search channels...">
+    <select id="category">
+      <option value="all">All Categories</option>
+    </select>
+  </div>
+
   <div id="channels" class="channels">Loading channels...</div>
 
   <footer>
@@ -58,44 +106,88 @@
   </footer>
 
   <script>
+    let allChannels = [];
+
     async function loadChannels() {
       try {
         const res = await fetch('Onetv.m3u');
         const text = await res.text();
 
-        // ✅ Regex that matches your multi-line blocks
-        const regex = /#EXTINF:[^\n]*tvg-logo="([^"]+)"[^\n]*,(.*?)\n[\s\S]*?(https?:\/\/[^\s]+)/g;
-
-        const channelsDiv = document.getElementById('channels');
-        channelsDiv.innerHTML = '';
+        const regex = /#EXTINF:[^\n]*tvg-id="[^"]*"[^\n]*group-title="([^"]+)"[^\n]*tvg-logo="([^"]+)"[^\n]*,(.*?)\n[\s\S]*?(https?:\/\/[^\s]+)/g;
 
         let match;
+        const categories = new Set();
+        allChannels = [];
+
         while ((match = regex.exec(text)) !== null) {
-          const logo = match[1];
-          const name = match[2];
-          const url = match[3];
+          const group = match[1];
+          const logo = match[2];
+          const name = match[3];
+          const url = match[4];
 
-          const card = document.createElement('div');
-          card.className = 'card';
-          card.innerHTML = `
-            <img src="${logo}" alt="${name}">
-            <div>${name}</div>
-            <a href="${url}" target="_blank">▶ Watch</a>
-          `;
-          channelsDiv.appendChild(card);
+          allChannels.push({ name, logo, url, group });
+          categories.add(group);
         }
 
-        if (!channelsDiv.innerHTML) {
-          channelsDiv.innerHTML = '⚠️ No channels found in Onetv.m3u';
-        }
+        const categorySelect = document.getElementById('category');
+        categories.forEach(cat => {
+          const option = document.createElement('option');
+          option.value = cat;
+          option.textContent = cat;
+          categorySelect.appendChild(option);
+        });
 
+        renderChannels(allChannels);
         document.getElementById('timestamp').textContent =
           "Last updated (IST): " + new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+
       } catch (err) {
         document.getElementById('channels').innerHTML = '⚠️ Failed to load channels.';
         console.error(err);
       }
     }
+
+    function renderChannels(channels) {
+      const container = document.getElementById('channels');
+      container.innerHTML = '';
+
+      if (!channels.length) {
+        container.innerHTML = '⚠️ No channels found.';
+        return;
+      }
+
+      channels.forEach(ch => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="${ch.logo}" alt="${ch.name}">
+          <div><b>${ch.name}</b></div>
+          <small>${ch.group}</small><br>
+          <a href="${ch.url}" target="_blank">▶ Watch</a>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    document.getElementById('search').addEventListener('input', e => {
+      const term = e.target.value.toLowerCase();
+      const category = document.getElementById('category').value;
+      const filtered = allChannels.filter(ch =>
+        ch.name.toLowerCase().includes(term) &&
+        (category === 'all' || ch.group === category)
+      );
+      renderChannels(filtered);
+    });
+
+    document.getElementById('category').addEventListener('change', e => {
+      const category = e.target.value;
+      const term = document.getElementById('search').value.toLowerCase();
+      const filtered = allChannels.filter(ch =>
+        ch.name.toLowerCase().includes(term) &&
+        (category === 'all' || ch.group === category)
+      );
+      renderChannels(filtered);
+    });
 
     loadChannels();
   </script>
