@@ -1,4 +1,4 @@
-name: Auto Update Onetv + Deploy to Vercel
+name: Onetv Vercel Deploy + Auto Update
 
 on:
   schedule:
