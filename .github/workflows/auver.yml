@@ -1,4 +1,4 @@
-name: Onetv  Deploy with Auto Update
+name: Onetv Deploy + Auto Update
 
 on:
   schedule:
