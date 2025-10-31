@@ -2,7 +2,8 @@ name: Auto Update and Deploy OneTV
 
 on:
   schedule:
-    - cron: "*/480 * * * *"   # every 15 minutes
+    - cron: "*/480 * * * *"   # every 8 hours
+    
   workflow_dispatch:
 
 permissions:
