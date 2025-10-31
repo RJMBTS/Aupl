@@ -2,7 +2,7 @@ name: Auto Update Onetv + Deploy to Vercel
 
 on:
   schedule:
-    - cron: "*/15 * * * *"  # every 15 minutes
+    - cron: "*/480 * * * *"  # every 8 hours
   workflow_dispatch:
 
 permissions:
