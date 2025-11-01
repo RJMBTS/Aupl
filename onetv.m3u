@@ -1,6 +1,6 @@
 #EXTM3U
 # Pushed and updated by Kittujk
-# Last updated: 2025-11-01 21:23:01 IST
+# Last updated: 2025-11-01 21:29:30 IST
 
 
 #EXTINF:-1 channel-id="IN4900003U3-in" tvg-id="IN4900003U3" tvg-chno="1003" tvg-name="ETV Comedy" tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/IN4900003U3_20250811T033449SQUARE.png" group-title="ETv",ETV Comedy
@@ -15,8 +15,6 @@ https://jmp2.uk/stvp-IN4900002RV
 #EXTINF:-1 channel-id="IN4900001AQ-in" tvg-id="IN4900001AQ" tvg-chno="1095" tvg-name="ETV News" tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/IN4900001AQ_20250811T033458SQUARE.png" group-title="ETv",ETV News
 https://jmp2.uk/stvp-IN4900001AQ
 
-# Pushed and updated by CloudPlay
-# Join Telegram @ https://t.me/cloudply
 
 #EXTINF:-1 tvg-id="1373" group-title="Jiostar" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Disney_Channel.png",Disney Channel
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -5261,8 +5259,6 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Bharat_Express_BTS/output/index.mpd?__hdn
 #EXTHTTP:{"cookie":"__hdnea__=st=1761995105~exp=1762081505~acl=/*~hmac=a5d5542770e1e408e5aef1b9eafbd72c3305c34948858439e39244127471752b"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/One_Paschima_BTS/output/index.mpd?__hdnea__=st=1761995105~exp=1762081505~acl=/*~hmac=a5d5542770e1e408e5aef1b9eafbd72c3305c34948858439e39244127471752b&xxx=%7Ccookie=__hdnea__=st=1761995105~exp=1762081505~acl=/*~hmac=a5d5542770e1e408e5aef1b9eafbd72c3305c34948858439e39244127471752b
 
-# Pushed and updated by CloudPlay
-# Join Telegram @ https://t.me/cloudply
 
 #EXTINF:-1 tvg-id="SONY SAB HD.in" tvg-name="Sony Sab HD" group-title="Entertainment" tvg-logo="https://i.postimg.cc/LhKxf97t/sonysabhd.webp",Sony Sab HD
 https://dishmt.slivcdn.com/hls/live/2011749/SABHD/master.m3u8?hdnea=exp=1762053830~acl=/*~id=55012071698847181808623226493475~hmac=5af35cbebfc29fd6464fdd8c40d7fd16da8fb6d00700fb7a56f115d74b834dd7
@@ -5324,8 +5320,6 @@ https://dishmt.slivcdn.com/hls/live/2011740/SonyMarathi/master.m3u8?hdnea=exp=17
 #EXTINF:-1 tvg-id="sony-aath" tvg-name="Sony Aath" tvg-language="Bengali" tvg-logo="https://i.postimg.cc/bY12WVTm/SONY-AATH.png" group-title="Entertainment",Sony Aath
 https://dishmt.slivcdn.com/hls/live/2011641/SonyAathSD/master.m3u8?hdnea=exp=1762053830~acl=/*~id=55012071698847181808623226493475~hmac=5af35cbebfc29fd6464fdd8c40d7fd16da8fb6d00700fb7a56f115d74b834dd7
 
-# Pushed and updated by CloudPlay
-# Join Telegram @ https://t.me/cloudply
 
 #EXTINF:-1 tvg-id="0-9-zeetvhd" group-title="Entertainment" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Zee_TV_HD.png",Zee TV HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
