@@ -17,19 +17,37 @@
       height: 100vh;
       text-align: center;
       animation: fadeIn 1.2s ease-in-out;
+      overflow: hidden;
     }
-    img {
-      width: 200px;
-      height: auto;
+
+    .logo-container {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       margin-bottom: 20px;
-      border-radius: 20px;
-      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
     }
+
+    .logo-container img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0, 191, 255, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .logo-container img:hover {
+      transform: scale(1.02);
+    }
+
     h1 {
       color: #00bfff;
       margin: 0;
       text-shadow: 0 0 8px #00bfff;
     }
+
     button {
       background: #00bfff;
       color: #000;
@@ -43,16 +61,19 @@
       box-shadow: 0 0 6px #00bfff, 0 0 10px #0090cc;
       animation: glowPulse 3s ease-in-out infinite;
     }
+
     button:hover {
       background: #0090cc;
       color: #fff;
       transform: scale(1.07);
     }
+
     #copied {
       display: none;
       margin-top: 10px;
       color: #00ff7f;
     }
+
     footer {
       position: fixed;
       bottom: 15px;
@@ -63,51 +84,76 @@
       animation: fadeFooter 2s ease-in-out 1.5s forwards;
       line-height: 1.8;
     }
+
     .heart {
       color: #ff3b3b;
       margin: 0 4px;
     }
+
     .glow-pill {
       display: inline-block;
-      background: rgba(0, 191, 255, 0.1);
-      color: #00bfff;
+      background: linear-gradient(90deg, rgba(0, 255, 255, 0.15), rgba(0, 191, 255, 0.25));
+      color: #00d4ff;
       border-radius: 25px;
-      padding: 3px 12px;
+      padding: 3px 14px;
       margin-left: 6px;
-      box-shadow: 0 0 6px #00bfff, 0 0 10px #0090cc;
+      box-shadow:
+        0 0 6px #00bfff,
+        0 0 10px #0090cc,
+        inset 0 0 8px rgba(0, 255, 255, 0.3);
       text-shadow: 0 0 4px #00bfff, 0 0 6px #0090cc, 0 0 10px #0077b6;
       animation: glowPulse 3s ease-in-out infinite;
       font-weight: bold;
+      backdrop-filter: blur(4px);
     }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
     @keyframes fadeFooter {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
     @keyframes glowPulse {
       0%, 100% {
-        box-shadow: 0 0 5px #00bfff, 0 0 10px #0090cc;
-        text-shadow: 0 0 4px #00bfff, 0 0 6px #0090cc, 0 0 10px #0077b6;
+        box-shadow:
+          0 0 5px #00bfff,
+          0 0 10px #0090cc,
+          inset 0 0 8px rgba(0, 255, 255, 0.2);
+        text-shadow:
+          0 0 4px #00bfff,
+          0 0 6px #0090cc,
+          0 0 10px #0077b6;
       }
       50% {
-        box-shadow: 0 0 8px #00ffff, 0 0 14px #00bfff;
-        text-shadow: 0 0 6px #00ffff, 0 0 10px #00bfff, 0 0 15px #0090cc;
+        box-shadow:
+          0 0 8px #00ffff,
+          0 0 14px #00bfff,
+          inset 0 0 12px rgba(0, 255, 255, 0.35);
+        text-shadow:
+          0 0 6px #00ffff,
+          0 0 10px #00bfff,
+          0 0 15px #0090cc;
       }
     }
+
     @media (max-width: 600px) {
-      img { width: 60%; max-width: 180px; }
+      .logo-container { max-width: 90%; }
       button { width: 80%; max-width: 300px; }
     }
   </style>
 </head>
 <body>
-  <img src="https://i.ibb.co/zVXpgPpV/onetv-logo.png" alt="One TV Logo" />
+  <div class="logo-container">
+    <img src="https://i.ibb.co/zVXpgPpV/onetv-logo.png" alt="One TV Logo" />
+  </div>
+
   <h1>Welcome to One TV - NR TV Network</h1>
 
-  <button id="copyButton">Click to dive into the Exclusive Content</button>
+  <button id="copyButton">Wanna Experience the Magic ! Let's Dive In</button>
   <div id="copied" aria-live="polite">Link Copied Successfully! Let's Go</div>
 
   <footer>
