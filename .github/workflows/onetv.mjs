@@ -1,6 +1,5 @@
 export default async function handler(req, res) {
   const masterUrl = "https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u";
-
   try {
     const response = await fetch(masterUrl, { cache: "no-store" });
     if (!response.ok) throw new Error("Failed to fetch Master.m3u");
