@@ -9,8 +9,6 @@
   "routes": [
     { "src": "/(onetv\\.m3u)", "dest": "/onetv.m3u" },
     { "src": "/(Master\\.m3u)", "dest": "/Master.m3u" },
-    { "src": "/", "dest": "/index.html" },
-    { "src": "/(.*)", "dest": "/index.html" }
+    { "src": "/", "dest": "/index.html" }
   ]
 }
-
