@@ -2,10 +2,14 @@
   "version": 2,
   "public": true,
   "builds": [
+    { "src": "index.html", "use": "@vercel/static" },
     { "src": "*.m3u", "use": "@vercel/static" },
     { "src": "api/**/*.js", "use": "@vercel/node" }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "/$1" }
+    { "src": "/(onetv\\.m3u)", "dest": "/onetv.m3u" },
+    { "src": "/(Master\\.m3u)", "dest": "/Master.m3u" },
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
