@@ -1,5 +1,5 @@
 export default async function handler(req, res) {
-  const masterUrl = "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/nrtv-one/main/Master.m3u";
+  const masterUrl = "https://raw.githubusercontent.com/RJMBTS/Aupl/refs/heads/main/Master.m3u";
 
   try {
     const response = await fetch(masterUrl, { cache: "no-store" });
