@@ -21,7 +21,7 @@
       animation: fadeIn 1.2s ease-in-out;
     }
 
-    /* ---------- ANIMATED BACKGROUND ---------- */
+    /* ---------- BACKGROUND ---------- */
     .bg-animate {
       position: fixed;
       top: 0;
@@ -36,7 +36,6 @@
                  colorShift 20s linear infinite,
                  rotateBG 60s linear infinite;
       z-index: 0;
-      transform-origin: center;
     }
 
     @keyframes moveBG {
@@ -45,6 +44,7 @@
       100% { transform: translate(-5%, 15%) scale(1.05); opacity: 0.85; }
     }
     @keyframes rotateBG { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
     @keyframes colorShift {
       0% {
         background: radial-gradient(circle at 20% 20%, rgba(0,255,255,0.25), transparent 60%),
@@ -63,37 +63,34 @@
       }
     }
 
-    /* ---------- TITLE ---------- */
+    /* ---------- TEXT ---------- */
     .title {
       z-index: 1;
     }
+
     .title .main {
-      font-size: 2rem;
+      font-size: 2.3rem;
       color: #00bfff;
       font-weight: 700;
       margin: 0;
-      text-shadow: 0 0 15px #00bfff;
+      text-shadow: 0 0 18px #00bfff;
       opacity: 0;
       animation: fadeMain 1.4s ease forwards;
     }
+
     .title .sub {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: #80dfff;
       font-weight: 500;
-      margin-top: 8px;
+      margin-top: 6px;
       text-shadow: 0 0 10px #00aaff;
       opacity: 0;
       animation: fadeSub 1.2s ease forwards;
       animation-delay: 0.6s;
     }
-    @keyframes fadeMain {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeSub {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+
+    @keyframes fadeMain { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeSub { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
     /* ---------- BUTTON ---------- */
     button {
@@ -101,39 +98,64 @@
       background-size: 300% 300%;
       color: #000;
       border: none;
-      padding: 10px 24px;
-      border-radius: 22px;
+      padding: 12px 28px;
+      border-radius: 24px;
       margin-top: 30px;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 0.95rem;
+      text-align: center;
       cursor: pointer;
       transition: 0.3s;
-      box-shadow: 0 0 6px #00bfff, 0 0 12px #0090cc;
+      box-shadow: 0 0 10px #00bfff, 0 0 18px #0090cc;
       animation: glowCycle 6s ease-in-out infinite, pulse 3s ease-in-out infinite;
       z-index: 1;
-      line-height: 1.4;
+      position: relative;
+      overflow: hidden;
     }
+
+    button span {
+      display: block;
+      opacity: 0;
+      animation: fadeInLine 1s ease forwards;
+    }
+
+    button span:nth-child(1) { animation-delay: 0.3s; transform: translateX(-20px); }
+    button span:nth-child(2) { animation-delay: 0.6s; transform: translateX(20px); }
 
     button:hover {
-      transform: scale(1.08);
-      filter: brightness(1.15);
+      transform: scale(1.07);
+      filter: brightness(1.2);
     }
 
+    @keyframes fadeInLine { to { opacity: 1; transform: translateX(0); } }
     @keyframes glowCycle {
-      0% { background-position: 0% 50%; box-shadow: 0 0 5px #00ffff, 0 0 12px #00bfff; }
-      50% { background-position: 100% 50%; box-shadow: 0 0 8px #7a00ff, 0 0 16px #6a0dad; }
-      100% { background-position: 0% 50%; box-shadow: 0 0 5px #00ffff, 0 0 12px #00bfff; }
+      0% { background-position: 0% 50%; box-shadow: 0 0 8px #00ffff, 0 0 20px #00bfff; }
+      50% { background-position: 100% 50%; box-shadow: 0 0 12px #7a00ff, 0 0 25px #6a0dad; }
+      100% { background-position: 0% 50%; box-shadow: 0 0 8px #00ffff, 0 0 20px #00bfff; }
     }
-    @keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.04);} }
+    @keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.05);} }
+
+    /* ---------- CINEMATIC CLICK ---------- */
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      transform: scale(0);
+      background: rgba(255,255,255,0.6);
+      animation: rippleEffect 0.6s linear;
+      pointer-events: none;
+    }
+
+    @keyframes rippleEffect {
+      to { transform: scale(4); opacity: 0; }
+    }
 
     /* ---------- COPY MESSAGE ---------- */
     #copied {
       display: none;
-      margin-top: 12px;
+      margin-top: 15px;
       color: #00ff7f;
       font-weight: 600;
       z-index: 1;
-      font-size: 0.9rem;
     }
 
     /* ---------- FOOTER ---------- */
@@ -148,40 +170,32 @@
       line-height: 1.8;
       z-index: 1;
     }
+
     .heart { color: #ff3b3b; margin: 0 4px; }
+
     .glow-pill {
       display: inline-block;
       background: linear-gradient(90deg, rgba(0,255,255,0.15), rgba(0,191,255,0.25));
       color: #00d4ff;
       border-radius: 25px;
-      padding: 3px 12px;
+      padding: 3px 14px;
       margin-left: 6px;
-      box-shadow: 0 0 5px #00bfff, 0 0 8px #0090cc, inset 0 0 6px rgba(0,255,255,0.3);
-      text-shadow: 0 0 3px #00bfff, 0 0 5px #0090cc, 0 0 8px #0077b6;
+      box-shadow: 0 0 6px #00bfff, 0 0 10px #0090cc, inset 0 0 8px rgba(0,255,255,0.3);
+      text-shadow: 0 0 4px #00bfff, 0 0 6px #0090cc, 0 0 10px #0077b6;
       animation: glowCycle 6s ease-in-out infinite;
       font-weight: bold;
       backdrop-filter: blur(4px);
     }
+
     @keyframes fadeFooter {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ---------- RESPONSIVE DESIGN ---------- */
     @media (max-width: 600px) {
-      .title .main { font-size: 1.6rem; }
+      .title .main { font-size: 1.8rem; }
       .title .sub { font-size: 1rem; }
-      button {
-        width: 80%;
-        max-width: 260px;
-        font-size: 0.9rem;
-        padding: 9px 18px;
-        white-space: normal;
-      }
-    }
-
-    @media (min-width: 601px) {
-      button { white-space: nowrap; }
+      button { width: 80%; max-width: 280px; padding: 12px 0; }
     }
   </style>
 </head>
@@ -195,10 +209,11 @@
   </div>
 
   <button id="copyButton">
-    Wanna Experience the Magic! Click Here to Dive In
+    <span>Wanna Experience the Magic!</span>
+    <span>Click Here to Dive In</span>
   </button>
 
-  <div id="copied" aria-live="polite">Link Copied Successfully! Let's Go</div>
+  <div id="copied" aria-live="polite">✨ Link Copied Successfully! Let's Go 🚀</div>
 
   <footer>
     Created &amp; Maintained by <span class="heart">❤️</span><strong>Kittujk</strong><span class="heart">❤️</span><br>
@@ -209,11 +224,26 @@
     const copyButton = document.getElementById('copyButton');
     const msg = document.getElementById('copied');
 
-    copyButton.onclick = async () => {
+    copyButton.onclick = async (e) => {
+      // Cinematic ripple effect
+      const ripple = document.createElement("span");
+      ripple.classList.add("ripple");
+      const rect = copyButton.getBoundingClientRect();
+      ripple.style.left = (e.clientX - rect.left) + "px";
+      ripple.style.top = (e.clientY - rect.top) + "px";
+      copyButton.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 600);
+
+      // Simulate cinematic glow delay
+      copyButton.style.transform = "scale(0.95)";
+      await new Promise(r => setTimeout(r, 300));
+      copyButton.style.transform = "scale(1)";
+
+      // Copy link and show message
       const link = 'https://nrtv-one.vercel.app/onetv.m3u';
       await navigator.clipboard.writeText(link);
       msg.style.display = 'block';
-      setTimeout(() => msg.style.display = 'none', 2000);
+      setTimeout(() => msg.style.display = 'none', 2500);
     };
   </script>
 </body>
