@@ -1,8 +1,7 @@
 #EXTM3U
 # Pushed and updated by Kittujk
-# Last updated: 2025-11-01 21:00:39 IST
+# Last updated: 2025-11-01 21:04:48 IST
 
-# Source: https://raw.githubusercontent.com/RJMBTS/Tlcp/refs/heads/main/scpl.m3u
 
 #EXTINF:-1 channel-id="IN4900003U3-in" tvg-id="IN4900003U3" tvg-chno="1003" tvg-name="ETV Comedy" tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/IN4900003U3_20250811T033449SQUARE.png" group-title="ETv",ETV Comedy
 https://jmp2.uk/stvp-IN4900003U3
@@ -16,7 +15,6 @@ https://jmp2.uk/stvp-IN4900002RV
 #EXTINF:-1 channel-id="IN4900001AQ-in" tvg-id="IN4900001AQ" tvg-chno="1095" tvg-name="ETV News" tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/IN4900001AQ_20250811T033458SQUARE.png" group-title="ETv",ETV News
 https://jmp2.uk/stvp-IN4900001AQ
 
-# Source: https://raw.githubusercontent.com/himanshu-temp/m3u/refs/heads/main/jiotv%2B.m3u
 # Pushed and updated by CloudPlay
 # Join Telegram @ https://t.me/cloudply
 
@@ -5263,7 +5261,6 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Bharat_Express_BTS/output/index.mpd?__hdn
 #EXTHTTP:{"cookie":"__hdnea__=st=1761995105~exp=1762081505~acl=/*~hmac=a5d5542770e1e408e5aef1b9eafbd72c3305c34948858439e39244127471752b"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/One_Paschima_BTS/output/index.mpd?__hdnea__=st=1761995105~exp=1762081505~acl=/*~hmac=a5d5542770e1e408e5aef1b9eafbd72c3305c34948858439e39244127471752b&xxx=%7Ccookie=__hdnea__=st=1761995105~exp=1762081505~acl=/*~hmac=a5d5542770e1e408e5aef1b9eafbd72c3305c34948858439e39244127471752b
 
-# Source: https://raw.githubusercontent.com/himanshu-temp/m3u/refs/heads/main/sony.m3u
 # Pushed and updated by CloudPlay
 # Join Telegram @ https://t.me/cloudply
 
@@ -5327,7 +5324,6 @@ https://dishmt.slivcdn.com/hls/live/2011740/SonyMarathi/master.m3u8?hdnea=exp=17
 #EXTINF:-1 tvg-id="sony-aath" tvg-name="Sony Aath" tvg-language="Bengali" tvg-logo="https://i.postimg.cc/bY12WVTm/SONY-AATH.png" group-title="Entertainment",Sony Aath
 https://dishmt.slivcdn.com/hls/live/2011641/SonyAathSD/master.m3u8?hdnea=exp=1762051989~acl=/*~id=32046825758436212610829037940605~hmac=49c4a0f5b26d13bb9bafea7e7b17f690f3d13cbc55f6e519a141983c443b20c8
 
-# Source: https://raw.githubusercontent.com/himanshu-temp/m3u/refs/heads/main/zee5.m3u
 # Pushed and updated by CloudPlay
 # Join Telegram @ https://t.me/cloudply
 
@@ -5607,7 +5603,6 @@ https://z5ak-cmaflive.zee5.com/cmaf/live/2105538/ZeeTalkiesELE/master.m3u8?hdntl
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 https://aasthaott.akamaized.net/110923/smil:aasthatv.smil/playlist.m3u8?hdntl=exp=1762086913~acl=%2f*~data=hdntl~hmac=d985df2db77f7b4a81e5a980627a8bc9ea97e1dad718029a7206e49ed28e0f18
 
-# Source: https://raw.githubusercontent.com/alex8875/m3u/refs/heads/main/jcinema.m3u
 
 #EXTINF:-1 tvg-id="144" group-title="Entertainment" tvg-logo="https://v3img.voot.com/resizeMedium,w_1090,h_613/v3Storage/assets/colors-hindi--16x9-1714557869344.jpg",Colors HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
