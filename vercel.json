@@ -1,11 +1,11 @@
 {
-  "headers": [
-    {
-      "source": "/(.*)\\.m3u$",
-      "headers": [
-        { "key": "Content-Type", "value": "audio/x-mpegurl; charset=utf-8" },
-        { "key": "Cache-Control", "value": "no-cache" }
-      ]
-    }
+  "version": 2,
+  "public": true,
+  "builds": [
+    { "src": "*.m3u", "use": "@vercel/static" },
+    { "src": "api/**/*.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/$1" }
   ]
 }
