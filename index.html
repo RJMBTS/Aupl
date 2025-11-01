@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to One TV - NR TV Network</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #000000, #121212);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    img {
+      width: 200px;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+    }
+    h1 { color: #00bfff; margin: 0; }
+    button {
+      background: #00bfff; color: #000; border: none;
+      padding: 12px 28px; border-radius: 25px;
+      margin-top: 25px; font-weight: bold; cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover { background: #0090cc; color: #fff; transform: scale(1.05); }
+    #copied { display: none; margin-top: 10px; color: #00ff7f; }
+    footer {
+      position: fixed; bottom: 15px;
+      color: #f5f5f5;
+    }
+    .heart { color: #ff3b3b; margin: 0 4px; }
+  </style>
+</head>
+<body>
+  <img src="onetv-logo.png" alt="One TV Logo" />
+  <h1>Welcome to One TV - NR TV Network</h1>
+
+  <button id="copyButton">Click to dive into the Exclusive Content</button>
+  <div id="copied">✅ Link copied to clipboard!</div>
+
+  <footer>
+    Created &amp; Maintained by <span class="heart">❤️</span><strong>Kittujk</strong><span class="heart">❤️</span>
+  </footer>
+
+  <script>
+    document.getElementById('copyButton').onclick = async () => {
+      const link = 'https://nrtv-one.vercel.app/onetv.m3u';
+      await navigator.clipboard.writeText(link);
+      const msg = document.getElementById('copied');
+      msg.style.display = 'block';
+      setTimeout(() => msg.style.display = 'none', 2000);
+    };
+  </script>
+</body>
+</html>
