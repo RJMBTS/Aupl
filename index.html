@@ -67,13 +67,17 @@
       color: #ff3b3b;
       margin: 0 4px;
     }
-    .glow {
+    .glow-pill {
+      display: inline-block;
+      background: rgba(0, 191, 255, 0.1);
       color: #00bfff;
-      text-shadow:
-        0 0 4px #00bfff,
-        0 0 6px #0090cc,
-        0 0 10px #0077b6;
+      border-radius: 25px;
+      padding: 3px 12px;
+      margin-left: 6px;
+      box-shadow: 0 0 6px #00bfff, 0 0 10px #0090cc;
+      text-shadow: 0 0 4px #00bfff, 0 0 6px #0090cc, 0 0 10px #0077b6;
       animation: glowPulse 3s ease-in-out infinite;
+      font-weight: bold;
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
@@ -108,7 +112,7 @@
 
   <footer>
     Created &amp; Maintained by <span class="heart">❤️</span><strong>Kittujk</strong><span class="heart">❤️</span><br>
-    <span style="display:inline-block; margin-top:5px;">© 2025 <strong class="glow">RJMBTS</strong></span>
+    <span style="display:inline-block; margin-top:5px;">© 2025 <span class="glow-pill">RJMBTS</span></span>
   </footer>
 
   <script>
