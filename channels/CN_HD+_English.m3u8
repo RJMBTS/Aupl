@@ -1,9 +1,0 @@
-#EXTM3U
-# Last updated on 2025-10-29 22:10:36 UTC
-
-#EXTINF:-1 tvg-id="1079" group-title="Kids" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/CN_HD_English.png",CN HD+ English
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=c9c415719be55a75b6533d2b4eed6269:23a7fab44583dfa0ff91c57324448b63
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux;Android 15) ExoPlayerLib/2.11.6 YGX/69.69.69.69
-#EXTHTTP:{"cookie":"__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/CN_HD_English_MOB/WDVLive/index.mpd?__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5&xxx=%7Ccookie=__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5

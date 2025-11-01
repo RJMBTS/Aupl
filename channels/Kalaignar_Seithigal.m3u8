@@ -1,9 +1,0 @@
-#EXTM3U
-# Last updated on 2025-10-29 22:10:36 UTC
-
-#EXTINF:-1 tvg-id="1210" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Kalaignar_Seithigal_.png",Kalaignar Seithigal 
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=bb8d362c9a66528d8b3ed7b2108ca6d1:55c6e1bb1571eb2c7d61508b85d69075
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux;Android 15) ExoPlayerLib/2.11.6 YGX/69.69.69.69
-#EXTHTTP:{"cookie":"__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Kalaignar_Seithigal__BTS/output/index.mpd?__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5&xxx=%7Ccookie=__hdnea__=st=1761736096~exp=1761822496~acl=/*~hmac=3367658097afdff06a7f55800277f01769f54ddfb34c8b23baac322ba70017a5

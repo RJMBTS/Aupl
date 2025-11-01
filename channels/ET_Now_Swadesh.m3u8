@@ -1,9 +1,0 @@
-#EXTM3U
-# Last updated on 2025-10-30 05:23:23 IST+0530
-
-#EXTINF:-1 tvg-id="1907" group-title="Business News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/ET_Now_Swadesh.png",ET Now Swadesh
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=5bf760c711215ae78af2d7727ca8fa18:7e1511f49ca513f64b34f66cf574a499
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux;Android 15) ExoPlayerLib/2.11.6 YGX/69.69.69.69
-#EXTHTTP:{"cookie":"__hdnea__=st=1761775742~exp=1761862142~acl=/*~hmac=7c771ec2d78cd2879d6503118541aa58b2f25a44e7aba53c56448b1ff25f963f"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/ET_Now_Swadesh_BTS/output/index.mpd?__hdnea__=st=1761775742~exp=1761862142~acl=/*~hmac=7c771ec2d78cd2879d6503118541aa58b2f25a44e7aba53c56448b1ff25f963f&xxx=%7Ccookie=__hdnea__=st=1761775742~exp=1761862142~acl=/*~hmac=7c771ec2d78cd2879d6503118541aa58b2f25a44e7aba53c56448b1ff25f963f

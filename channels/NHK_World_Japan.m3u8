@@ -1,9 +1,0 @@
-#EXTM3U
-# Last updated on 2025-10-30 05:23:23 IST+0530
-
-#EXTINF:-1 tvg-id="1405" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/NHK_World_Japan.png",NHK World Japan
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=0dc493bbfc9650b9bda1c69849285de8:55091609b267126b5d64c4134210d5be
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux;Android 15) ExoPlayerLib/2.11.6 YGX/69.69.69.69
-#EXTHTTP:{"cookie":"__hdnea__=st=1761775742~exp=1761862142~acl=/*~hmac=7c771ec2d78cd2879d6503118541aa58b2f25a44e7aba53c56448b1ff25f963f"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/NHK_World_Japan_BTS/output/index.mpd?__hdnea__=st=1761775742~exp=1761862142~acl=/*~hmac=7c771ec2d78cd2879d6503118541aa58b2f25a44e7aba53c56448b1ff25f963f&xxx=%7Ccookie=__hdnea__=st=1761775742~exp=1761862142~acl=/*~hmac=7c771ec2d78cd2879d6503118541aa58b2f25a44e7aba53c56448b1ff25f963f

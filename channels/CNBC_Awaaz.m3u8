@@ -1,9 +1,0 @@
-#EXTM3U
-# Last updated on 2025-10-29 22:10:36 UTC
-
-#EXTINF:-1 tvg-id="190" group-title="Business" tvg-logo="https://v3img.voot.com/resizeMedium,w_1090,h_613/v3Storage/assets/cnbc-awaaz-16x9-1702387934761.jpg",CNBC Awaaz
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
-#EXTHTTP:{"cookie":"hdntl=exp=1761768010~acl=%2f*~id=25b1515e6d113919744409feca62a8ee~data=hdntl~hmac=d680d01c852f9c0a2a4696dd3408491ed06f84183f03505b8eb51c9ce2b3f343"}
-#EXTVLCOPT:http-origin=https://www.hotstar.com
-#EXTVLCOPT:http-referrer=https://www.hotstar.com/
-https://jcevents.hotstar.com/bpk-tv/CNBC_Awaaz_voot_MOB/Fallback/CNBC_Awaaz_voot_MOB.m3u8

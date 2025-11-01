@@ -1,9 +1,0 @@
-#EXTM3U
-# Last updated on 2025-10-30 05:23:23 IST+0530
-
-#EXTINF:-1 tvg-id="829" group-title="Devotional" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sri_Sankara.png",Sri Sankara
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=21acd45bc3955dd29eccbd849a878cff:68a6adcb9a1106de159fe8ab083765d1
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux;Android 15) ExoPlayerLib/2.11.6 YGX/69.69.69.69
-#EXTHTTP:{"cookie":"__hdnea__=st=1761775742~exp=1761862142~acl=/*~hmac=7c771ec2d78cd2879d6503118541aa58b2f25a44e7aba53c56448b1ff25f963f"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Sri_Sankara_BTS/output/index.mpd?__hdnea__=st=1761775742~exp=1761862142~acl=/*~hmac=7c771ec2d78cd2879d6503118541aa58b2f25a44e7aba53c56448b1ff25f963f&xxx=%7Ccookie=__hdnea__=st=1761775742~exp=1761862142~acl=/*~hmac=7c771ec2d78cd2879d6503118541aa58b2f25a44e7aba53c56448b1ff25f963f

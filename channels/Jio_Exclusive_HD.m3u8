@@ -1,9 +1,0 @@
-#EXTM3U
-# Last updated on 2025-10-30 05:23:23 IST+0530
-
-#EXTINF:-1 tvg-id="866" group-title="Entertainment" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Jio_Exclusive.png",Jio Exclusive HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=70fe5d9068195768962f9d8082cb19a6:c7d9d5cda12a707f979c7477ab439184
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux;Android 15) ExoPlayerLib/2.11.6 YGX/69.69.69.69
-#EXTHTTP:{"cookie":"__hdnea__=st=1761775742~exp=1761862142~acl=/*~hmac=7c771ec2d78cd2879d6503118541aa58b2f25a44e7aba53c56448b1ff25f963f"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Jio_Exclusive_BTS/output/index.mpd?__hdnea__=st=1761775742~exp=1761862142~acl=/*~hmac=7c771ec2d78cd2879d6503118541aa58b2f25a44e7aba53c56448b1ff25f963f&xxx=%7Ccookie=__hdnea__=st=1761775742~exp=1761862142~acl=/*~hmac=7c771ec2d78cd2879d6503118541aa58b2f25a44e7aba53c56448b1ff25f963f

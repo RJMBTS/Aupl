@@ -1,9 +1,0 @@
-#EXTM3U
-# Last updated on 2025-10-30 05:23:23 IST+0530
-
-#EXTINF:-1 tvg-id="1453" group-title="Music" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Balle_Balle_TV.png",Balle Balle TV
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=5f4ff5af01895807850ce05f8c88b6da:ced8f85b5668859f372b3d0bb4a8b172
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux;Android 15) ExoPlayerLib/2.11.6 YGX/69.69.69.69
-#EXTHTTP:{"cookie":"__hdnea__=st=1761775742~exp=1761862142~acl=/*~hmac=7c771ec2d78cd2879d6503118541aa58b2f25a44e7aba53c56448b1ff25f963f"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Balle_Balle_TV_BTS/output/index.mpd?__hdnea__=st=1761775742~exp=1761862142~acl=/*~hmac=7c771ec2d78cd2879d6503118541aa58b2f25a44e7aba53c56448b1ff25f963f&xxx=%7Ccookie=__hdnea__=st=1761775742~exp=1761862142~acl=/*~hmac=7c771ec2d78cd2879d6503118541aa58b2f25a44e7aba53c56448b1ff25f963f
