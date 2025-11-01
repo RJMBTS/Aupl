@@ -57,10 +57,13 @@
       background: #00bfff;
       color: #000;
       border: none;
-      padding: 12px 28px;
-      border-radius: 25px;
+      padding: 16px 34px;
+      border-radius: 28px;
       margin-top: 25px;
-      font-weight: bold;
+      font-weight: 700;
+      font-size: 1.05rem;
+      line-height: 1.5;
+      text-align: center;
       cursor: pointer;
       transition: 0.3s;
       box-shadow: 0 0 6px #00bfff, 0 0 10px #0090cc;
@@ -70,7 +73,31 @@
     button:hover {
       background: #0090cc;
       color: #fff;
-      transform: scale(1.07);
+      transform: scale(1.08);
+    }
+
+    /* BUTTON TEXT ANIMATION */
+    button span {
+      display: block;
+      opacity: 0;
+      animation: fadeInLine 1s ease forwards;
+    }
+
+    button span:nth-child(1) {
+      animation-delay: 0.3s;
+      transform: translateX(-20px);
+    }
+
+    button span:nth-child(2) {
+      animation-delay: 0.6s;
+      transform: translateX(20px);
+    }
+
+    @keyframes fadeInLine {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
     #copied {
@@ -82,7 +109,7 @@
     /* FOOTER */
     footer {
       position: fixed;
-      bottom: 15px;
+      bottom: 25px;
       color: #f5f5f5;
       font-size: 14px;
       text-align: center;
@@ -113,7 +140,40 @@
       backdrop-filter: blur(4px);
     }
 
-    /* ANIMATIONS */
+    /* PAGE EXIT ANIMATION */
+    .fade-out {
+      animation: fadeOutZoom 1s ease forwards;
+    }
+
+    @keyframes fadeOutZoom {
+      0% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(1.1); }
+    }
+
+    /* PORTAL SHIMMER EFFECT */
+    .portal-shimmer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center,
+        rgba(0,255,255,0.9) 0%,
+        rgba(0,191,255,0.7) 30%,
+        rgba(0,0,0,0) 70%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 9999;
+      animation: shimmerFlash 1s ease-out forwards;
+    }
+
+    @keyframes shimmerFlash {
+      0% { opacity: 0; transform: scale(0.5); }
+      40% { opacity: 1; transform: scale(1.05); }
+      100% { opacity: 0; transform: scale(2); }
+    }
+
+    /* GENERAL ANIMATIONS */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -163,6 +223,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="logo-container">
     <img src="https://i.ibb.co/zVXpgPpV/onetv-logo.png" alt="One TV Logo" />
@@ -170,7 +231,10 @@
 
   <h1>Welcome to One TV - NR TV Network</h1>
 
-  <button id="copyButton">Wanna Experience the Magic ! Click to Dive in</button>
+  <button id="copyButton">
+    <span>Wanna Experience the Magic!</span>
+    <span>Click to Dive In</span>
+  </button>
   <div id="copied" aria-live="polite">Link Copied Successfully! Let's Go</div>
 
   <footer>
@@ -179,12 +243,30 @@
   </footer>
 
   <script>
-    document.getElementById('copyButton').onclick = async () => {
+    const copyButton = document.getElementById('copyButton');
+    const msg = document.getElementById('copied');
+
+    copyButton.onclick = async () => {
       const link = 'https://nrtv-one.vercel.app/onetv.m3u';
       await navigator.clipboard.writeText(link);
-      const msg = document.getElementById('copied');
-      msg.style.display = 'block';
-      setTimeout(() => msg.style.display = 'none', 2000);
+
+      // Trigger cinematic fade-out
+      document.body.classList.add('fade-out');
+
+      // Create and trigger shimmer flash
+      const shimmer = document.createElement('div');
+      shimmer.classList.add('portal-shimmer');
+      document.body.appendChild(shimmer);
+
+      // Show copied message
+      setTimeout(() => {
+        msg.style.display = 'block';
+        setTimeout(() => {
+          msg.style.display = 'none';
+          shimmer.remove();
+          document.body.classList.remove('fade-out');
+        }, 2000);
+      }, 500);
     };
   </script>
 </body>
