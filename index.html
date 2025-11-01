@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Welcome to One TV | NR TV Network</title>
   <style>
-    /* ---------- BASE ---------- */
     body {
       margin: 0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -21,7 +20,6 @@
       animation: fadeIn 1.2s ease-in-out;
     }
 
-    /* ---------- BACKGROUND ---------- */
     .bg-animate {
       position: fixed;
       top: 0;
@@ -63,7 +61,6 @@
       }
     }
 
-    /* ---------- TEXT ---------- */
     .title {
       z-index: 1;
     }
@@ -92,26 +89,28 @@
     @keyframes fadeMain { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes fadeSub { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* ---------- BUTTON ---------- */
+    /* ===== SMALLER BUTTON ===== */
     button {
       background: linear-gradient(90deg, #00ffff, #0090ff, #7a00ff);
       background-size: 300% 300%;
       color: #000;
       border: none;
-      padding: 14px 30px;
-      border-radius: 26px;
-      margin-top: 30px;
+      padding: 9px 20px;
+      border-radius: 20px;
+      margin-top: 25px;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 0.8rem;
       text-align: center;
       cursor: pointer;
       transition: 0.3s;
-      box-shadow: 0 0 10px #00bfff, 0 0 18px #0090cc;
+      box-shadow: 0 0 7px #00bfff, 0 0 12px #0090cc;
       animation: glowCycle 6s ease-in-out infinite, pulse 3s ease-in-out infinite;
       z-index: 1;
       position: relative;
       overflow: hidden;
-      line-height: 1.9;
+      line-height: 1.8;
+      width: 30%;
+      min-width: 180px;
     }
 
     button span {
@@ -120,16 +119,15 @@
       animation: fadeInLine 1s ease forwards;
     }
 
-    /* Bigger and bolder top line */
     button span:nth-child(1) {
-      font-size: 1.1rem;
+      font-size: 0.9rem;
       font-weight: 800;
       animation-delay: 0.3s;
       transform: translateX(-20px);
     }
 
     button span:nth-child(2) {
-      font-size: 0.95rem;
+      font-size: 0.75rem;
       animation-delay: 0.6s;
       transform: translateX(20px);
     }
@@ -147,7 +145,6 @@
     }
     @keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.05);} }
 
-    /* ---------- CINEMATIC CLICK ---------- */
     .ripple {
       position: absolute;
       border-radius: 50%;
@@ -161,7 +158,6 @@
       to { transform: scale(4); opacity: 0; }
     }
 
-    /* ---------- COPY MESSAGE ---------- */
     #copied {
       display: none;
       margin-top: 15px;
@@ -170,7 +166,6 @@
       z-index: 1;
     }
 
-    /* ---------- FOOTER ---------- */
     footer {
       position: fixed;
       bottom: 25px;
@@ -207,9 +202,9 @@
     @media (max-width: 600px) {
       .title .main { font-size: 1.8rem; }
       .title .sub { font-size: 1rem; }
-      button { width: 80%; max-width: 280px; padding: 12px 0; line-height: 1.9; }
-      button span:nth-child(1) { font-size: 1rem; }
-      button span:nth-child(2) { font-size: 0.9rem; }
+      button { width: 65%; padding: 10px 0; font-size: 0.8rem; }
+      button span:nth-child(1) { font-size: 0.85rem; }
+      button span:nth-child(2) { font-size: 0.7rem; }
     }
   </style>
 </head>
