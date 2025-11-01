@@ -47,7 +47,7 @@ jobs:
           cp Master.m3u onetv.m3u
           echo "onetv.m3u synced successfully with Master.m3u"
 
-            - name: Commit and push updated playlists
+      - name: Commit and push updated playlists
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
