@@ -2,12 +2,12 @@ name: Master M3U Playlists
 
 on:
   schedule:
-    - cron: '*/15 * * * *'  # Runs every 15 minutes
+    - cron: '*/15 * * * *'   # Runs every 15 minutes
   workflow_dispatch:          # Manual trigger option
 
 concurrency:
   group: master-m3u
-  cancel-in-progress: true
+  cancel-in-progress: false   # ✅ allow current run to finish safely
 
 permissions:
   contents: write
@@ -15,6 +15,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10       # prevent infinite hang
 
     steps:
       - name: Checkout repository
@@ -47,15 +48,31 @@ jobs:
           cp Master.m3u onetv.m3u
           echo "onetv.m3u synced successfully with Master.m3u"
 
-      - name: Commit and push updated playlists
+      - name: Commit and push updated playlists (with retry)
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
           git add Master.m3u onetv.m3u
+          
           if ! git diff --cached --quiet; then
             git commit -m "Auto-update Master.m3u and onetv.m3u"
-            git pull --rebase origin main   # ✅ Fetch and rebase latest commits
-            git push origin main
+            
+            # ✅ Pull before push (avoids conflicts)
+            git pull --rebase origin main || true
+
+            # ✅ Push with retry if first attempt fails
+            n=0
+            until [ "$n" -ge 3 ]
+            do
+              git push origin main && break
+              n=$((n+1))
+              echo "⚠️ Push failed, retrying in 10s... ($n/3)"
+              sleep 10
+            done
           else
             echo "No changes detected — skipping commit."
           fi
+
+      - name: Summary
+        run: |
+          echo "✅ Master.m3u and onetv.m3u updated at $(date)"
