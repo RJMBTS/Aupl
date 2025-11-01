@@ -20,13 +20,15 @@
       overflow: hidden;
     }
 
+    /* LOGO SECTION */
     .logo-container {
-      width: 100%;
-      max-width: 600px;
+      width: 85%;
+      max-width: 450px;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
+      animation: logoIn 1.5s ease-in-out;
     }
 
     .logo-container img {
@@ -39,15 +41,18 @@
     }
 
     .logo-container img:hover {
-      transform: scale(1.02);
+      transform: scale(1.03);
     }
 
+    /* TEXT */
     h1 {
       color: #00bfff;
       margin: 0;
       text-shadow: 0 0 8px #00bfff;
+      font-size: 1.4rem;
     }
 
+    /* BUTTON */
     button {
       background: #00bfff;
       color: #000;
@@ -74,6 +79,7 @@
       color: #00ff7f;
     }
 
+    /* FOOTER */
     footer {
       position: fixed;
       bottom: 15px;
@@ -107,9 +113,15 @@
       backdrop-filter: blur(4px);
     }
 
+    /* ANIMATIONS */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes logoIn {
+      0% { opacity: 0; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1); }
     }
 
     @keyframes fadeFooter {
@@ -141,7 +153,12 @@
     }
 
     @media (max-width: 600px) {
-      .logo-container { max-width: 90%; }
+      .logo-container {
+        width: 80%;
+        max-width: 320px;
+        margin-bottom: 20px;
+      }
+      h1 { font-size: 1.2rem; }
       button { width: 80%; max-width: 300px; }
     }
   </style>
@@ -153,7 +170,7 @@
 
   <h1>Welcome to One TV - NR TV Network</h1>
 
-  <button id="copyButton">Wanna Experience the Magic ! Let's Dive In</button>
+  <button id="copyButton">Wanna Experience the Magic ! Click to Dive in</button>
   <div id="copied" aria-live="polite">Link Copied Successfully! Let's Go</div>
 
   <footer>
