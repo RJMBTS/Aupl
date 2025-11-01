@@ -47,13 +47,14 @@ jobs:
           cp Master.m3u onetv.m3u
           echo "onetv.m3u synced successfully with Master.m3u"
 
-      - name: Commit and push updated playlists
+            - name: Commit and push updated playlists
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
           git add Master.m3u onetv.m3u
           if ! git diff --cached --quiet; then
             git commit -m "Auto-update Master.m3u and onetv.m3u"
+            git pull --rebase origin main   # ✅ Fetch and rebase latest commits
             git push origin main
           else
             echo "No changes detected — skipping commit."
