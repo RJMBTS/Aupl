@@ -44,12 +44,7 @@
       50% { transform: translate(10%, 10%) scale(1.1); opacity: 1; }
       100% { transform: translate(-5%, 15%) scale(1.05); opacity: 0.85; }
     }
-
-    @keyframes rotateBG {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
+    @keyframes rotateBG { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     @keyframes colorShift {
       0% {
         background: radial-gradient(circle at 20% 20%, rgba(0,255,255,0.25), transparent 60%),
@@ -68,11 +63,10 @@
       }
     }
 
-    /* ---------- TEXT ---------- */
+    /* ---------- TITLE ---------- */
     .title {
       z-index: 1;
     }
-
     .title .main {
       font-size: 2rem;
       color: #00bfff;
@@ -82,7 +76,6 @@
       opacity: 0;
       animation: fadeMain 1.4s ease forwards;
     }
-
     .title .sub {
       font-size: 1.2rem;
       color: #80dfff;
@@ -93,12 +86,10 @@
       animation: fadeSub 1.2s ease forwards;
       animation-delay: 0.6s;
     }
-
     @keyframes fadeMain {
       from { opacity: 0; transform: translateY(15px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     @keyframes fadeSub {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
@@ -110,48 +101,39 @@
       background-size: 300% 300%;
       color: #000;
       border: none;
-      padding: 16px 34px;
-      border-radius: 28px;
-      margin-top: 35px;
-      font-weight: 700;
-      font-size: 1.05rem;
-      line-height: 1.5;
-      text-align: center;
+      padding: 10px 24px;
+      border-radius: 22px;
+      margin-top: 30px;
+      font-weight: 600;
+      font-size: 0.95rem;
       cursor: pointer;
       transition: 0.3s;
-      box-shadow: 0 0 10px #00bfff, 0 0 18px #0090cc;
+      box-shadow: 0 0 6px #00bfff, 0 0 12px #0090cc;
       animation: glowCycle 6s ease-in-out infinite, pulse 3s ease-in-out infinite;
       z-index: 1;
+      line-height: 1.4;
     }
 
     button:hover {
-      transform: scale(1.1);
-      filter: brightness(1.2);
+      transform: scale(1.08);
+      filter: brightness(1.15);
     }
 
-    button span {
-      display: block;
-      opacity: 0;
-      animation: fadeInLine 1s ease forwards;
-    }
-    button span:nth-child(1) { animation-delay: 0.3s; transform: translateX(-20px); }
-    button span:nth-child(2) { animation-delay: 0.6s; transform: translateX(20px); }
-
-    @keyframes fadeInLine { to { opacity: 1; transform: translateX(0); } }
     @keyframes glowCycle {
-      0% { background-position: 0% 50%; box-shadow: 0 0 8px #00ffff, 0 0 20px #00bfff; }
-      50% { background-position: 100% 50%; box-shadow: 0 0 12px #7a00ff, 0 0 25px #6a0dad; }
-      100% { background-position: 0% 50%; box-shadow: 0 0 8px #00ffff, 0 0 20px #00bfff; }
+      0% { background-position: 0% 50%; box-shadow: 0 0 5px #00ffff, 0 0 12px #00bfff; }
+      50% { background-position: 100% 50%; box-shadow: 0 0 8px #7a00ff, 0 0 16px #6a0dad; }
+      100% { background-position: 0% 50%; box-shadow: 0 0 5px #00ffff, 0 0 12px #00bfff; }
     }
-    @keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.05);} }
+    @keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.04);} }
 
     /* ---------- COPY MESSAGE ---------- */
     #copied {
       display: none;
-      margin-top: 15px;
+      margin-top: 12px;
       color: #00ff7f;
       font-weight: 600;
       z-index: 1;
+      font-size: 0.9rem;
     }
 
     /* ---------- FOOTER ---------- */
@@ -167,30 +149,39 @@
       z-index: 1;
     }
     .heart { color: #ff3b3b; margin: 0 4px; }
-
     .glow-pill {
       display: inline-block;
       background: linear-gradient(90deg, rgba(0,255,255,0.15), rgba(0,191,255,0.25));
       color: #00d4ff;
       border-radius: 25px;
-      padding: 3px 14px;
+      padding: 3px 12px;
       margin-left: 6px;
-      box-shadow: 0 0 6px #00bfff, 0 0 10px #0090cc, inset 0 0 8px rgba(0,255,255,0.3);
-      text-shadow: 0 0 4px #00bfff, 0 0 6px #0090cc, 0 0 10px #0077b6;
+      box-shadow: 0 0 5px #00bfff, 0 0 8px #0090cc, inset 0 0 6px rgba(0,255,255,0.3);
+      text-shadow: 0 0 3px #00bfff, 0 0 5px #0090cc, 0 0 8px #0077b6;
       animation: glowCycle 6s ease-in-out infinite;
       font-weight: bold;
       backdrop-filter: blur(4px);
     }
-
     @keyframes fadeFooter {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* ---------- RESPONSIVE DESIGN ---------- */
     @media (max-width: 600px) {
       .title .main { font-size: 1.6rem; }
       .title .sub { font-size: 1rem; }
-      button { width: 80%; max-width: 300px; }
+      button {
+        width: 80%;
+        max-width: 260px;
+        font-size: 0.9rem;
+        padding: 9px 18px;
+        white-space: normal;
+      }
+    }
+
+    @media (min-width: 601px) {
+      button { white-space: nowrap; }
     }
   </style>
 </head>
@@ -199,13 +190,12 @@
   <div class="bg-animate"></div>
 
   <div class="title">
-    <h1 class="main">Welcome to One Tv</h1>
-    <h2 class="sub">By NR Tv Network</h2>
+    <h1 class="main">Welcome to One TV</h1>
+    <h2 class="sub">By NR TV Network</h2>
   </div>
 
   <button id="copyButton">
-    <span>Wanna Experience the Magic!</span>
-    <span>Click to Dive In</span>
+    Wanna Experience the Magic! — Click to Dive In
   </button>
 
   <div id="copied" aria-live="polite">Link Copied Successfully! Let's Go</div>
