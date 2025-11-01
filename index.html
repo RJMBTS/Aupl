@@ -21,7 +21,7 @@
       animation: fadeIn 1.2s ease-in-out;
     }
 
-    /* ---------- ANIMATED BACKGROUND ---------- */
+    /* ---------- BACKGROUND ---------- */
     .bg-animate {
       position: fixed;
       top: 0;
@@ -72,7 +72,7 @@
     .title .main {
       font-size: 2.3rem;
       color: #00bfff;
-      font-weight: 700;
+      font-weight: 600;
       margin: 0;
       text-shadow: 0 0 18px #00bfff;
       opacity: 0;
@@ -82,7 +82,7 @@
     .title .sub {
       font-size: 1.1rem;
       color: #80dfff;
-      font-weight: 500;
+      font-weight: 400;
       margin-top: 6px;
       text-shadow: 0 0 10px #00aaff;
       opacity: 0;
@@ -99,11 +99,11 @@
       background-size: 300% 300%;
       color: #000;
       border: none;
-      padding: 6px 16px; /* reduced padding (smaller button) */
+      padding: 6px 14px;
       border-radius: 16px;
       margin-top: 25px;
-      font-weight: 700;
-      font-size: 0.9rem; /* same font size */
+      font-weight: 500;
+      font-size: 0.75rem;
       text-align: center;
       cursor: pointer;
       transition: 0.3s;
@@ -112,8 +112,8 @@
       z-index: 1;
       position: relative;
       overflow: hidden;
-      line-height: 1.8;
-      width: 25%; /* smaller width */
+      line-height: 1.6;
+      width: 25%;
       min-width: 160px;
     }
 
@@ -124,14 +124,14 @@
     }
 
     button span:nth-child(1) {
-      font-size: 1rem;
-      font-weight: 800;
+      font-size: 0.85rem;
+      font-weight: 500;
       animation-delay: 0.3s;
       transform: translateX(-20px);
     }
 
     button span:nth-child(2) {
-      font-size: 0.85rem;
+      font-size: 0.7rem;
       animation-delay: 0.6s;
       transform: translateX(20px);
     }
@@ -159,16 +159,14 @@
       pointer-events: none;
     }
 
-    @keyframes rippleEffect {
-      to { transform: scale(4); opacity: 0; }
-    }
+    @keyframes rippleEffect { to { transform: scale(4); opacity: 0; } }
 
     /* ---------- SUCCESS MESSAGE ---------- */
     #copied {
       display: none;
       margin-top: 15px;
       color: #00ff7f;
-      font-weight: 600;
+      font-weight: 500;
       z-index: 1;
     }
 
@@ -197,7 +195,7 @@
       box-shadow: 0 0 6px #00bfff, 0 0 10px #0090cc, inset 0 0 8px rgba(0,255,255,0.3);
       text-shadow: 0 0 4px #00bfff, 0 0 6px #0090cc, 0 0 10px #0077b6;
       animation: glowCycle 6s ease-in-out infinite;
-      font-weight: bold;
+      font-weight: 600;
       backdrop-filter: blur(4px);
     }
 
@@ -209,7 +207,7 @@
     @media (max-width: 600px) {
       .title .main { font-size: 1.8rem; }
       .title .sub { font-size: 1rem; }
-      button { width: 60%; padding: 8px 0; font-size: 0.9rem; }
+      button { width: 60%; padding: 6px 0; font-size: 0.75rem; }
     }
   </style>
 </head>
