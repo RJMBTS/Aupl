@@ -98,8 +98,8 @@
       background-size: 300% 300%;
       color: #000;
       border: none;
-      padding: 12px 28px;
-      border-radius: 24px;
+      padding: 14px 30px;
+      border-radius: 26px;
       margin-top: 30px;
       font-weight: 700;
       font-size: 0.95rem;
@@ -111,6 +111,7 @@
       z-index: 1;
       position: relative;
       overflow: hidden;
+      line-height: 1.9;
     }
 
     button span {
@@ -119,8 +120,19 @@
       animation: fadeInLine 1s ease forwards;
     }
 
-    button span:nth-child(1) { animation-delay: 0.3s; transform: translateX(-20px); }
-    button span:nth-child(2) { animation-delay: 0.6s; transform: translateX(20px); }
+    /* Bigger and bolder top line */
+    button span:nth-child(1) {
+      font-size: 1.1rem;
+      font-weight: 800;
+      animation-delay: 0.3s;
+      transform: translateX(-20px);
+    }
+
+    button span:nth-child(2) {
+      font-size: 0.95rem;
+      animation-delay: 0.6s;
+      transform: translateX(20px);
+    }
 
     button:hover {
       transform: scale(1.07);
@@ -195,7 +207,9 @@
     @media (max-width: 600px) {
       .title .main { font-size: 1.8rem; }
       .title .sub { font-size: 1rem; }
-      button { width: 80%; max-width: 280px; padding: 12px 0; }
+      button { width: 80%; max-width: 280px; padding: 12px 0; line-height: 1.9; }
+      button span:nth-child(1) { font-size: 1rem; }
+      button span:nth-child(2) { font-size: 0.9rem; }
     }
   </style>
 </head>
@@ -225,7 +239,6 @@
     const msg = document.getElementById('copied');
 
     copyButton.onclick = async (e) => {
-      // Cinematic ripple effect
       const ripple = document.createElement("span");
       ripple.classList.add("ripple");
       const rect = copyButton.getBoundingClientRect();
@@ -234,12 +247,10 @@
       copyButton.appendChild(ripple);
       setTimeout(() => ripple.remove(), 600);
 
-      // Simulate cinematic glow delay
       copyButton.style.transform = "scale(0.95)";
       await new Promise(r => setTimeout(r, 300));
       copyButton.style.transform = "scale(1)";
 
-      // Copy link and show message
       const link = 'https://nrtv-one.vercel.app/onetv.m3u';
       await navigator.clipboard.writeText(link);
       msg.style.display = 'block';
