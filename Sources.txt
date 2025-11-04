@@ -1,3 +1,0 @@
-https://raw.githubusercontent.com/RJMBTS/Tlcp/refs/heads/main/scpl.m3u
-https://raw.githubusercontent.com/alex8875/m3u/refs/heads/main/jstar.m3u
-https://raw.githubusercontent.com/alex8875/m3u/refs/heads/main/z5.m3u
