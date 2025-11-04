@@ -23,9 +23,15 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Combine M3U files into Master.m3u
+      - name: Combine M3U files into Master.m3u (parallel mode)
+        env:
+          M3U_SOURCES: ${{ secrets.M3U_SOURCES }}
         run: |
           timestamp=$(TZ="Asia/Kolkata" date +"%Y-%m-%d %H:%M:%S %Z")
+          tmpdir=$(mktemp -d)
+
+          echo "🔹 Starting M3U combination at $timestamp"
+          echo "$M3U_SOURCES" | grep -v '^$' > "$tmpdir/sources.txt"
 
           {
             echo "#EXTM3U"
@@ -33,15 +39,33 @@ jobs:
             echo "# Last updated: $timestamp"
           } > Master.m3u
 
+          echo "🌐 Fetching sources in parallel..."
+
+          i=0
           while read -r url; do
             [[ -z "$url" ]] && continue
+            i=$((i+1))
+            {
+              if curl -fs "$url" | grep -v -E '^#EXTM3U|# Pushed and updated by|# Join Telegram' > "$tmpdir/part_$i.m3u"; then
+                echo "✅ Added: $url"
+              else
+                echo "⚠️ Failed: $url"
+                echo "# ⚠️ Failed to fetch: $url" > "$tmpdir/part_$i.m3u"
+              fi
+            } &
+          done < "$tmpdir/sources.txt"
+
+          # Wait for all background jobs
+          wait
+          echo "✅ All sources fetched. Combining files..."
+
+          # Combine all partial M3Us in order
+          for part in $(ls -v "$tmpdir"/part_*.m3u 2>/dev/null); do
             echo "" >> Master.m3u
-            if curl -fs "$url" | grep -v -E '^#EXTM3U|# Pushed and updated by|# Join Telegram' >> Master.m3u; then
-              echo "✅ Added: $url"
-            else
-              echo "⚠️ Failed: $url"
-            fi
-          done < Sources.txt
+            cat "$part" >> Master.m3u
+          done
+
+          echo "✅ Master.m3u built successfully."
 
       - name: Generate onetv.m3u (for Vercel)
         run: |
