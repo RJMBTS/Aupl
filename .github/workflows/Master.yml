@@ -36,7 +36,7 @@ jobs:
           {
             echo "#EXTM3U"
             echo "# Pushed and Updated by Kittujk"
-            echo "# Monitored & Maintained by @RJMBTS"
+            echo "# Coded & Maintained @RJMBTS"
             echo "# Last updated: $timestamp"
             
           } > Master.m3u
