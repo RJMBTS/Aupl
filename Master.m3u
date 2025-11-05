@@ -1,8 +1,8 @@
 #EXTM3U
 # Pushed and Updated by Kittujk
 # Coded & Maintained @RJMBTS
-#EXTM3U billed-msg="One TV - NRTv Network"
-# Last updated: 2025-11-05 12:49:19 IST
+# Last updated: 2025-11-05 12:53:22 IST
+#EXTM3U billed-msg="RJM Tv - RJMBTS Network"
 
 
 #EXTINF:-1 channel-id="IN4900003U3-in" tvg-id="IN4900003U3" tvg-chno="1003" tvg-name="ETV Comedy" tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/IN4900003U3_20250811T033449SQUARE.png" group-title="ETv",ETV Comedy
