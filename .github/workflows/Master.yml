@@ -37,9 +37,8 @@ jobs:
             echo "#EXTM3U"
             echo "# Pushed and Updated by Kittujk"
             echo "# Coded & Maintained @RJMBTS"
-            echo '#EXTM3U billed-msg="One TV - NRTv Network"'
             echo "# Last updated: $timestamp"
-            
+            echo '#EXTM3U billed-msg="One TV - NRTv Network"'
           } > Master.m3u
 
           echo "🌐 Fetching sources in parallel..."
