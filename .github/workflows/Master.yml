@@ -34,11 +34,10 @@ jobs:
           echo "$M3U_SOURCES" | grep -v '^$' > "$tmpdir/sources.txt"
 
           {
-            echo "#EXTM3U"
+            echo '#EXTM3U billed-msg="RJM Tv - RJMBTS Network"'
             echo "# Pushed and Updated by Kittujk"
             echo "# Coded & Maintained @RJMBTS"
             echo "# Last updated: $timestamp"
-            echo '#EXTM3U billed-msg="RJM Tv - RJMBTS Network"'
           } > Master.m3u
 
           echo "🌐 Fetching sources in parallel..."
