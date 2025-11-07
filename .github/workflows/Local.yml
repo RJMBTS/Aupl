@@ -6,7 +6,7 @@ on:
 
 concurrency:
   group: souloc-m3u
-  cancel-in-progress: false   # ✅ Queue new runs instead of canceling
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -17,6 +17,15 @@ jobs:
         uses: actions/checkout@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Ensure base.txt exists
+        run: |
+          if [ ! -f "base.txt" ]; then
+            echo "❌ ERROR: base.txt not found in repo root!"
+            exit 1
+          fi
+          echo "✅ Found base.txt:"
+          cat base.txt
 
       - name: Normalize base.txt
         run: dos2unix base.txt || true
@@ -34,55 +43,54 @@ jobs:
         id: combine
         shell: bash
         run: |
-          # Set timezone and filenames
+          set -e
           TIME_IST=$(TZ="Asia/Kolkata" date +"%Y-%m-%d %H:%M:%S IST")
           TMP_FILE="souloc_temp.m3u"
           FINAL_FILE="souloc.m3u"
           > "$TMP_FILE"
 
-          echo "🔗 Merging playlists from $(wc -l < base.txt) sources..."
+          echo "🔗 Reading URLs from base.txt..."
           cat base.txt
 
-          # Fetch and merge all URLs from base.txt
+          COUNT=0
           while IFS= read -r url; do
-            url="${url%%#*}"       # Remove inline comments
-            url="$(echo -n "$url" | tr -d '\r')"  # Clean CRLF endings
+            url="${url%%#*}" # remove inline comments
+            url="$(echo -n "$url" | tr -d '\r')"
             if [ -n "$url" ]; then
               echo "Fetching: $url"
-              curl -sL --max-time 30 --retry 3 --retry-delay 5 "$url" >> "$TMP_FILE"
+              curl -sL --max-time 30 --retry 3 --retry-delay 5 "$url" >> "$TMP_FILE" || echo "⚠️ Failed: $url"
               echo "" >> "$TMP_FILE"
+              COUNT=$((COUNT+1))
             fi
           done < base.txt
 
-          # ✅ Count total channels
-          TOTAL_CHANNELS=$(grep -c '^#EXTINF' "$TMP_FILE" || true)
-          UPDATED_CHANNELS=$TOTAL_CHANNELS
+          echo "✅ Total source URLs processed: $COUNT"
 
-          # ✅ Create final playlist header
+          TOTAL_CHANNELS=$(grep -c '^#EXTINF' "$TMP_FILE" || true)
+          echo "✅ Channels found: $TOTAL_CHANNELS"
+
           {
             echo '# Pushed & Updated by Kittujk'
             echo '# Coded & Scripted for RJM Tv'
             echo "# Last updated: $TIME_IST"
-            echo "# Channels : Total - $TOTAL_CHANNELS | Updated - $UPDATED_CHANNELS"
+            echo "# Channels : Total - $TOTAL_CHANNELS"
             echo ""
             echo '#EXTM3U billed-msg="RJM Tv - RJMBTS Network"'
             echo ""
           } > "$FINAL_FILE"
 
-          # ✅ Append playlist content and footer
           cat "$TMP_FILE" >> "$FINAL_FILE"
           echo "# ---- Created Exclusively for RJM Souloc Playlist ----" >> "$FINAL_FILE"
-          echo "" >> "$FINAL_FILE"
 
-          echo "✅ Total Channels Found: $TOTAL_CHANNELS"
-          echo "✅ Playlist Updated at: $TIME_IST"
-
-          # ✅ Export values for commit
           echo "count=$TOTAL_CHANNELS" >> $GITHUB_OUTPUT
           echo "time=$TIME_IST" >> $GITHUB_OUTPUT
 
-      - name: Show output size
-        run: ls -lh souloc.m3u || true
+      - name: Verify output
+        run: |
+          echo "🧾 Generated files:"
+          ls -lh *.m3u || true
+          echo "📄 Preview:"
+          head -n 20 souloc.m3u || true
 
       - name: Commit and push changes
         shell: bash
@@ -95,9 +103,10 @@ jobs:
 
           git pull --rebase origin main || true
           git add souloc.m3u souloc_backup.m3u || true
+
           if ! git diff --quiet --cached; then
             git commit -m "Auto-update Souloc Master Playlist [${{ steps.combine.outputs.time }}] | Channels: ${{ steps.combine.outputs.count }}"
             git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
           else
-            echo "No changes to souloc.m3u"
+            echo "No new changes to commit."
           fi
