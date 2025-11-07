@@ -1,4 +1,4 @@
-name: Souloc Master
+name: Souloc
 
 on:
   schedule:
@@ -27,11 +27,16 @@ jobs:
           tmpdir=$(mktemp -d)
 
           echo "🔹 Starting Souloc M3U build at $timestamp"
-          echo "#EXTM3U" > souloc.m3u
-          echo "# Pushed & Updted by Kittujk" >> souloc.m3u
-          echo "# Maintained by @RJMBTS" >> souloc.m3u
-          echo "# Last updated: $timestamp" >> souloc.m3u
-          echo "" >> souloc.m3u
+
+          # ===== HEADER =====
+          {
+            echo '#EXTM3U billed-msg="RJM Tv - RJMBTS Network"'
+            echo "# Pushed and Updated by Kittujk"
+            echo "# Coded & Maintained @RJMBTS"
+            echo "# Last updated: $timestamp"
+            echo ""
+          } > souloc.m3u
+          # ===================
 
           if [ ! -f base.txt ]; then
             echo "❌ base.txt not found — exiting."
@@ -46,9 +51,10 @@ jobs:
             exit 0
           fi
 
-          # Download all sources in parallel
+          echo "🌐 Fetching M3U sources in parallel..."
           i=0
           while read -r url; do
+            [[ -z "$url" ]] && continue
             i=$((i+1))
             {
               echo "🔹 Fetching: $url"
@@ -71,7 +77,9 @@ jobs:
             /^#EXTINF/ {
               info=$0
               getline url
-              # Skip if either EXTINF or URL already seen
+              # Skip empty URLs
+              if (url == "") next
+              # Remove if either info or url was already seen
               if (!(info in seen_info) && !(url in seen_url)) {
                 seen_info[info]=1
                 seen_url[url]=1
@@ -81,8 +89,8 @@ jobs:
             }
           ' "$tmpdir/all.m3u" >> souloc.m3u
 
-          total=$(grep -c '^#EXTINF' "$tmpdir/all.m3u")
-          unique=$(grep -c '^#EXTINF' souloc.m3u)
+          total=$(grep -c '^#EXTINF' "$tmpdir/all.m3u" || true)
+          unique=$(grep -c '^#EXTINF' souloc.m3u || true)
 
           echo "✅ souloc.m3u built successfully."
           echo "📊 Total channels fetched: $total"
