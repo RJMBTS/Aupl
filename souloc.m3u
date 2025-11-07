@@ -1,7 +1,7 @@
-#EXTM3U
-# Souloc.m3u — Auto-built by GitHub Actions
-# Maintained by @RJMBTS
-# Last updated: 2025-11-08 01:38:23 IST
+#EXTM3U billed-msg="RJM Tv - RJMBTS Network"
+# Pushed and Updated by Kittujk
+# Coded & Maintained @RJMBTS
+# Last updated: 2025-11-08 01:45:35 IST
 
 #EXTINF:-1 tvg-name="Raj Tv" group-title="Tamil" tvg-logo="https://i.ibb.co/5HQgfr4/1000148546.png",Raj Tv
 https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/2839e3d1e0f84a2e821c1708d5fdfdf0/index.m3u8
