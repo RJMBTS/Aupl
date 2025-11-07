@@ -28,7 +28,7 @@ jobs:
 
           echo "🔹 Starting Souloc M3U build at $timestamp"
           echo "#EXTM3U" > souloc.m3u
-          echo "# Souloc.m3u — Auto-built by GitHub Actions" >> souloc.m3u
+          echo "# Pushed & Updted by Kittujk" >> souloc.m3u
           echo "# Maintained by @RJMBTS" >> souloc.m3u
           echo "# Last updated: $timestamp" >> souloc.m3u
           echo "" >> souloc.m3u
