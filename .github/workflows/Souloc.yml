@@ -30,11 +30,11 @@ jobs:
 
           # ===== HEADER =====
           {
-            echo '#EXTM3U billed-msg="RJM Tv - RJMBTS Network"'
             echo "# Pushed and Updated by Kittujk"
             echo "# Coded & Maintained @RJMBTS"
             echo "# Last updated: $timestamp"
             echo ""
+            echo '#EXTM3U billed-msg="RJM Tv - RJMBTS Network"'
           } > souloc.m3u
           # ===================
 
@@ -101,7 +101,7 @@ jobs:
           echo "- Unique channels after cleanup: $unique" >> $GITHUB_STEP_SUMMARY
           echo "- Last updated: $(date)" >> $GITHUB_STEP_SUMMARY
 
-      - name: Commit and push souloc.m3u
+      - name: Commit and push souloc.m3u (safe auto-merge)
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
@@ -109,8 +109,23 @@ jobs:
 
           if ! git diff --cached --quiet; then
             git commit -m "Auto-update souloc.m3u"
-            git pull --rebase origin main || true
-            git push origin main
+
+            echo "📥 Pulling latest changes (with auto-merge)..."
+            git fetch origin main
+            git reset --soft HEAD~1  # keep commit staged if rebase fails
+            git stash push --include-untracked
+            git pull origin main --strategy-option ours || true
+            git stash pop || true
+
+            echo "🚀 Pushing updated version..."
+            n=0
+            until [ "$n" -ge 3 ]
+            do
+              git push origin main && break
+              n=$((n+1))
+              echo "⚠️ Push failed, retrying in 10s... ($n/3)"
+              sleep 10
+            done
           else
             echo "No new changes — skipping commit."
           fi
