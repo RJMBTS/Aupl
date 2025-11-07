@@ -18,8 +18,8 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Normalize Base.txt
-        run: dos2unix Base.txt || true
+      - name: Normalize base.txt
+        run: dos2unix base.txt || true
 
       - name: Backup existing playlist
         run: |
@@ -41,7 +41,7 @@ jobs:
           > "$TMP_FILE"
 
           echo "🔗 Merging playlists from $(wc -l < Base.txt) sources..."
-          cat Base.txt
+          cat base.txt
 
           # Fetch and merge all URLs from Base.txt
           while IFS= read -r url; do
@@ -52,7 +52,7 @@ jobs:
               curl -sL --max-time 30 --retry 3 --retry-delay 5 "$url" >> "$TMP_FILE"
               echo "" >> "$TMP_FILE"
             fi
-          done < Base.txt
+          done < base.txt
 
           # ✅ Count total channels
           TOTAL_CHANNELS=$(grep -c '^#EXTINF' "$TMP_FILE" || true)
