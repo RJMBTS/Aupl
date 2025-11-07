@@ -35,7 +35,6 @@ jobs:
             echo "# Last updated: $timestamp"
             echo ""
             echo '#EXTM3U billed-msg="RJM Tv - RJMBTS Network"'
-            echo ""
           } > souloc.m3u
           # ===================
 
@@ -78,9 +77,7 @@ jobs:
             /^#EXTINF/ {
               info=$0
               getline url
-              # Skip empty URLs
               if (url == "") next
-              # Remove if either info or url was already seen
               if (!(info in seen_info) && !(url in seen_url)) {
                 seen_info[info]=1
                 seen_url[url]=1
@@ -93,27 +90,47 @@ jobs:
           total=$(grep -c '^#EXTINF' "$tmpdir/all.m3u" || true)
           unique=$(grep -c '^#EXTINF' souloc.m3u || true)
 
+          # ===== Compare for new and updated channels =====
+          current_list="$tmpdir/current_channels.txt"
+          grep '^#EXTINF' souloc.m3u > "$current_list"
+
+          if [ -f .souloc_previous.txt ]; then
+            old_count=$(grep -c '^#EXTINF' .souloc_previous.txt || true)
+            new_added=$(grep -Fvx -f .souloc_previous.txt "$current_list" | grep -c '^#EXTINF' || true)
+            updated_count=$((unique - new_added))
+          else
+            old_count=0
+            new_added=$unique
+            updated_count=0
+          fi
+
+          cp "$current_list" .souloc_previous.txt
+
           echo "✅ souloc.m3u built successfully."
           echo "📊 Total channels fetched: $total"
           echo "📊 Unique channels after cleanup: $unique"
+          echo "🆕 Newly added channels: $new_added"
+          echo "♻️ Updated (existing) channels: $updated_count"
 
           echo "### Souloc.m3u Summary" >> $GITHUB_STEP_SUMMARY
           echo "- Total channels fetched: $total" >> $GITHUB_STEP_SUMMARY
           echo "- Unique channels after cleanup: $unique" >> $GITHUB_STEP_SUMMARY
+          echo "- Newly added channels: $new_added" >> $GITHUB_STEP_SUMMARY
+          echo "- Updated (existing) channels: $updated_count" >> $GITHUB_STEP_SUMMARY
           echo "- Last updated: $(date)" >> $GITHUB_STEP_SUMMARY
 
       - name: Commit and push souloc.m3u (safe auto-merge)
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          git add souloc.m3u
+          git add souloc.m3u .souloc_previous.txt
 
           if ! git diff --cached --quiet; then
             git commit -m "Auto-update souloc.m3u"
 
             echo "📥 Pulling latest changes (with auto-merge)..."
             git fetch origin main
-            git reset --soft HEAD~1  # keep commit staged if rebase fails
+            git reset --soft HEAD~1
             git stash push --include-untracked
             git pull origin main --strategy-option ours || true
             git stash pop || true
