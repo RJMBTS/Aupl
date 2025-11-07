@@ -1,12 +1,12 @@
 name: Souloc Master
 on:
   schedule:
-    - cron: "30 18 * * *"   # Runs every day at midnight IST (18:30 UTC)
+    - cron: "30 18 * * *"   # ⏰ Runs every day at midnight IST (18:30 UTC)
   workflow_dispatch:
 
 concurrency:
   group: souloc-m3u
-  cancel-in-progress: false
+  cancel-in-progress: false   # ✅ Queue new runs instead of canceling
 
 jobs:
   build:
@@ -18,17 +18,9 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Ensure base.txt exists
-        run: |
-          if [ ! -f "base.txt" ]; then
-            echo "❌ ERROR: base.txt not found in repo root!"
-            exit 1
-          fi
-          echo "✅ Found base.txt:"
-          cat base.txt
-
-      - name: Normalize base.txt
-        run: dos2unix base.txt || true
+      # ✅ Fix: Remove Windows CRLF line endings safely (no need for dos2unix)
+      - name: Normalize base.txt (convert CRLF → LF)
+        run: sed -i 's/\r$//' base.txt || true
 
       - name: Backup existing playlist
         run: |
@@ -49,13 +41,13 @@ jobs:
           FINAL_FILE="souloc.m3u"
           > "$TMP_FILE"
 
-          echo "🔗 Reading URLs from base.txt..."
+          echo "🔗 Merging playlists from $(wc -l < base.txt) sources..."
           cat base.txt
 
           COUNT=0
           while IFS= read -r url; do
-            url="${url%%#*}" # remove inline comments
-            url="$(echo -n "$url" | tr -d '\r')"
+            url="${url%%#*}"       # Remove inline comments
+            url="$(echo -n "$url" | tr -d '\r')"  # Normalize
             if [ -n "$url" ]; then
               echo "Fetching: $url"
               curl -sL --max-time 30 --retry 3 --retry-delay 5 "$url" >> "$TMP_FILE" || echo "⚠️ Failed: $url"
@@ -69,6 +61,7 @@ jobs:
           TOTAL_CHANNELS=$(grep -c '^#EXTINF' "$TMP_FILE" || true)
           echo "✅ Channels found: $TOTAL_CHANNELS"
 
+          # ✅ Build final M3U
           {
             echo '# Pushed & Updated by Kittujk'
             echo '# Coded & Scripted for RJM Tv'
@@ -82,6 +75,7 @@ jobs:
           cat "$TMP_FILE" >> "$FINAL_FILE"
           echo "# ---- Created Exclusively for RJM Souloc Playlist ----" >> "$FINAL_FILE"
 
+          # ✅ Save outputs
           echo "count=$TOTAL_CHANNELS" >> $GITHUB_OUTPUT
           echo "time=$TIME_IST" >> $GITHUB_OUTPUT
 
@@ -90,7 +84,7 @@ jobs:
           echo "🧾 Generated files:"
           ls -lh *.m3u || true
           echo "📄 Preview:"
-          head -n 20 souloc.m3u || true
+          head -n 15 souloc.m3u || true
 
       - name: Commit and push changes
         shell: bash
@@ -103,10 +97,9 @@ jobs:
 
           git pull --rebase origin main || true
           git add souloc.m3u souloc_backup.m3u || true
-
           if ! git diff --quiet --cached; then
             git commit -m "Auto-update Souloc Master Playlist [${{ steps.combine.outputs.time }}] | Channels: ${{ steps.combine.outputs.count }}"
             git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
           else
-            echo "No new changes to commit."
+            echo "No changes to souloc.m3u"
           fi
