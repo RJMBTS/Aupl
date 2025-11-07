@@ -35,6 +35,7 @@ jobs:
             echo "# Last updated: $timestamp"
             echo ""
             echo '#EXTM3U billed-msg="RJM Tv - RJMBTS Network"'
+            echo ""
           } > souloc.m3u
           # ===================
 
