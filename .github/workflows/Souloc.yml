@@ -1,7 +1,7 @@
 name: Souloc Master
 on:
   schedule:
-    - cron: "30 18 * * *"   # ⏰ Runs daily at midnight IST (18:30 UTC)
+    - cron: "30 18 * * *"   # ⏰ Runs every day at midnight IST (18:30 UTC)
   workflow_dispatch:
 
 concurrency:
@@ -18,11 +18,11 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      # ✅ Normalize Windows line endings
+      # ✅ Normalize Windows line endings safely
       - name: Normalize base.txt (convert CRLF → LF)
         run: sed -i 's/\r$//' base.txt || true
 
-      # ✅ Backup previous playlist
+      # ✅ Backup existing playlist
       - name: Backup existing playlist
         run: |
           if [ -f "souloc.m3u" ]; then
@@ -32,7 +32,7 @@ jobs:
             echo "ℹ️ No previous souloc.m3u found, skipping backup."
           fi
 
-      # ✅ Merge and build playlist
+      # ✅ Merge, deduplicate, and build playlist
       - name: Combine M3U files
         id: combine
         shell: bash
@@ -69,7 +69,7 @@ jobs:
             exit 1
           fi
 
-          # ✅ Remove duplicate channels (by Name + URL)
+          # ✅ Deduplicate by name + URL
           echo "🔄 Removing duplicate channels (by name and URL)..."
           awk -v RS="" '
             {
@@ -108,13 +108,19 @@ jobs:
           cat "$TMP_FILE" >> "$FINAL_FILE"
           echo "# ---- Created Exclusively for RJM Souloc Playlist ----" >> "$FINAL_FILE"
 
-          # ✅ Compute updated channels vs backup
+          # ✅ Compute updated channels (accurate method)
           UPDATED_CHANNELS=0
           if [ -f "souloc_backup.m3u" ]; then
-            UPDATED_CHANNELS=$(diff --changed-group-format='%>' --unchanged-group-format='' souloc_backup.m3u "$FINAL_FILE" | grep -c '^#EXTINF' || true)
+            echo "🔍 Calculating updated channels..."
+            grep '^#EXTINF' "$FINAL_FILE" | sort > new_channels.txt
+            grep '^#EXTINF' souloc_backup.m3u | sort > old_channels.txt
+            UPDATED_CHANNELS=$(comm -23 new_channels.txt old_channels.txt | wc -l || true)
+          else
+            echo "ℹ️ No backup found, treating all channels as new."
+            UPDATED_CHANNELS=$DEDUPED_COUNT
           fi
 
-          echo "✅ Updated Channels: $UPDATED_CHANNELS"
+          echo "✅ Updated Channels detected: $UPDATED_CHANNELS"
 
           # ✅ Add updated count to header
           {
@@ -122,20 +128,20 @@ jobs:
             echo ""
           } | cat - "$FINAL_FILE" > temp && mv temp "$FINAL_FILE"
 
-          # ✅ Export outputs for commit message
+          # ✅ Export values for commit step
           echo "count=$DEDUPED_COUNT" >> $GITHUB_OUTPUT
           echo "updated=$UPDATED_CHANNELS" >> $GITHUB_OUTPUT
           echo "time=$TIME_IST" >> $GITHUB_OUTPUT
 
-      # ✅ Verify final output
+      # ✅ Verify output
       - name: Verify output
         run: |
           echo "🧾 Generated files:"
           ls -lh *.m3u || true
-          echo "📄 Playlist preview:"
+          echo "📄 Preview of souloc.m3u:"
           head -n 25 souloc.m3u || true
 
-      # ✅ Commit and push changes
+      # ✅ Commit & push changes
       - name: Commit and push changes
         shell: bash
         env:
