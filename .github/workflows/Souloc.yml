@@ -1,0 +1,108 @@
+name: Souloc Master
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"   # ⏰ Runs every 30 minutes
+  workflow_dispatch:          # Manual trigger option
+
+concurrency:
+  group: souloc-m3u
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build souloc.m3u from base.txt
+        run: |
+          timestamp=$(TZ="Asia/Kolkata" date +"%Y-%m-%d %H:%M:%S %Z")
+          tmpdir=$(mktemp -d)
+
+          echo "🔹 Starting Souloc M3U build at $timestamp"
+          echo "#EXTM3U" > souloc.m3u
+          echo "# Souloc.m3u — Auto-built by GitHub Actions" >> souloc.m3u
+          echo "# Maintained by @RJMBTS" >> souloc.m3u
+          echo "# Last updated: $timestamp" >> souloc.m3u
+          echo "" >> souloc.m3u
+
+          if [ ! -f base.txt ]; then
+            echo "❌ base.txt not found — exiting."
+            exit 1
+          fi
+
+          echo "🌐 Reading sources from base.txt..."
+          grep -v '^#' base.txt | grep -v '^$' > "$tmpdir/sources.txt"
+
+          if [ ! -s "$tmpdir/sources.txt" ]; then
+            echo "❌ No valid URLs in base.txt — exiting."
+            exit 0
+          fi
+
+          # Download all sources in parallel
+          i=0
+          while read -r url; do
+            i=$((i+1))
+            {
+              echo "🔹 Fetching: $url"
+              if curl -fs --max-time 20 "$url" | grep -v -E '^#EXTM3U' > "$tmpdir/part_$i.m3u"; then
+                echo "✅ Success: $url"
+              else
+                echo "⚠️ Failed: $url"
+                echo "" > "$tmpdir/part_$i.m3u"
+              fi
+            } &
+          done < "$tmpdir/sources.txt"
+
+          wait
+          echo "✅ All sources fetched. Combining..."
+
+          cat "$tmpdir"/part_*.m3u >> "$tmpdir/all.m3u"
+
+          echo "🧹 Removing duplicates (based on #EXTINF OR URL)..."
+          awk '
+            /^#EXTINF/ {
+              info=$0
+              getline url
+              # Skip if either EXTINF or URL already seen
+              if (!(info in seen_info) && !(url in seen_url)) {
+                seen_info[info]=1
+                seen_url[url]=1
+                print info
+                print url
+              }
+            }
+          ' "$tmpdir/all.m3u" >> souloc.m3u
+
+          total=$(grep -c '^#EXTINF' "$tmpdir/all.m3u")
+          unique=$(grep -c '^#EXTINF' souloc.m3u)
+
+          echo "✅ souloc.m3u built successfully."
+          echo "📊 Total channels fetched: $total"
+          echo "📊 Unique channels after cleanup: $unique"
+
+          echo "### Souloc.m3u Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- Total channels fetched: $total" >> $GITHUB_STEP_SUMMARY
+          echo "- Unique channels after cleanup: $unique" >> $GITHUB_STEP_SUMMARY
+          echo "- Last updated: $(date)" >> $GITHUB_STEP_SUMMARY
+
+      - name: Commit and push souloc.m3u
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add souloc.m3u
+
+          if ! git diff --cached --quiet; then
+            git commit -m "Auto-update souloc.m3u"
+            git pull --rebase origin main || true
+            git push origin main
+          else
+            echo "No new changes — skipping commit."
+          fi
