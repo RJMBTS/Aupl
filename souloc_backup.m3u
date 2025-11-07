@@ -1,7 +1,9 @@
+# Updated Channels - 0
+
 # Pushed & Updated by Kittujk
 # Coded & Scripted for RJM Tv
-# Last updated: 2025-11-08 00:45:56 IST
-# Channels : Total - 890
+# Last updated: 2025-11-08 00:58:36 IST
+# Channels : Total - 889
 
 #EXTM3U billed-msg="RJM Tv - RJMBTS Network"
 
@@ -1791,10 +1793,5 @@ https://get.perfecttv.net/dash2.mpd?username=vip_3klp0es8&password=wg3piwEs&chan
 https://jmp2.uk/stvp-GB900003KR
 #EXTINF:-1 channel-id="GB4000008O5" tvg-id="GB4000008O5" tvg-chno="4261" tvg-name="Mr Bean Live Action" tvg-logo="https://tvpnlogopeu.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/GB4000008O5_20251013T054359SQUARE.png" group-title="TV Series",Mr Bean Live Action
 https://jmp2.uk/stvp-GB4000008O5
-#EXTINF:-1 tvg-id="test" tvg-name="Test Channel" group-title="Test",Test Channel
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
-#EXTVLCOPT:inputstream.adaptive.license_type=clearkey
-#EXTVLCOPT:inputstream.adaptive.license_key={"keys":[{"kty":"oct","k":"ce8ec4255a0c5a495749ea524e4e98b4","kid":"dab8e28bb3dd8335c1669dc2aa7891fc"}],"type":"temporary"}
-https://ottb.live.cf.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/vzhzbcmueh/out/v1/3a0e804d0514932acc2bb6758c61ed5/cenc.mpd
 
 # ---- Created Exclusively for RJM Souloc Playlist ----
