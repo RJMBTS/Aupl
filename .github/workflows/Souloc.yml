@@ -88,7 +88,6 @@ jobs:
           echo "✅ Channels after deduplication: $DEDUPED_COUNT"
           mv souloc_deduped.m3u "$TMP_FILE"
 
-          # Since no backup file, treat all as new when first run
           UPDATED_CHANNELS=0
           NEW_CHANNELS=$DEDUPED_COUNT
           REMOVED_CHANNELS=0
