@@ -147,6 +147,16 @@ jobs:
           echo "removed=$REMOVED_CHANNELS" >> $GITHUB_OUTPUT
           echo "time=$TIME_IST" >> $GITHUB_OUTPUT
 
+
+      # 🟩 ✅ NEW STEP: Log results to souloc_stats.txt (history)
+      - name: Log playlist statistics
+        if: ${{ always() }}
+        run: |
+          echo "[${{ steps.combine.outputs.time }}] Total: ${{ steps.combine.outputs.count }} | Updated: ${{ steps.combine.outputs.updated }} | New: ${{ steps.combine.outputs.new }} | Removed: ${{ steps.combine.outputs.removed }}" >> souloc_stats.txt
+          git add -f souloc_stats.txt || true
+          echo "🧾 Logged playlist statistics to souloc_stats.txt"
+
+
       # ✅ Verify output
       - name: Verify output
         run: |
@@ -168,6 +178,7 @@ jobs:
 
           git pull --rebase origin main || true
           git add -f souloc.m3u || true
+          git add -f souloc_stats.txt || true
 
           echo "🧾 Files ready for commit:"
           git status --short
@@ -175,9 +186,9 @@ jobs:
           if ! git diff --quiet --cached; then
             git commit -m "Auto-update Souloc Master Playlist [${{ steps.combine.outputs.time }}] | Total: ${{ steps.combine.outputs.count }} | Updated: ${{ steps.combine.outputs.updated }} | Newly Added: ${{ steps.combine.outputs.new }} | Removed: ${{ steps.combine.outputs.removed }}"
             git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
-            echo "✅ Playlist updated and pushed successfully."
+            echo "✅ Playlist and stats log updated successfully."
           else
-            echo "ℹ️ No changes detected — nothing to commit."
+            echo "ℹ️ No new updates detected — nothing to commit."
           fi
 
       # 🟡 Skip if no differences
