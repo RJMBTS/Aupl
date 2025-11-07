@@ -1,7 +1,7 @@
 name: Souloc Master
 on:
   schedule:
-    - cron: "30 18 * * *"   # ⏰ Runs every day at midnight IST (18:30 UTC)
+    - cron: "30 18 * * *"   # ⏰ Runs daily at midnight IST (18:30 UTC)
   workflow_dispatch:
 
 concurrency:
@@ -18,7 +18,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      # ✅ Normalize line endings
+      # ✅ Normalize Windows line endings
       - name: Normalize base.txt (convert CRLF → LF)
         run: sed -i 's/\r$//' base.txt || true
 
@@ -32,7 +32,7 @@ jobs:
             echo "ℹ️ No previous souloc.m3u found, skipping backup."
           fi
 
-      # ✅ Combine M3U sources
+      # ✅ Merge and build playlist
       - name: Combine M3U files
         id: combine
         shell: bash
@@ -63,36 +63,38 @@ jobs:
           TOTAL_CHANNELS=$(grep -c '^#EXTINF' "$TMP_FILE" || true)
           echo "✅ Channels found before deduplication: $TOTAL_CHANNELS"
 
-          # 🚨 Fail if no channels found
+          # 🚨 Fail if no channels
           if [ "$TOTAL_CHANNELS" -eq 0 ]; then
             echo "❌ ERROR: No channels found. Sources may be offline."
             exit 1
           fi
 
-          # ✅ Deduplicate by channel name (keep first occurrence)
-          echo "🔄 Removing duplicate channels..."
-          awk '
-            BEGIN { RS=""; FS="\n" }
+          # ✅ Remove duplicate channels (by Name + URL)
+          echo "🔄 Removing duplicate channels (by name and URL)..."
+          awk -v RS="" '
             {
-              name=""
-              for(i=1;i<=NF;i++){
-                if($i ~ /^#EXTINF/){
+              name=""; url="";
+              for (i = 1; i <= NF; i++) {
+                if ($i ~ /^#EXTINF/) {
                   match($i, /,(.*)$/, arr)
-                  name=arr[1]
+                  name = arr[1]
+                } else if ($i ~ /^http/) {
+                  url = $i
                 }
               }
-              if(!(name in seen)){
-                seen[name]=1
+              key = name "|" url
+              if (!(key in seen)) {
+                seen[key] = 1
                 print $0 "\n"
               }
             }
-          ' RS= '\n\n' "$TMP_FILE" > "souloc_deduped.m3u"
+          ' "$TMP_FILE" > "souloc_deduped.m3u"
 
           DEDUPED_COUNT=$(grep -c '^#EXTINF' souloc_deduped.m3u || true)
           echo "✅ Channels after deduplication: $DEDUPED_COUNT"
           mv souloc_deduped.m3u "$TMP_FILE"
 
-          # ✅ Create final M3U file
+          # ✅ Build final playlist header
           {
             echo '# Pushed & Updated by Kittujk'
             echo '# Coded & Scripted for RJM Tv'
@@ -106,7 +108,7 @@ jobs:
           cat "$TMP_FILE" >> "$FINAL_FILE"
           echo "# ---- Created Exclusively for RJM Souloc Playlist ----" >> "$FINAL_FILE"
 
-          # ✅ Determine updated channels (compare vs backup)
+          # ✅ Compute updated channels vs backup
           UPDATED_CHANNELS=0
           if [ -f "souloc_backup.m3u" ]; then
             UPDATED_CHANNELS=$(diff --changed-group-format='%>' --unchanged-group-format='' souloc_backup.m3u "$FINAL_FILE" | grep -c '^#EXTINF' || true)
@@ -120,20 +122,20 @@ jobs:
             echo ""
           } | cat - "$FINAL_FILE" > temp && mv temp "$FINAL_FILE"
 
-          # ✅ Export for commit step
+          # ✅ Export outputs for commit message
           echo "count=$DEDUPED_COUNT" >> $GITHUB_OUTPUT
           echo "updated=$UPDATED_CHANNELS" >> $GITHUB_OUTPUT
           echo "time=$TIME_IST" >> $GITHUB_OUTPUT
 
-      # ✅ Verify final file
+      # ✅ Verify final output
       - name: Verify output
         run: |
           echo "🧾 Generated files:"
           ls -lh *.m3u || true
-          echo "📄 Preview of souloc.m3u:"
+          echo "📄 Playlist preview:"
           head -n 25 souloc.m3u || true
 
-      # ✅ Commit and push if changes exist
+      # ✅ Commit and push changes
       - name: Commit and push changes
         shell: bash
         env:
