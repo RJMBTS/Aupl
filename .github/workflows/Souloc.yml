@@ -1,7 +1,7 @@
 name: Souloc Master
 on:
   schedule:
-    - cron: "30 18 * * *"   # ⏰ Runs every day at midnight IST (18:30 UTC)
+    - cron: "30 18 * * *"   # ⏰ Runs daily at midnight IST (18:30 UTC)
   workflow_dispatch:
 
 concurrency:
@@ -18,7 +18,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      # ✅ Normalize Windows line endings safely
+      # ✅ Normalize Windows line endings
       - name: Normalize base.txt (convert CRLF → LF)
         run: sed -i 's/\r$//' base.txt || true
 
@@ -94,21 +94,7 @@ jobs:
           echo "✅ Channels after deduplication: $DEDUPED_COUNT"
           mv souloc_deduped.m3u "$TMP_FILE"
 
-          # ✅ Build final playlist header
-          {
-            echo '# Pushed & Updated by Kittujk'
-            echo '# Coded & Scripted for RJM Tv'
-            echo "# Last updated: $TIME_IST"
-            echo "# Channels : Total - $DEDUPED_COUNT"
-            echo ""
-            echo '#EXTM3U billed-msg="RJM Tv - RJMBTS Network"'
-            echo ""
-          } > "$FINAL_FILE"
-
-          cat "$TMP_FILE" >> "$FINAL_FILE"
-          echo "# ---- Created Exclusively for RJM Souloc Playlist ----" >> "$FINAL_FILE"
-
-          # ✅ Compute updated channels (accurate method)
+          # ✅ Compute updated channels
           UPDATED_CHANNELS=0
           if [ -f "souloc_backup.m3u" ]; then
             echo "🔍 Calculating updated channels..."
@@ -122,13 +108,21 @@ jobs:
 
           echo "✅ Updated Channels detected: $UPDATED_CHANNELS"
 
-          # ✅ Add updated count to header
+          # ✅ Build final playlist with combined header line
           {
-            echo "# Updated Channels - $UPDATED_CHANNELS"
+            echo '# Pushed & Updated by Kittujk'
+            echo '# Coded & Scripted for RJM Tv'
+            echo "# Last updated: $TIME_IST"
+            echo "# Channels : Total - $DEDUPED_COUNT | Updated - $UPDATED_CHANNELS"
             echo ""
-          } | cat - "$FINAL_FILE" > temp && mv temp "$FINAL_FILE"
+            echo '#EXTM3U billed-msg="RJM Tv - RJMBTS Network"'
+            echo ""
+          } > "$FINAL_FILE"
 
-          # ✅ Export values for commit step
+          cat "$TMP_FILE" >> "$FINAL_FILE"
+          echo "# ---- Created Exclusively for RJM Souloc Playlist ----" >> "$FINAL_FILE"
+
+          # ✅ Export outputs for commit step
           echo "count=$DEDUPED_COUNT" >> $GITHUB_OUTPUT
           echo "updated=$UPDATED_CHANNELS" >> $GITHUB_OUTPUT
           echo "time=$TIME_IST" >> $GITHUB_OUTPUT
@@ -162,7 +156,7 @@ jobs:
           git status --short
 
           if ! git diff --quiet --cached; then
-            git commit -m "Auto-update Souloc Master Playlist [${{ steps.combine.outputs.time }}] | Total: ${{ steps.combine.outputs.count }} | Updated: ${{ steps.combine.outputs.updated }}"
+            git commit -m "Auto-update Souloc Master Playlist [${{ steps.combine.outputs.time }}] | Channels: Total ${{ steps.combine.outputs.count }} | Updated ${{ steps.combine.outputs.updated }}"
             git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
             echo "✅ Changes pushed successfully."
           else
