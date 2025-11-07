@@ -18,11 +18,11 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      # ✅ Normalize line endings safely
+      # ✅ Normalize line endings
       - name: Normalize base.txt (convert CRLF → LF)
         run: sed -i 's/\r$//' base.txt || true
 
-      # ✅ Backup existing playlist
+      # ✅ Backup previous playlist
       - name: Backup existing playlist
         run: |
           if [ -f "souloc.m3u" ]; then
@@ -32,7 +32,7 @@ jobs:
             echo "ℹ️ No previous souloc.m3u found, skipping backup."
           fi
 
-      # ✅ Merge all sources
+      # ✅ Combine M3U sources
       - name: Combine M3U files
         id: combine
         shell: bash
@@ -48,8 +48,8 @@ jobs:
 
           COUNT=0
           while IFS= read -r url; do
-            url="${url%%#*}"       # Remove inline comments
-            url="$(echo -n "$url" | tr -d '\r')"  # Normalize
+            url="${url%%#*}"
+            url="$(echo -n "$url" | tr -d '\r')"
             if [ -n "$url" ]; then
               echo "Fetching: $url"
               curl -sL --max-time 30 --retry 3 --retry-delay 5 "$url" >> "$TMP_FILE" || echo "⚠️ Failed: $url"
@@ -61,20 +61,43 @@ jobs:
           echo "✅ Total source URLs processed: $COUNT"
 
           TOTAL_CHANNELS=$(grep -c '^#EXTINF' "$TMP_FILE" || true)
-          echo "✅ Channels found: $TOTAL_CHANNELS"
+          echo "✅ Channels found before deduplication: $TOTAL_CHANNELS"
 
-          # 🚨 Fail workflow if no channels were found
+          # 🚨 Fail if no channels found
           if [ "$TOTAL_CHANNELS" -eq 0 ]; then
-            echo "❌ ERROR: No channels found. Possible source failure or invalid URLs."
+            echo "❌ ERROR: No channels found. Sources may be offline."
             exit 1
           fi
 
-          # ✅ Build final M3U
+          # ✅ Deduplicate by channel name (keep first occurrence)
+          echo "🔄 Removing duplicate channels..."
+          awk '
+            BEGIN { RS=""; FS="\n" }
+            {
+              name=""
+              for(i=1;i<=NF;i++){
+                if($i ~ /^#EXTINF/){
+                  match($i, /,(.*)$/, arr)
+                  name=arr[1]
+                }
+              }
+              if(!(name in seen)){
+                seen[name]=1
+                print $0 "\n"
+              }
+            }
+          ' RS= '\n\n' "$TMP_FILE" > "souloc_deduped.m3u"
+
+          DEDUPED_COUNT=$(grep -c '^#EXTINF' souloc_deduped.m3u || true)
+          echo "✅ Channels after deduplication: $DEDUPED_COUNT"
+          mv souloc_deduped.m3u "$TMP_FILE"
+
+          # ✅ Create final M3U file
           {
             echo '# Pushed & Updated by Kittujk'
             echo '# Coded & Scripted for RJM Tv'
             echo "# Last updated: $TIME_IST"
-            echo "# Channels : Total - $TOTAL_CHANNELS"
+            echo "# Channels : Total - $DEDUPED_COUNT"
             echo ""
             echo '#EXTM3U billed-msg="RJM Tv - RJMBTS Network"'
             echo ""
@@ -83,19 +106,34 @@ jobs:
           cat "$TMP_FILE" >> "$FINAL_FILE"
           echo "# ---- Created Exclusively for RJM Souloc Playlist ----" >> "$FINAL_FILE"
 
-          # ✅ Export values for commit step
-          echo "count=$TOTAL_CHANNELS" >> $GITHUB_OUTPUT
+          # ✅ Determine updated channels (compare vs backup)
+          UPDATED_CHANNELS=0
+          if [ -f "souloc_backup.m3u" ]; then
+            UPDATED_CHANNELS=$(diff --changed-group-format='%>' --unchanged-group-format='' souloc_backup.m3u "$FINAL_FILE" | grep -c '^#EXTINF' || true)
+          fi
+
+          echo "✅ Updated Channels: $UPDATED_CHANNELS"
+
+          # ✅ Add updated count to header
+          {
+            echo "# Updated Channels - $UPDATED_CHANNELS"
+            echo ""
+          } | cat - "$FINAL_FILE" > temp && mv temp "$FINAL_FILE"
+
+          # ✅ Export for commit step
+          echo "count=$DEDUPED_COUNT" >> $GITHUB_OUTPUT
+          echo "updated=$UPDATED_CHANNELS" >> $GITHUB_OUTPUT
           echo "time=$TIME_IST" >> $GITHUB_OUTPUT
 
-      # ✅ Debug info
+      # ✅ Verify final file
       - name: Verify output
         run: |
           echo "🧾 Generated files:"
           ls -lh *.m3u || true
           echo "📄 Preview of souloc.m3u:"
-          head -n 20 souloc.m3u || true
+          head -n 25 souloc.m3u || true
 
-      # ✅ Commit only if file changed and not empty
+      # ✅ Commit and push if changes exist
       - name: Commit and push changes
         shell: bash
         env:
@@ -107,7 +145,6 @@ jobs:
 
           git pull --rebase origin main || true
 
-          # Force track .m3u files (even if in .gitignore)
           git add -f souloc.m3u || true
           if [ -f "souloc_backup.m3u" ]; then
             git add -f souloc_backup.m3u || true
@@ -117,7 +154,7 @@ jobs:
           git status --short
 
           if ! git diff --quiet --cached; then
-            git commit -m "Auto-update Souloc Master Playlist [${{ steps.combine.outputs.time }}] | Channels: ${{ steps.combine.outputs.count }}"
+            git commit -m "Auto-update Souloc Master Playlist [${{ steps.combine.outputs.time }}] | Total: ${{ steps.combine.outputs.count }} | Updated: ${{ steps.combine.outputs.updated }}"
             git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
             echo "✅ Changes pushed successfully."
           else
