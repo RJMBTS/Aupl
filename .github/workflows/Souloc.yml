@@ -74,8 +74,9 @@ jobs:
           echo "✅ All sources fetched. Combining..."
           cat "$tmpdir"/part_*.m3u > "$tmpdir/all.m3u" || true
 
-          echo "🧹 Removing duplicates (based on #EXTINF or URL)..."
+          echo "🧹 Removing duplicates and numbering channels..."
           awk '
+            BEGIN { ch=0 }
             /^#EXTINF/ {
               gsub(/[[:space:]]+/, " ", $0)
               info=$0
@@ -85,46 +86,54 @@ jobs:
               if (!(info in seen_info) && !(url in seen_url)) {
                 seen_info[info]=1
                 seen_url[url]=1
+                ch++
+                if (info !~ /tvg-chno=/) {
+                  sub(/^#EXTINF:-1/, sprintf("#EXTINF:-1 tvg-chno=\"%d\"", ch), info)
+                }
                 print info
                 print url
               }
             }
           ' "$tmpdir/all.m3u" >> souloc.m3u
 
-          total=$(grep -c '^#EXTINF' "$tmpdir/all.m3u" || true)
-          unique=$(grep -c '^#EXTINF' souloc.m3u || true)
+          echo "📊 Calculating build statistics..."
+          total=$(grep -c '^#EXTINF' "$tmpdir/all.m3u" 2>/dev/null || echo 0)
+          unique=$(grep -c '^#EXTINF' souloc.m3u 2>/dev/null || echo 0)
 
-          # ===== CHANGE TRACKING =====
           current_list="$tmpdir/current_channels.txt"
-          grep '^#EXTINF' souloc.m3u > "$current_list"
+          grep '^#EXTINF' souloc.m3u > "$current_list" || true
 
           if [ -f .souloc_previous.txt ]; then
-            old_count=$(grep -c '^#EXTINF' .souloc_previous.txt || true)
-            new_added=$(grep -Fvx -f .souloc_previous.txt "$current_list" | grep -c '^#EXTINF' || true)
-            updated_count=$((unique - new_added))
+            old_count=$(grep -c '^#EXTINF' .souloc_previous.txt 2>/dev/null || echo 0)
+            new_added=$(grep -Fvx -f .souloc_previous.txt "$current_list" | grep -c '^#EXTINF' 2>/dev/null || echo 0)
           else
             old_count=0
             new_added=$unique
+          fi
+
+          if [ "$unique" -ge "$new_added" ]; then
+            updated_count=$((unique - new_added))
+          else
             updated_count=0
           fi
 
           cp "$current_list" .souloc_previous.txt
 
           echo "✅ Souloc M3U successfully built under RJMBTS Network."
-          echo "📊 Total fetched: $total"
-          echo "📊 Unique channels: $unique"
-          echo "🆕 New channels: $new_added"
+          echo "📺 Total channels fetched: $total"
+          echo "🧹 Unique channels after cleanup: $unique"
+          echo "🆕 Newly added channels: $new_added"
           echo "♻️ Updated channels: $updated_count"
 
           # ===== MARKDOWN SUMMARY =====
           {
             echo "## 🌐 Souloc Master — RJMBTS Auto-Build Summary"
             echo "| Metric | Count |"
-            echo "|--------|--------|"
-            echo "| Total fetched | $total |"
-            echo "| Unique channels | $unique |"
-            echo "| 🆕 New | $new_added |"
-            echo "| ♻️ Updated | $updated_count |"
+            echo "|--------|--------:|"
+            echo "| 📺 Total fetched | ${total:-0} |"
+            echo "| 🧹 Unique channels | ${unique:-0} |"
+            echo "| 🆕 Newly added | ${new_added:-0} |"
+            echo "| ♻️ Updated | ${updated_count:-0} |"
             echo ""
             echo "🕒 **Last updated:** $timestamp"
             echo ""
