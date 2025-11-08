@@ -21,7 +21,7 @@ jobs:
       - name: 📦 Checkout repository
         uses: actions/checkout@v4
 
-      - name: 🧩 Build souloc.m3u (RJMBTS Edition)
+      - name: 🧩 Build souloc.m3u (RJMBTS Network)
         run: |
           set -euxo pipefail
 
@@ -38,7 +38,6 @@ jobs:
             echo ""
             echo '#EXTM3U billed-msg="RJM Tv - RJMBTS Network"'
           } > souloc.m3u
-          # ===================
 
           # ===== SOURCE SETUP =====
           if [ ! -f base.txt ]; then
@@ -96,44 +95,21 @@ jobs:
             }
           ' "$tmpdir/all.m3u" >> souloc.m3u
 
-          echo "📊 Calculating build statistics..."
+          # ===== STATS =====
           total=$(grep -c '^#EXTINF' "$tmpdir/all.m3u" 2>/dev/null || echo 0)
-          unique=$(grep -c '^#EXTINF' souloc.m3u 2>/dev/null || echo 0)
-
-          current_list="$tmpdir/current_channels.txt"
-          grep '^#EXTINF' souloc.m3u > "$current_list" || true
-
-          if [ -f .souloc_previous.txt ]; then
-            old_count=$(grep -c '^#EXTINF' .souloc_previous.txt 2>/dev/null || echo 0)
-            new_added=$(grep -Fvx -f .souloc_previous.txt "$current_list" | grep -c '^#EXTINF' 2>/dev/null || echo 0)
-          else
-            old_count=0
-            new_added=$unique
-          fi
-
-          if [ "$unique" -ge "$new_added" ]; then
-            updated_count=$((unique - new_added))
-          else
-            updated_count=0
-          fi
-
-          cp "$current_list" .souloc_previous.txt
+          updated=$(grep -c '^#EXTINF' souloc.m3u 2>/dev/null || echo 0)
 
           echo "✅ Souloc M3U successfully built under RJMBTS Network."
           echo "📺 Total channels fetched: $total"
-          echo "🧹 Unique channels after cleanup: $unique"
-          echo "🆕 Newly added channels: $new_added"
-          echo "♻️ Updated channels: $updated_count"
+          echo "♻️ Unique (Updated) channels: $updated"
 
-          # ===== MARKDOWN SUMMARY =====
+          # ===== SUMMARY =====
           {
             echo "## 🌐 Souloc Master — RJMBTS Auto-Build Summary"
             echo "| Metric | Count |"
             echo "|--------|--------:|"
             echo "| 📺 Total fetched | ${total:-0} |"
-            echo "| 🧹 Unique channels | ${unique:-0} |"
-            echo "| 🆕 Newly added | ${new_added:-0} |"
-            echo "| ♻️ Updated | ${updated_count:-0} |"
+            echo "| ♻️ Updated (unique) channels | ${updated:-0} |"
             echo ""
             echo "🕒 **Last updated:** $timestamp"
             echo ""
@@ -147,7 +123,7 @@ jobs:
 
           git config user.name "RJMBTS Auto Builder"
           git config user.email "actions@github.com"
-          git add souloc.m3u .souloc_previous.txt || true
+          git add souloc.m3u || true
 
           if git diff --cached --quiet; then
             echo "No new changes — skipping commit."
@@ -156,5 +132,5 @@ jobs:
             echo "📥 Rebasing latest main branch..."
             git pull --rebase origin main || git rebase --abort
             echo "🚀 Pushing changes..."
-            git push origin main || echo "⚠️ Push failed, but file built successfully."
+            git push origin main || echo "⚠️ Push failed, but build was successful."
           fi
