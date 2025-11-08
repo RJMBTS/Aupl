@@ -21,7 +21,7 @@ jobs:
       - name: 📦 Checkout repository
         uses: actions/checkout@v4
 
-      - name: 🧩 Build souloc.m3u (RJMBTS Network)
+      - name: 🧩 Build souloc.m3u
         run: |
           set -euxo pipefail
 
@@ -31,12 +31,12 @@ jobs:
 
           # ===== HEADER =====
           {
-            echo "# 🔹 Souloc M3U — Powered by RJMBTS Network"
+            echo "# 🔹 Pushed and Updated by Kittujk"
             echo "# 🔸 Coded & Maintained by @RJMBTS"
-            echo "# 🔹 Auto-generated via GitHub Actions (Souloc Master)"
             echo "# 🕒 Last updated: $timestamp"
             echo ""
             echo '#EXTM3U billed-msg="RJM Tv - RJMBTS Network"'
+            echo ""
           } > souloc.m3u
 
           # ===== SOURCE SETUP =====
