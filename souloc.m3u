@@ -1,6 +1,6 @@
 # 🔹 Pushed and Updated by Kittujk
 # 🔸 Coded & Maintained by @RJMBTS
-# 🕒 Last updated: 2025-11-08 09:53:36 IST
+# 🕒 Last updated: 2025-11-08 10:13:07 IST
 
 #EXTM3U billed-msg="RJM Tv - RJMBTS Network"
 
@@ -1734,3 +1734,5 @@ https://jmp2.uk/stvp-GB900003KR
 https://jmp2.uk/stvp-GB4000008O5
 #EXTINF:-1 tvg-chno="865" tvg-id="0-9-aajtak" group-title="News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Aaj_Tak.png",Aaj Tak
 #EXTVLCOPT:http-user-agent=Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/121.0.0.0ygx/69.1Safari/537.36
+#EXTINF:-1 tvg-chno="866" tvg-id="0-9-aajtak" tvg-name="Aaj Tak" group-title="News" tvg-language="hi" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-9-aajtak/app_cover/1920x1080appcoverb6a5a3e4d79441989fa1862f1c2e3302",Aaj Tak
+#EXTVLCOPT:http-user-agent=Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/129.0.0.0Safari/537.36
