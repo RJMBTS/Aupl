@@ -1,4 +1,4 @@
-name: Souloc Master
+name: Souloc Master 🌐
 
 on:
   schedule:
@@ -18,36 +18,39 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - name: Checkout repository
+      - name: 📦 Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build souloc.m3u from base.txt
+      - name: 🧩 Build souloc.m3u (RJMBTS Edition)
         run: |
+          set -euxo pipefail
+
           timestamp=$(TZ="Asia/Kolkata" date +"%Y-%m-%d %H:%M:%S %Z")
           tmpdir=$(mktemp -d)
-
           echo "🔹 Starting Souloc M3U build at $timestamp"
 
           # ===== HEADER =====
           {
-            echo "# Pushed and Updated by Kittujk"
-            echo "# Coded & Maintained @RJMBTS"
-            echo "# Last updated: $timestamp"
+            echo "# 🔹 Souloc M3U — Powered by RJMBTS Network"
+            echo "# 🔸 Coded & Maintained by @RJMBTS"
+            echo "# 🔹 Auto-generated via GitHub Actions (Souloc Master)"
+            echo "# 🕒 Last updated: $timestamp"
             echo ""
             echo '#EXTM3U billed-msg="RJM Tv - RJMBTS Network"'
           } > souloc.m3u
           # ===================
 
+          # ===== SOURCE SETUP =====
           if [ ! -f base.txt ]; then
-            echo "❌ base.txt not found — exiting."
-            exit 1
+            echo "⚠️ base.txt not found — using default RJMBTS source."
+            echo "https://raw.githubusercontent.com/mrr0b0t25/m3u/main/local.m3u" > base.txt
           fi
 
           echo "🌐 Reading sources from base.txt..."
           grep -v '^#' base.txt | grep -v '^$' > "$tmpdir/sources.txt"
 
           if [ ! -s "$tmpdir/sources.txt" ]; then
-            echo "❌ No valid URLs in base.txt — exiting."
+            echo "❌ No valid URLs in base.txt — stopping after header creation."
             exit 0
           fi
 
@@ -58,7 +61,7 @@ jobs:
             i=$((i+1))
             {
               echo "🔹 Fetching: $url"
-              if curl -fs --max-time 20 "$url" | grep -v -E '^#EXTM3U' > "$tmpdir/part_$i.m3u"; then
+              if curl -fsSL --max-time 60 "$url" | grep -v '^#EXTM3U' > "$tmpdir/part_$i.m3u"; then
                 echo "✅ Success: $url"
               else
                 echo "⚠️ Failed: $url"
@@ -66,17 +69,18 @@ jobs:
               fi
             } &
           done < "$tmpdir/sources.txt"
-
           wait
+
           echo "✅ All sources fetched. Combining..."
+          cat "$tmpdir"/part_*.m3u > "$tmpdir/all.m3u" || true
 
-          cat "$tmpdir"/part_*.m3u >> "$tmpdir/all.m3u"
-
-          echo "🧹 Removing duplicates (based on #EXTINF OR URL)..."
+          echo "🧹 Removing duplicates (based on #EXTINF or URL)..."
           awk '
             /^#EXTINF/ {
+              gsub(/[[:space:]]+/, " ", $0)
               info=$0
               getline url
+              gsub(/[[:space:]]+/, "", url)
               if (url == "") next
               if (!(info in seen_info) && !(url in seen_url)) {
                 seen_info[info]=1
@@ -90,7 +94,7 @@ jobs:
           total=$(grep -c '^#EXTINF' "$tmpdir/all.m3u" || true)
           unique=$(grep -c '^#EXTINF' souloc.m3u || true)
 
-          # ===== Compare for new and updated channels =====
+          # ===== CHANGE TRACKING =====
           current_list="$tmpdir/current_channels.txt"
           grep '^#EXTINF' souloc.m3u > "$current_list"
 
@@ -106,44 +110,42 @@ jobs:
 
           cp "$current_list" .souloc_previous.txt
 
-          echo "✅ souloc.m3u built successfully."
-          echo "📊 Total channels fetched: $total"
-          echo "📊 Unique channels after cleanup: $unique"
-          echo "🆕 Newly added channels: $new_added"
-          echo "♻️ Updated (existing) channels: $updated_count"
+          echo "✅ Souloc M3U successfully built under RJMBTS Network."
+          echo "📊 Total fetched: $total"
+          echo "📊 Unique channels: $unique"
+          echo "🆕 New channels: $new_added"
+          echo "♻️ Updated channels: $updated_count"
 
-          echo "### Souloc.m3u Summary" >> $GITHUB_STEP_SUMMARY
-          echo "- Total channels fetched: $total" >> $GITHUB_STEP_SUMMARY
-          echo "- Unique channels after cleanup: $unique" >> $GITHUB_STEP_SUMMARY
-          echo "- Newly added channels: $new_added" >> $GITHUB_STEP_SUMMARY
-          echo "- Updated (existing) channels: $updated_count" >> $GITHUB_STEP_SUMMARY
-          echo "- Last updated: $(date)" >> $GITHUB_STEP_SUMMARY
+          # ===== MARKDOWN SUMMARY =====
+          {
+            echo "## 🌐 Souloc Master — RJMBTS Auto-Build Summary"
+            echo "| Metric | Count |"
+            echo "|--------|--------|"
+            echo "| Total fetched | $total |"
+            echo "| Unique channels | $unique |"
+            echo "| 🆕 New | $new_added |"
+            echo "| ♻️ Updated | $updated_count |"
+            echo ""
+            echo "🕒 **Last updated:** $timestamp"
+            echo ""
+            echo "🔸 **Coded & Maintained by [@RJMBTS](https://github.com/RJMBTS)**"
+            echo "🔹 **Powered by RJM Tv & Souloc Network**"
+          } >> $GITHUB_STEP_SUMMARY
 
-      - name: Commit and push souloc.m3u (safe auto-merge)
+      - name: 🚀 Commit & Push souloc.m3u (RJMBTS Auto)
         run: |
-          git config user.name "GitHub Actions Bot"
+          set -euxo pipefail
+
+          git config user.name "RJMBTS Auto Builder"
           git config user.email "actions@github.com"
-          git add souloc.m3u .souloc_previous.txt
+          git add souloc.m3u .souloc_previous.txt || true
 
-          if ! git diff --cached --quiet; then
-            git commit -m "Auto-update souloc.m3u"
-
-            echo "📥 Pulling latest changes (with auto-merge)..."
-            git fetch origin main
-            git reset --soft HEAD~1
-            git stash push --include-untracked
-            git pull origin main --strategy-option ours || true
-            git stash pop || true
-
-            echo "🚀 Pushing updated version..."
-            n=0
-            until [ "$n" -ge 3 ]
-            do
-              git push origin main && break
-              n=$((n+1))
-              echo "⚠️ Push failed, retrying in 10s... ($n/3)"
-              sleep 10
-            done
-          else
+          if git diff --cached --quiet; then
             echo "No new changes — skipping commit."
+          else
+            git commit -m "🔄 Auto-update souloc.m3u (RJMBTS Network)"
+            echo "📥 Rebasing latest main branch..."
+            git pull --rebase origin main || git rebase --abort
+            echo "🚀 Pushing changes..."
+            git push origin main || echo "⚠️ Push failed, but file built successfully."
           fi
