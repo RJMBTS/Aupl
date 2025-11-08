@@ -1,9 +1,9 @@
-# 🔹 Souloc M3U — Powered by RJMBTS Network
+# 🔹 Pushed and Updated by Kittujk
 # 🔸 Coded & Maintained by @RJMBTS
-# 🔹 Auto-generated via GitHub Actions (Souloc Master)
-# 🕒 Last updated: 2025-11-08 09:19:29 IST
+# 🕒 Last updated: 2025-11-08 09:20:24 IST
 
 #EXTM3U billed-msg="RJM Tv - RJMBTS Network"
+
 #EXTINF:-1 tvg-chno="1" tvg-name="Raj Tv" group-title="Tamil" tvg-logo="https://i.ibb.co/5HQgfr4/1000148546.png",Raj Tv
 https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/2839e3d1e0f84a2e821c1708d5fdfdf0/index.m3u8
 #EXTINF:-1 tvg-chno="2" tvg-name="News 18 Tamil" group-title="Tamil" tvg-logo="https://i.ibb.co/Z1m8dMzC/1000157617.png",News 18 Tamil
