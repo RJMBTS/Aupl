@@ -1,1 +1,1 @@
-https://raw.githubusercontent.com/mrr0b0t25/m3u/main/local.m3u
+https://raw.githubusercontent.com/amazeyourself/tamil-local-iptv/refs/heads/main/channels.m3u
