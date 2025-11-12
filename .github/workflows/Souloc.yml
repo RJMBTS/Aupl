@@ -23,7 +23,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 🧩 Build souloc.m3u (Final — Clean Header Only)
+      - name: 🧩 Build souloc.m3u (Final — Clean Header)
         shell: bash
         env:
           TZ: "Asia/Kolkata"
@@ -125,13 +125,12 @@ jobs:
             echo "$lang,$count" >> "$tmpdir/lang_stats.csv"
           done
 
-          # ===== HEADER (CLEAN, NO SUMMARY) =====
+          # ===== HEADER (Single Line Channel Stats) =====
           {
             echo "# 🔹 Pushed and Updated by Kittujk"
             echo "# 🔸 Coded & Maintained by @RJMBTS"
             echo "# 🕒 Last updated: $timestamp"
-            echo "# 📺 Total Channels: $total"
-            echo "# ♻️ Unique Channels: $updated"
+            echo "# 📺 Channels : Total - $total | Updated - $updated"
             echo ""
             echo '#EXTM3U billed-msg="RJM Tv - RJMBTS Network"'
             echo ""
@@ -168,7 +167,7 @@ jobs:
           echo "✅ Souloc M3U built successfully!"
           echo "📺 Total: $total | ♻️ Unique: $updated"
 
-          # ===== Minimal GitHub Summary (Header only) =====
+          # ===== Minimal GitHub Summary =====
           {
             echo "## 🌐 Souloc Master — RJMBTS Auto-Build Summary"
             echo "| Metric | Count |"
