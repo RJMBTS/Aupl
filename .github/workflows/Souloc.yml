@@ -3,7 +3,7 @@ name: Souloc Master 🌐
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/30 * * * *"   # ⏰ Runs every 30 minutes
+    - cron: "*/30 * * * *"
 
 concurrency:
   group: souloc-m3u
@@ -23,7 +23,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 🧩 Build souloc.m3u (Final — Clean Header)
+      - name: 🧩 Build souloc.m3u (uses base.txt sources)
         shell: bash
         env:
           TZ: "Asia/Kolkata"
@@ -39,16 +39,23 @@ jobs:
 
           echo "🔹 Starting Souloc M3U build at $timestamp"
 
-          # ===== SOURCE SETUP =====
-          if [ ! -f base.txt ]; then
-            echo "⚠️ base.txt not found — using default RJMBTS source."
-            echo "https://raw.githubusercontent.com/mrr0b0t25/m3u/main/local.m3u" > base.txt
+          # ===== SOURCE CHECK =====
+          if [ ! -s base.txt ]; then
+            echo "❌ base.txt missing or empty — cannot proceed."
+            exit 1
           fi
 
-          grep -v '^\s*#' base.txt | sed '/^[[:space:]]*$/d' > "$tmpdir/sources.txt" || true
-          [ ! -s "$tmpdir/sources.txt" ] && { echo "❌ No valid URLs — exiting."; exit 0; }
+          grep -v '^\s*#' base.txt | sed '/^[[:space:]]*$/d' > "$tmpdir/sources.txt"
 
-          echo "🌐 Fetching M3U sources..."
+          if [ ! -s "$tmpdir/sources.txt" ]; then
+            echo "❌ No valid URLs in base.txt — aborting."
+            exit 1
+          fi
+
+          echo "🌐 Using sources from base.txt:"
+          cat "$tmpdir/sources.txt"
+
+          # ===== FETCH ALL SOURCES =====
           i=0
           while IFS= read -r url || [ -n "$url" ]; do
             [ -z "$url" ] && continue
@@ -86,7 +93,18 @@ jobs:
           total=$(grep -c '^#EXTINF' "$tmpdir/all.m3u" || echo 0)
           updated=$(grep -c '^#EXTINF' "$tmpdir/all_unique.m3u" || echo 0)
 
-          echo "📊 Splitting by language..."
+          # ===== HEADER =====
+          {
+            echo "# 🔹 Pushed and Updated by Kittujk"
+            echo "# 🔸 Coded & Maintained by @RJMBTS"
+            echo "# 🕒 Last updated: $timestamp"
+            echo "# 📺 Channels : Total - $total | Updated - $updated"
+            echo ""
+            echo '#EXTM3U billed-msg="RJM Tv - RJMBTS Network"'
+            echo ""
+          } > "$out_file"
+
+          echo "📊 Splitting and sorting by language..."
           mkdir -p "$tmpdir/langs"
 
           awk -v tmpdir="$tmpdir/langs" '
@@ -125,17 +143,6 @@ jobs:
             echo "$lang,$count" >> "$tmpdir/lang_stats.csv"
           done
 
-          # ===== HEADER (Single Line Channel Stats) =====
-          {
-            echo "# 🔹 Pushed and Updated by Kittujk"
-            echo "# 🔸 Coded & Maintained by @RJMBTS"
-            echo "# 🕒 Last updated: $timestamp"
-            echo "# 📺 Channels : Total - $total | Updated - $updated"
-            echo ""
-            echo '#EXTM3U billed-msg="RJM Tv - RJMBTS Network"'
-            echo ""
-          } > "$out_file"
-
           echo "🔠 Sorting A–Z inside each language..."
           tail -n +2 "$tmpdir/lang_stats.csv" | sort -t, -k2 -nr | while IFS=, read -r lang num; do
             file="$tmpdir/langs/$lang.m3u"
@@ -164,10 +171,9 @@ jobs:
             echo "" >> "$out_file"
           done
 
-          echo "✅ Souloc M3U built successfully!"
+          echo "✅ Souloc M3U built successfully using base.txt sources!"
           echo "📺 Total: $total | ♻️ Unique: $updated"
 
-          # ===== Minimal GitHub Summary =====
           {
             echo "## 🌐 Souloc Master — RJMBTS Auto-Build Summary"
             echo "| Metric | Count |"
