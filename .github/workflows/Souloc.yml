@@ -3,7 +3,7 @@ name: Souloc Master 🌐
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "*/30 * * * *"   # Runs every 30 minutes
 
 concurrency:
   group: souloc-m3u
@@ -23,7 +23,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 🧩 Build souloc.m3u (uses base.txt sources)
+      - name: 🧩 Build souloc.m3u (Clean — No Headers, No Unknown)
         shell: bash
         env:
           TZ: "Asia/Kolkata"
@@ -55,7 +55,7 @@ jobs:
           echo "🌐 Using sources from base.txt:"
           cat "$tmpdir/sources.txt"
 
-          # ===== FETCH ALL SOURCES =====
+          # ===== FETCH SOURCES =====
           i=0
           while IFS= read -r url || [ -n "$url" ]; do
             [ -z "$url" ] && continue
@@ -93,48 +93,23 @@ jobs:
           total=$(grep -c '^#EXTINF' "$tmpdir/all.m3u" || echo 0)
           updated=$(grep -c '^#EXTINF' "$tmpdir/all_unique.m3u" || echo 0)
 
-          # ===== HEADER =====
-          {
-            echo "# 🔹 Pushed and Updated by Kittujk"
-            echo "# 🔸 Coded & Maintained by @RJMBTS"
-            echo "# 🕒 Last updated: $timestamp"
-            echo "# 📺 Channels : Total - $total | Updated - $updated"
-            echo ""
-            echo '#EXTM3U billed-msg="RJM Tv - RJMBTS Network"'
-        
-          } > "$out_file"
-
-          echo "📊 Splitting and sorting by language..."
+          echo "📊 Splitting by language..."
           mkdir -p "$tmpdir/langs"
 
           awk -v tmpdir="$tmpdir/langs" '
             /^#EXTINF/ {
               info=$0
-              lang="Unknown"
+              lang=""
               if (match(info, /group-title="([^"]+)"/, a)) lang=a[1]
               getline url
               gsub(/^[ \t\r\n]+|[ \t\r\n]+$/, "", url)
               if (url=="") next
+              if (lang == "" || lang == "Unknown") next  # skip unknowns
               file = tmpdir "/" lang ".m3u"
               print info > file
               print url  > file
             }
           ' "$tmpdir/all_unique.m3u"
-
-          declare -A flags=(
-            ["Telugu"]="🇮🇳"
-            ["Hindi"]="🇮🇳"
-            ["Tamil"]="🇮🇳"
-            ["Malayalam"]="🇮🇳"
-            ["Kannada"]="🇮🇳"
-            ["English"]="🇬🇧"
-            ["Sports"]="🏆"
-            ["Kids"]="🧒"
-            ["Music"]="🎵"
-            ["Movies"]="🎬"
-            ["News"]="🗞️"
-            ["Unknown"]="❓"
-          )
 
           echo "Language,Channels" > "$tmpdir/lang_stats.csv"
           for f in "$tmpdir/langs"/*.m3u; do
@@ -143,17 +118,23 @@ jobs:
             echo "$lang,$count" >> "$tmpdir/lang_stats.csv"
           done
 
-          echo "🔠 Sorting A–Z inside each language..."
+          # ===== HEADER =====
+          {
+            echo "# 🔹 Pushed and Updated by Kittujk"
+            echo "# 🔸 Coded & Maintained by @RJMBTS"
+            echo "# 🕒 Last updated: $timestamp"
+            echo "# 📺 Channels : Total - $total | Updated - $updated"
+            echo ""
+            echo '#EXTM3U billed-msg="RJM Tv - RJMBTS Network"'
+            echo ""
+          } > "$out_file"
+
+          echo "🔠 Sorting A–Z and merging..."
           tail -n +2 "$tmpdir/lang_stats.csv" | sort -t, -k2 -nr | while IFS=, read -r lang num; do
             file="$tmpdir/langs/$lang.m3u"
             [ ! -f "$file" ] && continue
-            flag="${flags[$lang]:-🌐}"
 
-            echo "" >> "$out_file"
-            echo "# ---------------------------" >> "$out_file"
-            echo "# ▶️ $flag $lang Channels (A–Z)" >> "$out_file"
-            echo "# ---------------------------" >> "$out_file"
-
+            # Just merge sorted channel list — no headers
             awk '
               /^#EXTINF/ {info=$0; getline url; data[info]=url}
               END {
@@ -167,13 +148,12 @@ jobs:
                 }
               }
             ' "$file" >> "$out_file"
-
-            echo "" >> "$out_file"
           done
 
-          echo "✅ Souloc M3U built successfully using base.txt sources!"
+          echo "✅ Souloc M3U built successfully — clean output!"
           echo "📺 Total: $total | ♻️ Unique: $updated"
 
+          # ===== Minimal GitHub Summary =====
           {
             echo "## 🌐 Souloc Master — RJMBTS Auto-Build Summary"
             echo "| Metric | Count |"
