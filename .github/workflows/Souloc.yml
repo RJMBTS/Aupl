@@ -1,6 +1,6 @@
-      - name: 🧩 Build souloc.m3u (Final Pro — Flags, Sorted A–Z, Header Counts)
-        shell: bash
-        env:
+      name: 🧩 Build souloc.m3u (Final Pro — Flags, Sorted A–Z, Header Counts)
+      shell: bash
+      env:
           TZ: "Asia/Kolkata"
         run: |
           set -euxo pipefail
