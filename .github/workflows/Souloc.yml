@@ -101,7 +101,7 @@ jobs:
             echo "# 📺 Channels : Total - $total | Updated - $updated"
             echo ""
             echo '#EXTM3U billed-msg="RJM Tv - RJMBTS Network"'
-            echo ""
+        
           } > "$out_file"
 
           echo "📊 Splitting and sorting by language..."
