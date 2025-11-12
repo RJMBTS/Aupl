@@ -1,6 +1,31 @@
-      name: 🧩 Build souloc.m3u (Final Pro — Flags, Sorted A–Z, Header Counts)
-      shell: bash
-      env:
+name: Souloc Master 🌐
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/30 * * * *"   # ⏰ Runs every 30 minutes
+
+concurrency:
+  group: souloc-m3u
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: 📦 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🧩 Build souloc.m3u (Final Pro — Flags, Sorted A–Z, Header Counts)
+        shell: bash
+        env:
           TZ: "Asia/Kolkata"
         run: |
           set -euxo pipefail
@@ -134,3 +159,59 @@
             echo "" >> "$out_file"
             echo "# ---------------------------" >> "$out_file"
             echo "# ▶️ $flag $lang Channels (A–Z)" >> "$out_file"
+            echo "# ---------------------------" >> "$out_file"
+
+            awk '
+              /^#EXTINF/ {info=$0; getline url; data[info]=url}
+              END {
+                n=asorti(data, sorted)
+                ch=1
+                for (i=1; i<=n; i++) {
+                  info=sorted[i]; url=data[info]
+                  if (info !~ /tvg-chno=/)
+                    sub(/^#EXTINF:-1/, sprintf("#EXTINF:-1 tvg-chno=\"%d\"", ch), info)
+                  print info; print url; ch++
+                }
+              }
+            ' "$file" >> "$out_file"
+
+            echo "" >> "$out_file"
+          done
+
+          echo "✅ Souloc M3U built successfully!"
+          echo "📺 Total: $total | ♻️ Unique: $updated"
+
+          # ===== GitHub Summary =====
+          {
+            echo "## 🌐 Souloc Master — RJMBTS Auto-Build Summary"
+            echo "| Metric | Count |"
+            echo "|--------|--------:|"
+            echo "| 📺 Total fetched | ${total:-0} |"
+            echo "| ♻️ Unique (updated) | ${updated:-0} |"
+            echo ""
+            echo "### 📊 Channels by Language"
+            echo "| Language | Channels |"
+            echo "|-----------|-----------:|"
+            tail -n +2 "$tmpdir/lang_stats.csv" | sort -t, -k2 -nr | awk -F, '{printf "| %s | %s |\n", $1, $2}'
+            echo ""
+            echo "🕒 **Last updated:** $timestamp"
+            echo ""
+            echo "🔸 **Coded & Maintained by [@RJMBTS](https://github.com/RJMBTS)**"
+            echo "🔹 **Powered by RJM Tv & Souloc Network**"
+          } >> $GITHUB_STEP_SUMMARY
+
+      - name: 🚀 Commit & Push souloc.m3u (RJMBTS Auto)
+        shell: bash
+        run: |
+          set -euxo pipefail
+          git config user.name "RJMBTS Auto Builder"
+          git config user.email "actions@github.com"
+          git add souloc.m3u || true
+
+          if git diff --cached --quiet; then
+            echo "No new changes — skipping commit."
+          else
+            git commit -m "🔄 Auto-update souloc.m3u (RJMBTS Network)"
+            git pull --rebase origin main || git rebase --abort
+            git push origin main || echo "⚠️ Push failed but build succeeded."
+          fi
