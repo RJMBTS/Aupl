@@ -23,7 +23,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 🧩 Build souloc.m3u (Final Pro — Flags, Sorted A–Z, Header Counts)
+      - name: 🧩 Build souloc.m3u (Final — Clean Header Only)
         shell: bash
         env:
           TZ: "Asia/Kolkata"
@@ -103,7 +103,6 @@ jobs:
             }
           ' "$tmpdir/all_unique.m3u"
 
-          # Flags for sections
           declare -A flags=(
             ["Telugu"]="🇮🇳"
             ["Hindi"]="🇮🇳"
@@ -126,7 +125,7 @@ jobs:
             echo "$lang,$count" >> "$tmpdir/lang_stats.csv"
           done
 
-          # ===== HEADER WITH TOTALS =====
+          # ===== HEADER (CLEAN, NO SUMMARY) =====
           {
             echo "# 🔹 Pushed and Updated by Kittujk"
             echo "# 🔸 Coded & Maintained by @RJMBTS"
@@ -137,18 +136,6 @@ jobs:
             echo '#EXTM3U billed-msg="RJM Tv - RJMBTS Network"'
             echo ""
           } > "$out_file"
-
-          # ===== LANGUAGE SUMMARY =====
-          {
-            echo "# ===== LANGUAGE SUMMARY ====="
-            tail -n +2 "$tmpdir/lang_stats.csv" | sort -t, -k2 -nr | while IFS=, read -r lang num; do
-              flag="${flags[$lang]:-🌐}"
-              echo "# $flag $lang: $num channels"
-            done
-            echo ""
-            echo "# ===== SORTED CHANNELS BY LANGUAGE ====="
-            echo ""
-          } >> "$out_file"
 
           echo "🔠 Sorting A–Z inside each language..."
           tail -n +2 "$tmpdir/lang_stats.csv" | sort -t, -k2 -nr | while IFS=, read -r lang num; do
@@ -181,18 +168,13 @@ jobs:
           echo "✅ Souloc M3U built successfully!"
           echo "📺 Total: $total | ♻️ Unique: $updated"
 
-          # ===== GitHub Summary =====
+          # ===== Minimal GitHub Summary (Header only) =====
           {
             echo "## 🌐 Souloc Master — RJMBTS Auto-Build Summary"
             echo "| Metric | Count |"
             echo "|--------|--------:|"
             echo "| 📺 Total fetched | ${total:-0} |"
             echo "| ♻️ Unique (updated) | ${updated:-0} |"
-            echo ""
-            echo "### 📊 Channels by Language"
-            echo "| Language | Channels |"
-            echo "|-----------|-----------:|"
-            tail -n +2 "$tmpdir/lang_stats.csv" | sort -t, -k2 -nr | awk -F, '{printf "| %s | %s |\n", $1, $2}'
             echo ""
             echo "🕒 **Last updated:** $timestamp"
             echo ""
