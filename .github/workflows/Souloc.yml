@@ -1,32 +1,16 @@
-name: Souloc Master 🌐
-
-on:
-  schedule:
-    - cron: "*/30 * * * *"   # ⏰ Runs every 30 minutes
-  workflow_dispatch:          # Manual trigger option
-
-concurrency:
-  group: souloc-m3u
-  cancel-in-progress: false
-
-permissions:
-  contents: write
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-
-    steps:
-      - name: 📦 Checkout repository
-        uses: actions/checkout@v4
-
-      - name: 🧩 Build souloc.m3u
+      - name: 🧩 Build souloc.m3u (Grouped + Flagged + Renumbered)
+        shell: bash
+        env:
+          TZ: "Asia/Kolkata"
         run: |
           set -euxo pipefail
 
-          timestamp=$(TZ="Asia/Kolkata" date +"%Y-%m-%d %H:%M:%S %Z")
           tmpdir=$(mktemp -d)
+          cleanup() { rm -rf "$tmpdir"; }
+          trap cleanup EXIT
+
+          timestamp=$(date +"%Y-%m-%d %H:%M:%S %Z")
+          out_file="souloc.m3u"
           echo "🔹 Starting Souloc M3U build at $timestamp"
 
           # ===== HEADER =====
@@ -37,7 +21,7 @@ jobs:
             echo ""
             echo '#EXTM3U billed-msg="RJM Tv - RJMBTS Network"'
             echo ""
-          } > souloc.m3u
+          } > "$out_file"
 
           # ===== SOURCE SETUP =====
           if [ ! -f base.txt ]; then
@@ -45,92 +29,146 @@ jobs:
             echo "https://raw.githubusercontent.com/mrr0b0t25/m3u/main/local.m3u" > base.txt
           fi
 
-          echo "🌐 Reading sources from base.txt..."
-          grep -v '^#' base.txt | grep -v '^$' > "$tmpdir/sources.txt"
-
-          if [ ! -s "$tmpdir/sources.txt" ]; then
-            echo "❌ No valid URLs in base.txt — stopping after header creation."
-            exit 0
-          fi
+          grep -v '^\s*#' base.txt | sed '/^[[:space:]]*$/d' > "$tmpdir/sources.txt" || true
+          [ ! -s "$tmpdir/sources.txt" ] && { echo "❌ No valid URLs — exiting."; exit 0; }
 
           echo "🌐 Fetching M3U sources in parallel..."
           i=0
-          while read -r url; do
-            [[ -z "$url" ]] && continue
+          while IFS= read -r url || [ -n "$url" ]; do
+            [ -z "$url" ] && continue
             i=$((i+1))
             {
               echo "🔹 Fetching: $url"
-              if curl -fsSL --max-time 60 "$url" | grep -v '^#EXTM3U' > "$tmpdir/part_$i.m3u"; then
+              if curl -fsSL --max-time 60 --retry 2 "$url" | grep -v '^#EXTM3U' > "$tmpdir/part_$i.m3u"; then
                 echo "✅ Success: $url"
               else
                 echo "⚠️ Failed: $url"
-                echo "" > "$tmpdir/part_$i.m3u"
+                : > "$tmpdir/part_$i.m3u"
               fi
             } &
+            ((i%8==0)) && wait
           done < "$tmpdir/sources.txt"
           wait
 
-          echo "✅ All sources fetched. Combining..."
           cat "$tmpdir"/part_*.m3u > "$tmpdir/all.m3u" || true
 
-          echo "🧹 Removing duplicates and numbering channels..."
+          echo "🧹 Removing duplicates..."
           awk '
             BEGIN { ch=0 }
             /^#EXTINF/ {
-              gsub(/[[:space:]]+/, " ", $0)
+              info=$0; gsub(/[[:space:]]+/, " ", info)
+              getline url; gsub(/[[:space:]]+/, "", url)
+              if (url=="") next
+              key = info "|" url
+              if (!(key in seen)) {
+                seen[key]=1
+                print info; print url
+              }
+            }
+          ' "$tmpdir/all.m3u" > "$tmpdir/all_unique.m3u"
+
+          total=$(grep -c '^#EXTINF' "$tmpdir/all.m3u" || echo 0)
+          updated=$(grep -c '^#EXTINF' "$tmpdir/all_unique.m3u" || echo 0)
+
+          echo "📊 Splitting and numbering per language..."
+          mkdir -p "$tmpdir/langs"
+
+          awk -v tmpdir="$tmpdir/langs" '
+            /^#EXTINF/ {
               info=$0
+              lang="Unknown"
+              if (match(info, /group-title="([^"]+)"/, a)) lang=a[1]
               getline url
-              gsub(/[[:space:]]+/, "", url)
-              if (url == "") next
-              if (!(info in seen_info) && !(url in seen_url)) {
-                seen_info[info]=1
-                seen_url[url]=1
-                ch++
+              gsub(/^[ \t\r\n]+|[ \t\r\n]+$/, "", url)
+              if (url=="") next
+              file = tmpdir "/" lang ".m3u"
+              print info > file
+              print url  > file
+            }
+          ' "$tmpdir/all_unique.m3u"
+
+          # Flag emojis for common languages
+          declare -A flags=(
+            ["Telugu"]="🇮🇳"
+            ["Hindi"]="🇮🇳"
+            ["Tamil"]="🇮🇳"
+            ["Malayalam"]="🇮🇳"
+            ["Kannada"]="🇮🇳"
+            ["English"]="🇬🇧"
+            ["Sports"]="🏆"
+            ["Kids"]="🧒"
+            ["Music"]="🎵"
+            ["Movies"]="🎬"
+            ["News"]="🗞️"
+            ["Unknown"]="❓"
+          )
+
+          echo "Language,Channels" > "$tmpdir/lang_stats.csv"
+          for f in "$tmpdir/langs"/*.m3u; do
+            lang=$(basename "$f" .m3u)
+            count=$(grep -c '^#EXTINF' "$f" || echo 0)
+            echo "$lang,$count" >> "$tmpdir/lang_stats.csv"
+          done
+
+          # Append language summary
+          {
+            echo ""
+            echo "# ===== LANGUAGE SUMMARY ====="
+            tail -n +2 "$tmpdir/lang_stats.csv" | sort -t, -k2 -nr | while IFS=, read -r lang num; do
+              flag="${flags[$lang]:-🌐}"
+              echo "# $flag $lang: $num channels"
+            done
+            echo ""
+            echo "# ===== SORTED CHANNELS BY LANGUAGE ====="
+            echo ""
+          } >> "$out_file"
+
+          # Sort and renumber per language
+          tail -n +2 "$tmpdir/lang_stats.csv" | sort -t, -k2 -nr | while IFS=, read -r lang num; do
+            file="$tmpdir/langs/$lang.m3u"
+            [ ! -f "$file" ] && continue
+            flag="${flags[$lang]:-🌐}"
+
+            echo "" >> "$out_file"
+            echo "# ---------------------------" >> "$out_file"
+            echo "# ▶️ $flag $lang Channels" >> "$out_file"
+            echo "# ---------------------------" >> "$out_file"
+
+            awk -v lang="$lang" -v flag="$flag" -v start=1 '
+              BEGIN { ch=start }
+              /^#EXTINF/ {
+                info=$0
                 if (info !~ /tvg-chno=/) {
                   sub(/^#EXTINF:-1/, sprintf("#EXTINF:-1 tvg-chno=\"%d\"", ch), info)
                 }
                 print info
+                getline url
                 print url
+                ch++
               }
-            }
-          ' "$tmpdir/all.m3u" >> souloc.m3u
+            ' "$file" >> "$out_file"
 
-          # ===== STATS =====
-          total=$(grep -c '^#EXTINF' "$tmpdir/all.m3u" 2>/dev/null || echo 0)
-          updated=$(grep -c '^#EXTINF' souloc.m3u 2>/dev/null || echo 0)
+            echo "" >> "$out_file"
+          done
 
-          echo "✅ Souloc M3U successfully built under RJMBTS Network."
+          echo "✅ Souloc M3U successfully grouped, flagged, and renumbered."
           echo "📺 Total channels fetched: $total"
           echo "♻️ Unique (Updated) channels: $updated"
 
-          # ===== SUMMARY =====
           {
             echo "## 🌐 Souloc Master — RJMBTS Auto-Build Summary"
             echo "| Metric | Count |"
             echo "|--------|--------:|"
             echo "| 📺 Total fetched | ${total:-0} |"
-            echo "| ♻️ Updated (unique) channels | ${updated:-0} |"
+            echo "| ♻️ Unique (updated) | ${updated:-0} |"
+            echo ""
+            echo "### 📊 Channels by Language"
+            echo "| Language | Channels |"
+            echo "|-----------|-----------:|"
+            tail -n +2 "$tmpdir/lang_stats.csv" | sort -t, -k2 -nr | awk -F, '{printf "| %s | %s |\n", $1, $2}'
             echo ""
             echo "🕒 **Last updated:** $timestamp"
             echo ""
             echo "🔸 **Coded & Maintained by [@RJMBTS](https://github.com/RJMBTS)**"
             echo "🔹 **Powered by RJM Tv & Souloc Network**"
           } >> $GITHUB_STEP_SUMMARY
-
-      - name: 🚀 Commit & Push souloc.m3u (RJMBTS Auto)
-        run: |
-          set -euxo pipefail
-
-          git config user.name "RJMBTS Auto Builder"
-          git config user.email "actions@github.com"
-          git add souloc.m3u || true
-
-          if git diff --cached --quiet; then
-            echo "No new changes — skipping commit."
-          else
-            git commit -m "🔄 Auto-update souloc.m3u (RJMBTS Network)"
-            echo "📥 Rebasing latest main branch..."
-            git pull --rebase origin main || git rebase --abort
-            echo "🚀 Pushing changes..."
-            git push origin main || echo "⚠️ Push failed, but build was successful."
-          fi
