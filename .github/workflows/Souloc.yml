@@ -1,4 +1,4 @@
-      - name: 🧩 Build souloc.m3u (Grouped + Flags + Sorted A–Z)
+      - name: 🧩 Build souloc.m3u (Final Pro — Flags, Sorted A–Z, Header Counts)
         shell: bash
         env:
           TZ: "Asia/Kolkata"
@@ -11,17 +11,8 @@
 
           timestamp=$(date +"%Y-%m-%d %H:%M:%S %Z")
           out_file="souloc.m3u"
-          echo "🔹 Starting Souloc M3U build at $timestamp"
 
-          # ===== HEADER =====
-          {
-            echo "# 🔹 Pushed and Updated by Kittujk"
-            echo "# 🔸 Coded & Maintained by @RJMBTS"
-            echo "# 🕒 Last updated: $timestamp"
-            echo ""
-            echo '#EXTM3U billed-msg="RJM Tv - RJMBTS Network"'
-            echo ""
-          } > "$out_file"
+          echo "🔹 Starting Souloc M3U build at $timestamp"
 
           # ===== SOURCE SETUP =====
           if [ ! -f base.txt ]; then
@@ -32,7 +23,7 @@
           grep -v '^\s*#' base.txt | sed '/^[[:space:]]*$/d' > "$tmpdir/sources.txt" || true
           [ ! -s "$tmpdir/sources.txt" ] && { echo "❌ No valid URLs — exiting."; exit 0; }
 
-          echo "🌐 Fetching M3U sources in parallel..."
+          echo "🌐 Fetching M3U sources..."
           i=0
           while IFS= read -r url || [ -n "$url" ]; do
             [ -z "$url" ] && continue
@@ -70,7 +61,7 @@
           total=$(grep -c '^#EXTINF' "$tmpdir/all.m3u" || echo 0)
           updated=$(grep -c '^#EXTINF' "$tmpdir/all_unique.m3u" || echo 0)
 
-          echo "📊 Splitting channels by language..."
+          echo "📊 Splitting by language..."
           mkdir -p "$tmpdir/langs"
 
           awk -v tmpdir="$tmpdir/langs" '
@@ -87,7 +78,7 @@
             }
           ' "$tmpdir/all_unique.m3u"
 
-          # Language flags
+          # Flags for sections
           declare -A flags=(
             ["Telugu"]="🇮🇳"
             ["Hindi"]="🇮🇳"
@@ -110,8 +101,20 @@
             echo "$lang,$count" >> "$tmpdir/lang_stats.csv"
           done
 
+          # ===== HEADER WITH TOTALS =====
           {
+            echo "# 🔹 Pushed and Updated by Kittujk"
+            echo "# 🔸 Coded & Maintained by @RJMBTS"
+            echo "# 🕒 Last updated: $timestamp"
+            echo "# 📺 Total Channels: $total"
+            echo "# ♻️ Unique Channels: $updated"
             echo ""
+            echo '#EXTM3U billed-msg="RJM Tv - RJMBTS Network"'
+            echo ""
+          } > "$out_file"
+
+          # ===== LANGUAGE SUMMARY =====
+          {
             echo "# ===== LANGUAGE SUMMARY ====="
             tail -n +2 "$tmpdir/lang_stats.csv" | sort -t, -k2 -nr | while IFS=, read -r lang num; do
               flag="${flags[$lang]:-🌐}"
@@ -122,7 +125,7 @@
             echo ""
           } >> "$out_file"
 
-          echo "🔠 Sorting channels alphabetically inside each language..."
+          echo "🔠 Sorting A–Z inside each language..."
           tail -n +2 "$tmpdir/lang_stats.csv" | sort -t, -k2 -nr | while IFS=, read -r lang num; do
             file="$tmpdir/langs/$lang.m3u"
             [ ! -f "$file" ] && continue
@@ -131,47 +134,3 @@
             echo "" >> "$out_file"
             echo "# ---------------------------" >> "$out_file"
             echo "# ▶️ $flag $lang Channels (A–Z)" >> "$out_file"
-            echo "# ---------------------------" >> "$out_file"
-
-            # Sort channels alphabetically by channel name inside the language
-            awk '
-              /^#EXTINF/ {info=$0; getline url; data[info]=url}
-              END {
-                n=asorti(data, sorted)
-                ch=1
-                for (i=1; i<=n; i++) {
-                  info=sorted[i]
-                  url=data[info]
-                  if (info !~ /tvg-chno=/)
-                    sub(/^#EXTINF:-1/, sprintf("#EXTINF:-1 tvg-chno=\"%d\"", ch), info)
-                  print info
-                  print url
-                  ch++
-                }
-              }
-            ' "$file" >> "$out_file"
-
-            echo "" >> "$out_file"
-          done
-
-          echo "✅ Souloc M3U successfully built: Grouped, Flagged, Renumbered & Alphabetized."
-          echo "📺 Total channels fetched: $total"
-          echo "♻️ Unique (Updated): $updated"
-
-          {
-            echo "## 🌐 Souloc Master — RJMBTS Auto-Build Summary"
-            echo "| Metric | Count |"
-            echo "|--------|--------:|"
-            echo "| 📺 Total fetched | ${total:-0} |"
-            echo "| ♻️ Unique (updated) | ${updated:-0} |"
-            echo ""
-            echo "### 📊 Channels by Language"
-            echo "| Language | Channels |"
-            echo "|-----------|-----------:|"
-            tail -n +2 "$tmpdir/lang_stats.csv" | sort -t, -k2 -nr | awk -F, '{printf "| %s | %s |\n", $1, $2}'
-            echo ""
-            echo "🕒 **Last updated:** $timestamp"
-            echo ""
-            echo "🔸 **Coded & Maintained by [@RJMBTS](https://github.com/RJMBTS)**"
-            echo "🔹 **Powered by RJM Tv & Souloc Network**"
-          } >> $GITHUB_STEP_SUMMARY
