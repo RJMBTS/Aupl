@@ -1,4 +1,4 @@
-      - name: 🧩 Souloc Master Builder
+      - name: 🧩 Build souloc.m3u (Grouped + Flags + Sorted A–Z)
         shell: bash
         env:
           TZ: "Asia/Kolkata"
@@ -70,7 +70,7 @@
           total=$(grep -c '^#EXTINF' "$tmpdir/all.m3u" || echo 0)
           updated=$(grep -c '^#EXTINF' "$tmpdir/all_unique.m3u" || echo 0)
 
-          echo "📊 Splitting and numbering per language..."
+          echo "📊 Splitting channels by language..."
           mkdir -p "$tmpdir/langs"
 
           awk -v tmpdir="$tmpdir/langs" '
@@ -87,7 +87,7 @@
             }
           ' "$tmpdir/all_unique.m3u"
 
-          # Flag emojis for common languages
+          # Language flags
           declare -A flags=(
             ["Telugu"]="🇮🇳"
             ["Hindi"]="🇮🇳"
@@ -110,7 +110,6 @@
             echo "$lang,$count" >> "$tmpdir/lang_stats.csv"
           done
 
-          # Append language summary
           {
             echo ""
             echo "# ===== LANGUAGE SUMMARY ====="
@@ -123,7 +122,7 @@
             echo ""
           } >> "$out_file"
 
-          # Sort and renumber per language
+          echo "🔠 Sorting channels alphabetically inside each language..."
           tail -n +2 "$tmpdir/lang_stats.csv" | sort -t, -k2 -nr | while IFS=, read -r lang num; do
             file="$tmpdir/langs/$lang.m3u"
             [ ! -f "$file" ] && continue
@@ -131,29 +130,33 @@
 
             echo "" >> "$out_file"
             echo "# ---------------------------" >> "$out_file"
-            echo "# ▶️ $flag $lang Channels" >> "$out_file"
+            echo "# ▶️ $flag $lang Channels (A–Z)" >> "$out_file"
             echo "# ---------------------------" >> "$out_file"
 
-            awk -v lang="$lang" -v flag="$flag" -v start=1 '
-              BEGIN { ch=start }
-              /^#EXTINF/ {
-                info=$0
-                if (info !~ /tvg-chno=/) {
-                  sub(/^#EXTINF:-1/, sprintf("#EXTINF:-1 tvg-chno=\"%d\"", ch), info)
+            # Sort channels alphabetically by channel name inside the language
+            awk '
+              /^#EXTINF/ {info=$0; getline url; data[info]=url}
+              END {
+                n=asorti(data, sorted)
+                ch=1
+                for (i=1; i<=n; i++) {
+                  info=sorted[i]
+                  url=data[info]
+                  if (info !~ /tvg-chno=/)
+                    sub(/^#EXTINF:-1/, sprintf("#EXTINF:-1 tvg-chno=\"%d\"", ch), info)
+                  print info
+                  print url
+                  ch++
                 }
-                print info
-                getline url
-                print url
-                ch++
               }
             ' "$file" >> "$out_file"
 
             echo "" >> "$out_file"
           done
 
-          echo "✅ Souloc M3U successfully grouped, flagged, and renumbered."
+          echo "✅ Souloc M3U successfully built: Grouped, Flagged, Renumbered & Alphabetized."
           echo "📺 Total channels fetched: $total"
-          echo "♻️ Unique (Updated) channels: $updated"
+          echo "♻️ Unique (Updated): $updated"
 
           {
             echo "## 🌐 Souloc Master — RJMBTS Auto-Build Summary"
