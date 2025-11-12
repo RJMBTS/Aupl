@@ -1,4 +1,4 @@
-      - name: 🧩 Build souloc.m3u (Grouped + Flagged + Renumbered)
+      - name: 🧩 Souloc Master Builder
         shell: bash
         env:
           TZ: "Asia/Kolkata"
