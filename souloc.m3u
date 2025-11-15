@@ -1,7 +1,7 @@
 # 🔹 Pushed and Updated by Kittujk
 # 🔸 Coded & Maintained by @RJMBTS
-# 🕒 Last updated: 2025-11-15 18:18:33 IST
-# 📺 Channels : Total - 426 | Updated - 426
+# 🕒 Last updated: 2025-11-15 18:58:57 IST
+# 📺 Channels : Total - 428 | Updated - 428
 
 #EXTM3U billed-msg="RJM Tv - RJMBTS Network"
 
@@ -449,6 +449,10 @@ https://stream.onecloudlive.in/tcn/tcntv/index.m3u8
 https://stream.sscloud7.in/live/vishiltv2/index.m3u8
 #EXTINF:-1 tvg-chno="2" tvg-id="VisilTV" tvg-logo="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1725798337.PNG" group-title="Virudhunagar",Visil TV 
 https://stream.sscloud7.in/live/vishiltv1/index.m3u8
+#EXTINF:-1 tvg-chno="1" tvg-id="SSTV" tvg-logo="https://play-lh.googleusercontent.com/bwYGFpoUuFlDSgnD7Ug0DVORnPlO9rRa4771UwD3pjGeUp0GvAkTdI2dJYkzlJApBAc=w512-h960-rw" group-title="Tiruppur",SS TV 
+https://notvstream.in/sstv/sstv.m3u8
+#EXTINF:-1 tvg-chno="2" tvg-id="TiruppurVoiceTV" tvg-logo="https://play-lh.googleusercontent.com/7WwJlJcxOrQDjY2eOb1GNpLYQ_JF6fboUUmIb3b2R9tcdA_ewkTP94uCKXnbOw8mhaMw=w512-h960-rw" group-title="Tiruppur",Tiruppur Voice TV 
+https://notvstream.in/tirupurvoicetv/tirupurvoicetv.m3u8
 #EXTINF:-1 tvg-chno="1" tvg-id="PaavaiTV" tvg-logo="https://play-lh.googleusercontent.com/QqeM-vu6XSHC2RnsHIavFBogRePV9Tife_VuLTzn9wdJIpDksMV31ha7dd7U5uoJtw=w512-h960-rw" group-title="Tirupattur",Paavai TV 
 https://ipcloud.live/paavai/live/index.m3u8
 #EXTINF:-1 tvg-chno="2" tvg-id="PhoenixTVTirupattur" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1753871451_Untitled%25202-%2520Copy%2520copy.png&w=1920&q=75" group-title="Tirupattur",Phoenix TV 
@@ -501,8 +505,6 @@ https://sartv.phoenixcreations.online/sartv/sartv/index.m3u8
 https://ipcloud.live/thirumalaitv/madurai/index.m3u8
 #EXTINF:-1 tvg-chno="1" tvg-id="VeeraliTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1741273429_logo.gif&w=1080&q=75" group-title="Udangudi; Thoothukudi",Veerali TV 
 https://ipcloud.live/veerali/veeralitv/index.m3u8
-#EXTINF:-1 tvg-chno="1" tvg-id="SSTV" tvg-logo="https://play-lh.googleusercontent.com/bwYGFpoUuFlDSgnD7Ug0DVORnPlO9rRa4771UwD3pjGeUp0GvAkTdI2dJYkzlJApBAc=w512-h960-rw" group-title="Tiruppur",SS TV 
-https://notvstream.in/sstv/sstv.m3u8
 #EXTINF:-1 tvg-chno="1" tvg-id="ShaTV" tvg-logo="https://play-lh.googleusercontent.com/YFCBVclNFznGAyBf1EdTdpeIvkf-poU1k_YiCRFJky3_1f-UZXiIho2cCobvgsno-wIA" group-title="Thuckalay; Kanyakumari Dist.",Sha TV 
 https://play.applelive.in/shatv/shatv.m3u8
 #EXTINF:-1 tvg-chno="1" tvg-id="AkilamTV" tvg-logo="https://play-lh.googleusercontent.com/O2VYtHNRr69SaCKZ3NKYz4-JpCu7Va1tc7agAbpB-rdRa-PsKrwW-_VbZE3gLvDjew=w512-h960-rw" group-title="Thisayanvilail; Tirunelveli Dist.",Akilam TV 
