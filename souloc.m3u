@@ -1,7 +1,7 @@
 # 🔹 Pushed and Updated by Kittujk
 # 🔸 Coded & Maintained by @RJMBTS
-# 🕒 Last updated: 2025-11-16 14:01:34 IST
-# 📺 Channels : Total - 428 | Updated - 428
+# 🕒 Last updated: 2025-11-16 14:54:52 IST
+# 📺 Channels : Total - 429 | Updated - 429
 
 #EXTM3U billed-msg="RJM Tv - RJMBTS Network"
 
@@ -449,6 +449,10 @@ https://stream.onecloudlive.in/tcn/tcntv/index.m3u8
 https://stream.sscloud7.in/live/vishiltv2/index.m3u8
 #EXTINF:-1 tvg-chno="2" tvg-id="VisilTV" tvg-logo="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1725798337.PNG" group-title="Virudhunagar",Visil TV 
 https://stream.sscloud7.in/live/vishiltv1/index.m3u8
+#EXTINF:-1 tvg-chno="1" tvg-id="BhakthiTV" tvg-logo="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1735381330.jpg" group-title="Vasudevanallur; Tenkasi Dist.",Bhakthi TV 
+https://live.sscloud7.in/live/bhakthitv/index.m3u8
+#EXTINF:-1 tvg-chno="2" tvg-id="JithTV" tvg-logo="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1735924218.PNG" group-title="Vasudevanallur; Tenkasi Dist.",Jith TV 
+https://sscloud7.com/live/jithtv/index.m3u8
 #EXTINF:-1 tvg-chno="1" tvg-id="SSTV" tvg-logo="https://play-lh.googleusercontent.com/bwYGFpoUuFlDSgnD7Ug0DVORnPlO9rRa4771UwD3pjGeUp0GvAkTdI2dJYkzlJApBAc=w512-h960-rw" group-title="Tiruppur",SS TV 
 https://notvstream.in/sstv/sstv.m3u8
 #EXTINF:-1 tvg-chno="2" tvg-id="TiruppurVoiceTV" tvg-logo="https://play-lh.googleusercontent.com/7WwJlJcxOrQDjY2eOb1GNpLYQ_JF6fboUUmIb3b2R9tcdA_ewkTP94uCKXnbOw8mhaMw=w512-h960-rw" group-title="Tiruppur",Tiruppur Voice TV 
