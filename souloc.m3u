@@ -1,7 +1,7 @@
 # 🔹 Pushed and Updated by Kittujk
 # 🔸 Coded & Maintained by @RJMBTS
-# 🕒 Last updated: 2025-11-18 19:06:37 IST
-# 📺 Channels : Total - 438 | Updated - 438
+# 🕒 Last updated: 2025-11-18 19:57:06 IST
+# 📺 Channels : Total - 439 | Updated - 439
 
 #EXTM3U billed-msg="RJM Tv - RJMBTS Network"
 
@@ -261,6 +261,8 @@ https://server.sscloud7.in/live/sshd/playlist.m3u8
 https://play.applelive.in/stv/stv.m3u8
 #EXTINF:-1 tvg-chno="11" tvg-id="SriVasanthTV" tvg-logo="https://play-lh.googleusercontent.com/RrIUDazd9z6EZaRewzOa9tjeJELR5qT2eJkukFRvRRIe1Odo4nJEjkguxwHVM1_SAty7=w480-h960-rw" group-title="Nagercoil; Kanyakumari Dist.",Sri Vasanth TV 
 https://play.applelive.in/vasanthtv/vasanthtv.m3u8
+#EXTINF:-1 tvg-chno="12" tvg-id="VTV" tvg-logo="https://play-lh.googleusercontent.com/YUc9M2Gii20Jy5a-dpmR6958-2c1wOMYyO0Jddy9nDqyIp0KdvF8s17sLdzD4ECg4Ws=w480-h960-rw" group-title="Nagercoil; Kanyakumari Dist.",V TV 
+https://play.applelive.in/vtv/vtv.m3u8
 #EXTINF:-1 tvg-chno="1" tvg-id="7StarTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1754648001_7STV%2520Still%25202%2520(1).png&w=1920&q=75" group-title="Salem",7Star TV 
 http://premium.7starcloud.com:1935/live/7star/playlist.m3u8
 #EXTINF:-1 tvg-chno="2" tvg-id="7StarTV2" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1754648001_7STV%2520Still%25202%2520(1).png&w=1920&q=75" group-title="Salem",7Star TV (Alt) 
@@ -419,6 +421,14 @@ http://ttv.7starcloud.com:1935/thirumagal/tv/playlist.m3u8
 http://ttv.7starcloud.com:1935/vctn/tv/playlist.m3u8
 #EXTINF:-1 tvg-chno="4" tvg-id="VanavilTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1738324014_vanavil%2520w%2520stroke%2520copy.png&w=1920&q=75" group-title="Kallakurichi",Vanavil TV 
 http://ttv.7starcloud.com:1935/vaanavil/tv/playlist.m3u8
+#EXTINF:-1 tvg-chno="1" tvg-id="CuddaloreVoiceTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1754494620_Ver%25202.0_04.png&w=1080&q=75" group-title="Cuddalore",Cuddalore Voice TV 
+http://voicetv.stream.ashokadigital.net:8080/voicetv/voicetvhd/index.m3u8
+#EXTINF:-1 tvg-chno="2" tvg-id="MSNTV" tvg-logo="https://play-lh.googleusercontent.com/F3TU8RYLcFvQ6V-3okXaome7n0PmClEmkVIcEGHw6YPO1ArCpp30XV_fNjuIdozkCZtq=w512-h960-rw" group-title="Cuddalore",MSN TV 
+https://ipcloud.live/msntv/msntv/index.m3u8
+#EXTINF:-1 tvg-chno="3" tvg-id="SaamiTV" group-title="Cuddalore",Saami TV 
+https://ipcloud.live/msntv/saamitv/index.m3u8
+#EXTINF:-1 tvg-chno="4" tvg-id="ThillaiTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1744705879_IMG-20250415-WA0134(1).jpg&w=1920&q=75" group-title="Cuddalore",Thillai TV 
+https://stream.onecloudlive.in/tcn/tcntv/index.m3u8
 #EXTINF:-1 tvg-chno="1" tvg-id="3StarTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1746107173_3%2520star%2520logo%2520png%2520copy.png&w=1080&q=75" group-title="Chennai",3 Star TV 
 https://stream.onecloudlive.in/threestartv/threestarhd/index.m3u8
 #EXTINF:-1 tvg-chno="2" tvg-id="AkashTV" tvg-logo="https://tvchannel.in/wp-content/uploads/2025/03/akash-tv-300x169.jpg" group-title="Chennai",Akash TV 
@@ -445,12 +455,6 @@ http://csktv.7starcloud.com:1935/csktv/csktvdpi/playlist.m3u8
 https://mntv.livebox.co.in/musichls/live.m3u8
 #EXTINF:-1 tvg-chno="3" tvg-id="MNTV" tvg-logo="https://mntv.in/style/images/logo-dark.png" group-title="Dharmapuri",MN TV 
 https://mntv.livebox.co.in/mntvhls/live.m3u8
-#EXTINF:-1 tvg-chno="1" tvg-id="MSNTV" tvg-logo="https://play-lh.googleusercontent.com/F3TU8RYLcFvQ6V-3okXaome7n0PmClEmkVIcEGHw6YPO1ArCpp30XV_fNjuIdozkCZtq=w512-h960-rw" group-title="Cuddalore",MSN TV 
-https://ipcloud.live/msntv/msntv/index.m3u8
-#EXTINF:-1 tvg-chno="2" tvg-id="SaamiTV" group-title="Cuddalore",Saami TV 
-https://ipcloud.live/msntv/saamitv/index.m3u8
-#EXTINF:-1 tvg-chno="3" tvg-id="ThillaiTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1744705879_IMG-20250415-WA0134(1).jpg&w=1920&q=75" group-title="Cuddalore",Thillai TV 
-https://stream.onecloudlive.in/tcn/tcntv/index.m3u8
 #EXTINF:-1 tvg-chno="1" tvg-id="VisilMax" tvg-logo="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1744985304.jpeg" group-title="Virudhunagar",Visil Max 
 https://stream.sscloud7.in/live/vishiltv2/index.m3u8
 #EXTINF:-1 tvg-chno="2" tvg-id="VisilTV" tvg-logo="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1725798337.PNG" group-title="Virudhunagar",Visil TV 
