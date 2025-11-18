@@ -1,7 +1,7 @@
 # 🔹 Pushed and Updated by Kittujk
 # 🔸 Coded & Maintained by @RJMBTS
-# 🕒 Last updated: 2025-11-18 21:19:23 IST
-# 📺 Channels : Total - 439 | Updated - 439
+# 🕒 Last updated: 2025-11-18 22:06:45 IST
+# 📺 Channels : Total - 438 | Updated - 438
 
 #EXTM3U billed-msg="RJM Tv - RJMBTS Network"
 
@@ -257,11 +257,9 @@ https://play.applelive.in/jjmax/jjmax.m3u8
 https://play.applelive.in/prtv/prtv.m3u8
 #EXTINF:-1 tvg-chno="9" tvg-id="SSTVNagercoil" tvg-logo="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1721756371.PNG" group-title="Nagercoil; Kanyakumari Dist.",SS TV Nagercoil 
 https://server.sscloud7.in/live/sshd/playlist.m3u8
-#EXTINF:-1 tvg-chno="10" tvg-id="STV" tvg-logo="https://play-lh.googleusercontent.com/uwF7AfKUUjdGpIpAThFLvtn8heCbxmN9D8ealDqjZ7yit0lLp3A9eIeQDtcn7rRL8uIQlMGZoz2j8EUtbBGgeA=w512-h960-rw" group-title="Nagercoil; Kanyakumari Dist.",S TV 
-https://play.applelive.in/stv/stv.m3u8
-#EXTINF:-1 tvg-chno="11" tvg-id="SriVasanthTV" tvg-logo="https://play-lh.googleusercontent.com/RrIUDazd9z6EZaRewzOa9tjeJELR5qT2eJkukFRvRRIe1Odo4nJEjkguxwHVM1_SAty7=w480-h960-rw" group-title="Nagercoil; Kanyakumari Dist.",Sri Vasanth TV 
+#EXTINF:-1 tvg-chno="10" tvg-id="SriVasanthTV" tvg-logo="https://play-lh.googleusercontent.com/RrIUDazd9z6EZaRewzOa9tjeJELR5qT2eJkukFRvRRIe1Odo4nJEjkguxwHVM1_SAty7=w480-h960-rw" group-title="Nagercoil; Kanyakumari Dist.",Sri Vasanth TV 
 https://play.applelive.in/vasanthtv/vasanthtv.m3u8
-#EXTINF:-1 tvg-chno="12" tvg-id="VTV" tvg-logo="https://play-lh.googleusercontent.com/YUc9M2Gii20Jy5a-dpmR6958-2c1wOMYyO0Jddy9nDqyIp0KdvF8s17sLdzD4ECg4Ws=w480-h960-rw" group-title="Nagercoil; Kanyakumari Dist.",V TV 
+#EXTINF:-1 tvg-chno="11" tvg-id="VTV" tvg-logo="https://play-lh.googleusercontent.com/YUc9M2Gii20Jy5a-dpmR6958-2c1wOMYyO0Jddy9nDqyIp0KdvF8s17sLdzD4ECg4Ws=w480-h960-rw" group-title="Nagercoil; Kanyakumari Dist.",V TV 
 https://play.applelive.in/vtv/vtv.m3u8
 #EXTINF:-1 tvg-chno="1" tvg-id="7StarTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1754648001_7STV%2520Still%25202%2520(1).png&w=1920&q=75" group-title="Salem",7Star TV 
 http://premium.7starcloud.com:1935/live/7star/playlist.m3u8
