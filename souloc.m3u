@@ -1,6 +1,6 @@
 # 🔹 Pushed and Updated by Kittujk
 # 🔸 Coded & Maintained by @RJMBTS
-# 🕒 Last updated: 2025-11-18 20:18:19 IST
+# 🕒 Last updated: 2025-11-18 21:00:01 IST
 # 📺 Channels : Total - 439 | Updated - 439
 
 #EXTM3U billed-msg="RJM Tv - RJMBTS Network"
@@ -507,6 +507,10 @@ https://ipcloud.live/udhayamtv/live/index.m3u8
 https://account33.livebox.co.in/7GREEN4Khls/live.m3u8
 #EXTINF:-1 tvg-chno="2" tvg-id="TharunMovies" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1739599242_IMG_20250215_111845_234.png&w=1920&q=75" group-title="Koovathur; Kanchipuram Dist.",Tharun Movies 
 https://streaming.livebox.co.in/tharunmovieshls/live.m3u8
+#EXTINF:-1 tvg-chno="1" tvg-id="KumaranTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1752739119_WhatsApp%2520Image%25202025-07-17%2520at%252012.53.10%2520PM.jpeg&w=1080&q=75" group-title="Gobichettipalayam; Erode Dist.",Kumaran TV 
+https://stream.rojatv.cloud/kumarantv/gobi/index.m3u8
+#EXTINF:-1 tvg-chno="2" tvg-id="NammaGobiTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1751788665_png%2520logo.png&w=1920&q=75" group-title="Gobichettipalayam; Erode Dist.",Namma Gobi TV 
+https://stream.rojatv.cloud/nammagobi/tv/index.m3u8
 #EXTINF:-1 tvg-chno="1" tvg-id="ThendralTVAmbai" tvg-logo="https://play-lh.googleusercontent.com/l06iyyboWjfU13_hZe2fSTjNHtlTZ12YqFcQmwkJF68rLuL_cg6qRykYdiEv8H6tKg=w480-h960-rw" group-title="Ambasamudram",Thendral TV Ambai 
 https://thendraltv.phoenixcreations.online/thendraltv/thendraltv/index.m3u8
 #EXTINF:-1 tvg-chno="2" tvg-id="TopTV" tvg-logo="https://play-lh.googleusercontent.com/c0QQntk1Dh1qoRte2HUYdVdiue-HePcAU8jq2srS0lEpTrDQ3EziTdaRj0PUm4KJlGs=w512-h960-rw" group-title="Ambasamudram",Top TV [Not 24/7] 
