@@ -1,6 +1,6 @@
 # 🔹 Pushed and Updated by Kittujk
 # 🔸 Coded & Maintained by @RJMBTS
-# 🕒 Last updated: 2025-11-18 16:00:12 IST
+# 🕒 Last updated: 2025-11-18 16:54:02 IST
 # 📺 Channels : Total - 434 | Updated - 434
 
 #EXTM3U billed-msg="RJM Tv - RJMBTS Network"
@@ -241,23 +241,25 @@ https://stream.singamcloud.in/shalinitv/shalinitv/index.m3u8
 https://live.yettelevision.com:5443/LiveApp/streams/yettv.m3u8
 #EXTINF:-1 tvg-chno="1" tvg-id="AppleTVNagercoil" tvg-logo="https://tamiltvchannels.com/img/tamil%20local/apple%20tv.png" group-title="Nagercoil; Kanyakumari Dist.",Apple TV Nagercoil 
 https://play.applelive.in/appletv/appletv.m3u8
-#EXTINF:-1 tvg-chno="2" tvg-id="JCV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1748433060_9cb0a3e0-e167-411b-bd8a-94ba0d499a01-removebg-preview.png&w=1080&q=75" group-title="Nagercoil; Kanyakumari Dist.",JCV 
+#EXTINF:-1 tvg-chno="2" tvg-id="GarudanTV" tvg-logo="https://tamiltvchannels.com/img/Devotional%20H/Garudan.png" group-title="Nagercoil; Kanyakumari Dist.",Garudan TV 
+https://play.applelive.in/hls/garudantv.m3u8
+#EXTINF:-1 tvg-chno="3" tvg-id="JCV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1748433060_9cb0a3e0-e167-411b-bd8a-94ba0d499a01-removebg-preview.png&w=1080&q=75" group-title="Nagercoil; Kanyakumari Dist.",JCV 
 https://play.applelive.in/jcvtv/jcvtv.m3u8
-#EXTINF:-1 tvg-chno="3" tvg-id="JCVMusix" tvg-logo="https://tamiltvchannels.com/img/tamil%20local/jcv%20musix.gif" group-title="Nagercoil; Kanyakumari Dist.",JCV Musix 
+#EXTINF:-1 tvg-chno="4" tvg-id="JCVMusix" tvg-logo="https://tamiltvchannels.com/img/tamil%20local/jcv%20musix.gif" group-title="Nagercoil; Kanyakumari Dist.",JCV Musix 
 https://play.applelive.in/jcvtv/jcvmusix.m3u8
-#EXTINF:-1 tvg-chno="4" tvg-id="JaiTV" tvg-logo="https://play-lh.googleusercontent.com/APcXUrNRsMykUbsTpJd32uF6VMRqvhVV_davBoS_pUR-HT55AXcJm8TDe1RFfx8X0w=w480-h960-rw" group-title="Nagercoil; Kanyakumari Dist.",Jai TV 
+#EXTINF:-1 tvg-chno="5" tvg-id="JaiTV" tvg-logo="https://play-lh.googleusercontent.com/APcXUrNRsMykUbsTpJd32uF6VMRqvhVV_davBoS_pUR-HT55AXcJm8TDe1RFfx8X0w=w480-h960-rw" group-title="Nagercoil; Kanyakumari Dist.",Jai TV 
 https://play.applelive.in/jaitv/jaitv.m3u8
-#EXTINF:-1 tvg-chno="5" tvg-id="JeysonTV" tvg-logo="https://tamiltvchannels.com/img/tamil%20local/jeyson%20tv.jpg" group-title="Nagercoil; Kanyakumari Dist.",Jeyson TV 
+#EXTINF:-1 tvg-chno="6" tvg-id="JeysonTV" tvg-logo="https://tamiltvchannels.com/img/tamil%20local/jeyson%20tv.jpg" group-title="Nagercoil; Kanyakumari Dist.",Jeyson TV 
 https://play.applelive.in/jeysontv/jeysontv.m3u8
-#EXTINF:-1 tvg-chno="6" tvg-id="KumariKathirTV" tvg-logo="https://tamiltvchannels.com/img/tamil%20local/kumari%20kathir.png" group-title="Nagercoil; Kanyakumari Dist.",Kumari Kathir TV 
+#EXTINF:-1 tvg-chno="7" tvg-id="KumariKathirTV" tvg-logo="https://tamiltvchannels.com/img/tamil%20local/kumari%20kathir.png" group-title="Nagercoil; Kanyakumari Dist.",Kumari Kathir TV 
 https://play.applelive.in/jjmax/jjmax.m3u8
-#EXTINF:-1 tvg-chno="7" tvg-id="PRTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1752245098_PR%2520TV%2520LOGO%2520PNG.png&w=1920&q=75" group-title="Nagercoil; Kanyakumari Dist.",PR TV 
+#EXTINF:-1 tvg-chno="8" tvg-id="PRTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1752245098_PR%2520TV%2520LOGO%2520PNG.png&w=1920&q=75" group-title="Nagercoil; Kanyakumari Dist.",PR TV 
 https://play.applelive.in/prtv/prtv.m3u8
-#EXTINF:-1 tvg-chno="8" tvg-id="SSTVNagercoil" tvg-logo="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1721756371.PNG" group-title="Nagercoil; Kanyakumari Dist.",SS TV Nagercoil 
+#EXTINF:-1 tvg-chno="9" tvg-id="SSTVNagercoil" tvg-logo="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1721756371.PNG" group-title="Nagercoil; Kanyakumari Dist.",SS TV Nagercoil 
 https://server.sscloud7.in/live/sshd/playlist.m3u8
-#EXTINF:-1 tvg-chno="9" tvg-id="STV" tvg-logo="https://play-lh.googleusercontent.com/uwF7AfKUUjdGpIpAThFLvtn8heCbxmN9D8ealDqjZ7yit0lLp3A9eIeQDtcn7rRL8uIQlMGZoz2j8EUtbBGgeA=w512-h960-rw" group-title="Nagercoil; Kanyakumari Dist.",S TV 
+#EXTINF:-1 tvg-chno="10" tvg-id="STV" tvg-logo="https://play-lh.googleusercontent.com/uwF7AfKUUjdGpIpAThFLvtn8heCbxmN9D8ealDqjZ7yit0lLp3A9eIeQDtcn7rRL8uIQlMGZoz2j8EUtbBGgeA=w512-h960-rw" group-title="Nagercoil; Kanyakumari Dist.",S TV 
 https://play.applelive.in/stv/stv.m3u8
-#EXTINF:-1 tvg-chno="10" tvg-id="SriVasanthTV" tvg-logo="https://play-lh.googleusercontent.com/RrIUDazd9z6EZaRewzOa9tjeJELR5qT2eJkukFRvRRIe1Odo4nJEjkguxwHVM1_SAty7=w480-h960-rw" group-title="Nagercoil; Kanyakumari Dist.",Sri Vasanth TV 
+#EXTINF:-1 tvg-chno="11" tvg-id="SriVasanthTV" tvg-logo="https://play-lh.googleusercontent.com/RrIUDazd9z6EZaRewzOa9tjeJELR5qT2eJkukFRvRRIe1Odo4nJEjkguxwHVM1_SAty7=w480-h960-rw" group-title="Nagercoil; Kanyakumari Dist.",Sri Vasanth TV 
 https://play.applelive.in/vasanthtv/vasanthtv.m3u8
 #EXTINF:-1 tvg-chno="1" tvg-id="AsokaTV" tvg-logo="https://play-lh.googleusercontent.com/kpymS-jKwGoysI-ZssDRhUsw9SHRvoav3v_aSYjkj98O6CsbAhTagRk5WeFJJQMMUQ=w512-h960-rw" group-title="Coimbatore",Asoka TV [Not 24/7] 
 https://ipcloud.live/asokatv/asokahd/index.m3u8
