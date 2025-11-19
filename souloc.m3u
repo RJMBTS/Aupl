@@ -1,6 +1,6 @@
 # 🔹 Pushed and Updated by Kittujk
 # 🔸 Coded & Maintained by @RJMBTS
-# 🕒 Last updated: 2025-11-19 16:52:48 IST
+# 🕒 Last updated: 2025-11-19 17:11:35 IST
 # 📺 Channels : Total - 438 | Updated - 438
 
 #EXTM3U billed-msg="RJM Tv - RJMBTS Network"
@@ -367,8 +367,8 @@ https://ipcloud.live/subashtv/subashhd/index.m3u8
 https://ipcloud.live/sachintv/aadviktv/index.m3u8
 #EXTINF:-1 tvg-chno="2" tvg-id="DhoniTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1736158433_DHONI%2520TV%25202017%25205%2520copy%2520(2).png&w=1920&q=75" group-title="Sambavarvadakarai",Dhoni TV 
 https://ipcloud.live/sachintv/dhonitv/index.m3u8
-#EXTINF:-1 tvg-chno="3" tvg-id="SachinMusic" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1736158383_Comp%25201_00075.png&w=1920&q=75" group-title="Sambavarvadakarai",Sachin Music [MPD] 
-https://ipcloud.live/sachintv/musichd/index.mpd
+#EXTINF:-1 tvg-chno="3" tvg-id="SachinMusic" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1736158383_Comp%25201_00075.png&w=1920&q=75" group-title="Sambavarvadakarai",Sachin Music 
+https://ipcloud.live/sachintv/musichd/index.m3u8
 #EXTINF:-1 tvg-chno="4" tvg-id="SachinTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1736158345_sachin_00000%2520(1).png&w=1920&q=75" group-title="Sambavarvadakarai",Sachin TV 
 https://ipcloud.live/sachintv/sachintvhd/index.m3u8
 #EXTINF:-1 tvg-chno="5" tvg-id="StrawberryTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1756798791_Logo_00341.png&w=1920&q=75" group-title="Sambavarvadakarai",Strawberry TV 
