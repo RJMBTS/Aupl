@@ -1,7 +1,7 @@
 # 🔹 Pushed and Updated by Kittujk
 # 🔸 Coded & Maintained by @RJMBTS
-# 🕒 Last updated: 2025-11-20 17:11:04 IST
-# 📺 Channels : Total - 439 | Updated - 439
+# 🕒 Last updated: 2025-11-20 18:24:06 IST
+# 📺 Channels : Total - 440 | Updated - 440
 
 #EXTM3U billed-msg="RJM Tv - RJMBTS Network"
 
@@ -353,6 +353,18 @@ https://rktv.phoenixcreations.online/rktv/rktv/index.m3u8
 https://live1.sscloud7.com/live/smileytv/index.m3u8
 #EXTINF:-1 tvg-chno="6" tvg-id="SubashTV" tvg-logo="https://firebasestorage.googleapis.com/v0/b/cloud-multiapp.appspot.com/o/subash-tv.png?alt=media&token=bd1c4551-407c-442d-b669-6302584000f6" group-title="Tenkasi",Subash TV 
 https://ipcloud.live/subashtv/subashhd/index.m3u8
+#EXTINF:-1 tvg-chno="1" tvg-id="AadvikTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1736158234_Aadvik%2520logo%25201_00000.png&w=1920&q=75" group-title="Sambavarvadakarai",Aadvik TV 
+https://ipcloud.live/sachintv/aadviktv/index.m3u8
+#EXTINF:-1 tvg-chno="2" tvg-id="DhoniTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1736158433_DHONI%2520TV%25202017%25205%2520copy%2520(2).png&w=1920&q=75" group-title="Sambavarvadakarai",Dhoni TV 
+https://ipcloud.live/sachintv/dhonitv/index.m3u8
+#EXTINF:-1 tvg-chno="3" tvg-id="JPMusicTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1763572153_JP%2520music%2520tv.png&w=1080&q=75" group-title="Sambavarvadakarai",JP Music TV 
+https://stream.onecloudlive.in/sachintv/jpmusichd/index.m3u8
+#EXTINF:-1 tvg-chno="4" tvg-id="SachinMusic" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1736158383_Comp%25201_00075.png&w=1920&q=75" group-title="Sambavarvadakarai",Sachin Music 
+https://ipcloud.live/sachintv/musichd/index.m3u8
+#EXTINF:-1 tvg-chno="5" tvg-id="SachinTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1736158345_sachin_00000%2520(1).png&w=1920&q=75" group-title="Sambavarvadakarai",Sachin TV 
+https://ipcloud.live/sachintv/sachintvhd/index.m3u8
+#EXTINF:-1 tvg-chno="6" tvg-id="StrawberryTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1756798791_Logo_00341.png&w=1920&q=75" group-title="Sambavarvadakarai",Strawberry TV 
+https://stream.onecloudlive.in/sachintv/strawberrytv/index.m3u8
 #EXTINF:-1 tvg-chno="1" tvg-id="AasaiTV" tvg-logo="https://i.imgur.com/5p42C3t.jpg" group-title="Karur",Aasai TV 
 https://notvstream.in/aasaitv/aasaitv.m3u8
 #EXTINF:-1 tvg-chno="2" tvg-id="IWorldTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1746326505_iworldtv%2520logo1.png&w=1920&q=75" group-title="Karur",IWorld TV [Not 24/7] 
@@ -365,16 +377,6 @@ https://view.rcserver.in/tmp_hls17/karurcity/index.m3u8
 https://view.rcserver.in/tmp_hls16/karurtv/index.m3u8
 #EXTINF:-1 tvg-chno="6" tvg-id="ThirumalaiTV" tvg-logo="https://play-lh.googleusercontent.com/t6nqr53rVr6cvLKpluVQNVdTbkqsekjTaxKzOsL3xSJS4HHexNM0CNuF6cXMX09t-Q=w512-h960-rw" group-title="Karur",Thirumalai TV 
 https://notvstream.in/thirumalaitv/thirumalaitv.m3u8
-#EXTINF:-1 tvg-chno="1" tvg-id="AadvikTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1736158234_Aadvik%2520logo%25201_00000.png&w=1920&q=75" group-title="Sambavarvadakarai",Aadvik TV 
-https://ipcloud.live/sachintv/aadviktv/index.m3u8
-#EXTINF:-1 tvg-chno="2" tvg-id="DhoniTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1736158433_DHONI%2520TV%25202017%25205%2520copy%2520(2).png&w=1920&q=75" group-title="Sambavarvadakarai",Dhoni TV 
-https://ipcloud.live/sachintv/dhonitv/index.m3u8
-#EXTINF:-1 tvg-chno="3" tvg-id="SachinMusic" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1736158383_Comp%25201_00075.png&w=1920&q=75" group-title="Sambavarvadakarai",Sachin Music 
-https://ipcloud.live/sachintv/musichd/index.m3u8
-#EXTINF:-1 tvg-chno="4" tvg-id="SachinTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1736158345_sachin_00000%2520(1).png&w=1920&q=75" group-title="Sambavarvadakarai",Sachin TV 
-https://ipcloud.live/sachintv/sachintvhd/index.m3u8
-#EXTINF:-1 tvg-chno="5" tvg-id="StrawberryTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1756798791_Logo_00341.png&w=1920&q=75" group-title="Sambavarvadakarai",Strawberry TV 
-https://stream.onecloudlive.in/sachintv/strawberrytv/index.m3u8
 #EXTINF:-1 tvg-chno="1" tvg-id="ACPIsaiOli" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1762800961_WhatsApp%2520Image%25202025-11-10%2520at%25202.03.57%2520PM.jpeg&w=1920&q=75" group-title="Madurai",ACP Isai Oli [RTMP] 
 rtmp://103.87.105.51:1935/acpisaioli/acpisaioli?psk=123456
 #EXTINF:-1 tvg-chno="2" tvg-id="ACPTVMadurai" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1746108596_ACP%2520TV%2520LOGO%252026-Mar-2025%252014-57-40%2520(2)-1.png&w=1920&q=75" group-title="Madurai",ACP TV Madurai 
