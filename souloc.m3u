@@ -1,7 +1,7 @@
 # 🔹 Pushed and Updated by Kittujk
 # 🔸 Coded & Maintained by @RJMBTS
-# 🕒 Last updated: 2025-11-22 14:01:30 IST
-# 📺 Channels : Total - 442 | Updated - 442
+# 🕒 Last updated: 2025-11-22 14:54:45 IST
+# 📺 Channels : Total - 443 | Updated - 443
 
 #EXTM3U billed-msg="RJM Tv - RJMBTS Network"
 
@@ -286,7 +286,7 @@ https://ipcloud.live/asokatv/asokahd/index.m3u8
 #EXTINF:-1 tvg-chno="2" tvg-id="Dtv" tvg-logo="https://tamilradios.org/wp-content/uploads/2025/01/dtv.png" group-title="Coimbatore",Dtv 
 https://stream.d6-pro.com/Dtv/live/index.m3u8
 #EXTINF:-1 tvg-chno="3" tvg-id="KChannel" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1733334938_IMG-20241204-WA0141.jpg&w=1920&q=75" group-title="Coimbatore",K Channel [Not 24/7] 
-http://brightmeltech.in/kchannel/kchannel.m3u8
+https://live.brightmeltech.in/kchannel/kchannel.m3u8
 #EXTINF:-1 tvg-chno="4" tvg-id="KingTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1731847465_WhatsApp_Image_2024-11-17_at_6.04.44_PM-removebg-preview.png&w=1080&q=75" group-title="Coimbatore",King TV 
 https://rtmp.bmlive.net/kingtv/kingtv/stream.m3u8
 #EXTINF:-1 tvg-chno="5" tvg-id="KovaiTV" group-title="Coimbatore",Kovai TV 
