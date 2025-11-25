@@ -1,7 +1,7 @@
 # 🔹 Pushed and Updated by Kittujk
 # 🔸 Coded & Maintained by @RJMBTS
-# 🕒 Last updated: 2025-11-25 22:06:23 IST
-# 📺 Channels : Total - 442 | Updated - 442
+# 🕒 Last updated: 2025-11-25 22:55:56 IST
+# 📺 Channels : Total - 443 | Updated - 443
 
 #EXTM3U billed-msg="RJM Tv - RJMBTS Network"
 
@@ -299,6 +299,22 @@ https://app.ashokadigital.net/app/a3e0b02f/index.m3u8
 https://stream.onecloudlive.in/deepamtv/sailamtv/index.m3u8
 #EXTINF:-1 tvg-chno="9" tvg-id="TamilStarTV" tvg-logo="https://yt3.googleusercontent.com/5jWU9n12RzHy-xHpVUbCAQEbqjJJ75nUsfvtHYA5Syg4XF6c2FwLcR3_I35Du_0mzU7edCS4wA=s900-c-k-c0x00ffffff-no-rj" group-title="Salem",Tamil Star TV 
 http://acv.7starcloud.com:1935/tamilstar/tv/playlist.m3u8
+#EXTINF:-1 tvg-chno="1" tvg-id="DuraiTV" tvg-logo="https://firebasestorage.googleapis.com/v0/b/cloud-multiapp.appspot.com/o/durai%20tv-4k.png?alt=media&token=632d3193-0055-4c0f-85a0-d912660239c8" group-title="Alangulam; Tenkasi Dist.",Durai TV 
+https://ipcloud.live/duraitv/live/index.m3u8
+#EXTINF:-1 tvg-chno="2" tvg-id="JRMalarTV" tvg-logo="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1721812585.png" group-title="Alangulam; Tenkasi Dist.",JR Malar TV 
+https://server.sscloud7.in/live/malartv/index.m3u8
+#EXTINF:-1 tvg-chno="3" tvg-id="JoseTV" tvg-logo="https://play-lh.googleusercontent.com/_V5dp42Hsk7U5NwrvilcuWyS3A6fBVZyoIwBFqFVoXvCI9Q3Km0APnP6rS_WYVg-mIU=w512-h960-rw" group-title="Alangulam; Tenkasi Dist.",Jose TV [Not 24/7] 
+https://josetv.phoenixcreations.online/josetv/josetv/index.m3u8
+#EXTINF:-1 tvg-chno="4" tvg-id="KingTVAlangulam" tvg-logo="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1721812585.PNG" group-title="Alangulam; Tenkasi Dist.",King TV Alangulam 
+https://server.sscloud7.in/kingtv/kingtv/index.m3u8
+#EXTINF:-1 tvg-chno="5" tvg-id="RaghulTV" tvg-logo="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv1721757628.PNG" group-title="Alangulam; Tenkasi Dist.",Raghul TV 
+http://alk.sscloud7.in/live/raghultv/index.m3u8
+#EXTINF:-1 tvg-chno="6" tvg-id="RioTV" tvg-logo="https://play-lh.googleusercontent.com/r8o_7nnHnNBGqWHnTSl98uPoTwsxVGCfFArM5OTIcGQUoaNuxORznc11pQjyTF8GMA0=w512-h960-rw" group-title="Alangulam; Tenkasi Dist.",Rio TV 
+https://stream.onecloudlive.in/riotv/riotvhd/index.m3u8
+#EXTINF:-1 tvg-chno="7" tvg-id="SubinTV" tvg-logo="https://subintv.in/SUBINLOGO.png" group-title="Alangulam; Tenkasi Dist.",Subin TV (GalaxyOTT/Jio) 
+https://stream.galaxyott.live/live/subintv/index.m3u8
+#EXTINF:-1 tvg-chno="8" tvg-id="SubinTVCloud7" tvg-logo="https://subintv.in/SUBINLOGO.png" group-title="Alangulam; Tenkasi Dist.",Subin TV (Cloud7) 
+https://sscloud7.com/live/subintv/index.m3u8
 #EXTINF:-1 tvg-chno="1" tvg-id="AasaiTV" tvg-logo="https://i.imgur.com/5p42C3t.jpg" group-title="Karur",Aasai TV 
 https://notvstream.in/aasaitv/aasaitv.m3u8
 #EXTINF:-1 tvg-chno="2" tvg-id="IWorldTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1746326505_iworldtv%2520logo1.png&w=1920&q=75" group-title="Karur",IWorld TV [Not 24/7] 
@@ -327,20 +343,6 @@ https://play.applelive.in/jctv/jctv.m3u8
 https://play.applelive.in/riyatv/riyatv.m3u8
 #EXTINF:-1 tvg-chno="7" tvg-id="SelfieTV" tvg-logo="https://tamiltvchannels.com/img/tamil%20local/selfie%20tv.png" group-title="Kanyakumari",Selfie TV 
 https://play.applelive.in/selfeetv/selfeetv.m3u8
-#EXTINF:-1 tvg-chno="1" tvg-id="DuraiTV" tvg-logo="https://firebasestorage.googleapis.com/v0/b/cloud-multiapp.appspot.com/o/durai%20tv-4k.png?alt=media&token=632d3193-0055-4c0f-85a0-d912660239c8" group-title="Alangulam; Tenkasi Dist.",Durai TV 
-https://ipcloud.live/duraitv/live/index.m3u8
-#EXTINF:-1 tvg-chno="2" tvg-id="JRMalarTV" tvg-logo="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1721812585.png" group-title="Alangulam; Tenkasi Dist.",JR Malar TV 
-https://server.sscloud7.in/live/malartv/index.m3u8
-#EXTINF:-1 tvg-chno="3" tvg-id="JoseTV" tvg-logo="https://play-lh.googleusercontent.com/_V5dp42Hsk7U5NwrvilcuWyS3A6fBVZyoIwBFqFVoXvCI9Q3Km0APnP6rS_WYVg-mIU=w512-h960-rw" group-title="Alangulam; Tenkasi Dist.",Jose TV [Not 24/7] 
-https://josetv.phoenixcreations.online/josetv/josetv/index.m3u8
-#EXTINF:-1 tvg-chno="4" tvg-id="KingTVAlangulam" tvg-logo="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1721812585.PNG" group-title="Alangulam; Tenkasi Dist.",King TV Alangulam 
-https://server.sscloud7.in/kingtv/kingtv/index.m3u8
-#EXTINF:-1 tvg-chno="5" tvg-id="RioTV" tvg-logo="https://play-lh.googleusercontent.com/r8o_7nnHnNBGqWHnTSl98uPoTwsxVGCfFArM5OTIcGQUoaNuxORznc11pQjyTF8GMA0=w512-h960-rw" group-title="Alangulam; Tenkasi Dist.",Rio TV 
-https://stream.onecloudlive.in/riotv/riotvhd/index.m3u8
-#EXTINF:-1 tvg-chno="6" tvg-id="SubinTV" tvg-logo="https://subintv.in/SUBINLOGO.png" group-title="Alangulam; Tenkasi Dist.",Subin TV (GalaxyOTT/Jio) 
-https://stream.galaxyott.live/live/subintv/index.m3u8
-#EXTINF:-1 tvg-chno="7" tvg-id="SubinTVCloud7" tvg-logo="https://subintv.in/SUBINLOGO.png" group-title="Alangulam; Tenkasi Dist.",Subin TV (Cloud7) 
-https://sscloud7.com/live/subintv/index.m3u8
 #EXTINF:-1 tvg-chno="1" tvg-id="KarthickTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1739547181_WhatsApp_Image_2025-02-14_at_8.50.29_PM__2_-removebg-preview.png&w=1920&q=75" group-title="Tirunelveli",Karthick TV 
 https://ipcloud.live/karthick/karthicktvhd/index.m3u8
 #EXTINF:-1 tvg-chno="2" tvg-id="MoonTV" tvg-logo="https://raw.githubusercontent.com/amazeyourself/tamil-local-iptv/refs/heads/main/logos/MoonTV.png" group-title="Tirunelveli",Moon TV 
