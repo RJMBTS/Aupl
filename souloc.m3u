@@ -1,6 +1,6 @@
 # 🔹 Pushed and Updated by Kittujk
 # 🔸 Coded & Maintained by @RJMBTS
-# 🕒 Last updated: 2025-11-28 21:13:49 IST
+# 🕒 Last updated: 2025-11-28 22:02:31 IST
 # 📺 Channels : Total - 446 | Updated - 446
 
 #EXTM3U billed-msg="RJM Tv - RJMBTS Network"
@@ -457,6 +457,12 @@ https://notvstream.in/arunaitv/arunaitv.m3u8
 https://ipcloud.live/shalinitv/shalinitv/index.m3u8
 #EXTINF:-1 tvg-chno="3" tvg-id="SuryaTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1732170490_WhatsApp_Image_2024-11-21_at_11.10.20_AM-removebg-preview%2520(2).png&w=1920&q=75" group-title="Tiruvannamalai",Surya TV 
 https://galaxyott.live/hls/suryatv.m3u8
+#EXTINF:-1 tvg-chno="1" tvg-id="PaavaiTV" tvg-logo="https://play-lh.googleusercontent.com/QqeM-vu6XSHC2RnsHIavFBogRePV9Tife_VuLTzn9wdJIpDksMV31ha7dd7U5uoJtw=w512-h960-rw" group-title="Tirupattur",Paavai TV 
+https://ipcloud.live/paavai/live/index.m3u8
+#EXTINF:-1 tvg-chno="2" tvg-id="PhoenixTVTirupattur" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1753871451_Untitled%25202-%2520Copy%2520copy.png&w=1920&q=75" group-title="Tirupattur",Phoenix TV 
+https://stream.onecloudlive.in/phoenixtv/phoenixtv/index.m3u8
+#EXTINF:-1 tvg-chno="3" tvg-id="RTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1752584483_rtv%2520logo.png%25202.png&w=1920&q=75" group-title="Tirupattur",R TV 
+http://stream.ashokadigital.net/rtv/rtv/index.m3u8
 #EXTINF:-1 tvg-chno="1" tvg-id="CSKTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1733983239_csk%2520tv%2520png%2520logo%2520kanishq.png&w=1920&q=75" group-title="Dharmapuri",CSK TV 
 http://csktv.7starcloud.com:1935/csktv/csktvdpi/playlist.m3u8
 #EXTINF:-1 tvg-chno="2" tvg-id="MNMusic" tvg-logo="https://tamilradios.org/wp-content/uploads/2025/01/mn-music.jpg" group-title="Dharmapuri",MN Music 
@@ -475,10 +481,6 @@ https://sscloud7.com/live/jithtv/index.m3u8
 https://notvstream.in/sstv/sstv.m3u8
 #EXTINF:-1 tvg-chno="2" tvg-id="TiruppurVoiceTV" tvg-logo="https://play-lh.googleusercontent.com/7WwJlJcxOrQDjY2eOb1GNpLYQ_JF6fboUUmIb3b2R9tcdA_ewkTP94uCKXnbOw8mhaMw=w512-h960-rw" group-title="Tiruppur",Tiruppur Voice TV 
 https://notvstream.in/tirupurvoicetv/tirupurvoicetv.m3u8
-#EXTINF:-1 tvg-chno="1" tvg-id="PaavaiTV" tvg-logo="https://play-lh.googleusercontent.com/QqeM-vu6XSHC2RnsHIavFBogRePV9Tife_VuLTzn9wdJIpDksMV31ha7dd7U5uoJtw=w512-h960-rw" group-title="Tirupattur",Paavai TV 
-https://ipcloud.live/paavai/live/index.m3u8
-#EXTINF:-1 tvg-chno="2" tvg-id="PhoenixTVTirupattur" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1753871451_Untitled%25202-%2520Copy%2520copy.png&w=1920&q=75" group-title="Tirupattur",Phoenix TV 
-https://stream.onecloudlive.in/phoenixtv/phoenixtv/index.m3u8
 #EXTINF:-1 tvg-chno="1" tvg-id="SkyPlusTV" tvg-logo="https://play-lh.googleusercontent.com/ApkLVeNBOSyeOx-ciN8PXlqUkBhGg2TmufFq8aei1tu2k8i9SU5PYR5byRI9C42dT4I=w512-h960-rw" group-title="Tiruchengode",Sky Plus TV 
 https://ipcloud.live/skytv/skytv/index.m3u8
 #EXTINF:-1 tvg-chno="2" tvg-id="SriKrishnaTVTiruchengode" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1732431684_227461593_220794490025454_2506413802748050177_n-removebg-preview.png&w=1920&q=75" group-title="Tiruchengode",Sri Krishna TV Tiruchengode 
