@@ -1,7 +1,7 @@
 # 🔹 Pushed and Updated by Kittujk
 # 🔸 Coded & Maintained by @RJMBTS
-# 🕒 Last updated: 2025-12-01 21:18:44 IST
-# 📺 Channels : Total - 446 | Updated - 446
+# 🕒 Last updated: 2025-12-01 22:07:36 IST
+# 📺 Channels : Total - 447 | Updated - 447
 
 #EXTM3U billed-msg="RJM Tv - RJMBTS Network"
 
@@ -393,6 +393,18 @@ https://ipcloud.live/sachintv/musichd/index.m3u8
 https://ipcloud.live/sachintv/sachintvhd/index.m3u8
 #EXTINF:-1 tvg-chno="6" tvg-id="StrawberryTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1756798791_Logo_00341.png&w=1920&q=75" group-title="Sambavarvadakarai",Strawberry TV 
 https://stream.onecloudlive.in/sachintv/strawberrytv/index.m3u8
+#EXTINF:-1 tvg-chno="1" tvg-id="AaryaaTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1751968987_AARYAA%2520TV.png&w=1080&q=75" group-title="Erode",Aaryaa TV (JioTV) 
+http://103.140.254.2:3500/live/3395.m3u8
+#EXTINF:-1 tvg-chno="2" tvg-id="AaryaaTVCloud7" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1751968987_AARYAA%2520TV.png&w=1080&q=75" group-title="Erode",Aaryaa TV (Cloud7) 
+https://live.sscloud7.in/live/aaryaatv/index.m3u8
+#EXTINF:-1 tvg-chno="3" tvg-id="OrangeTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1733810867_ORANGE%2520TV.png&w=1080&q=75" group-title="Erode",Orange TV 
+https://notvstream.in/orangetv/orangetv.m3u8
+#EXTINF:-1 tvg-chno="4" tvg-id="RCNTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1731942805_RAINBOW%2520TV.png&w=1080&q=75" group-title="Erode",Rainbow TV 
+https://live.skystream.in/live/rainbowtv/index.m3u8?hls_ctx=a7618r13
+#EXTINF:-1 tvg-chno="5" tvg-id="SangamamTVErode" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1733896875_IMG-20241210-WA0271.jpg&w=1080&q=75" group-title="Erode",Sangamam TV Erode 
+https://stream.onecloudlive.in/sangamamtv/sangamamtvhd/index.m3u8
+#EXTINF:-1 tvg-chno="6" tvg-id="SriKrishnaTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1732431684_227461593_220794490025454_2506413802748050177_n-removebg-preview.png&w=1920&q=75" group-title="Erode",Sri Krishna TV 
+http://krishnatv.7starcloud.com:1935/erodekrishnatv/livestream/playlist.m3u8
 #EXTINF:-1 tvg-chno="1" tvg-id="CityTV" tvg-logo="https://firebasestorage.googleapis.com/v0/b/playnow-7ce03.appspot.com/o/LOGO%2FCITY-TV-HD.png?alt=media&token=1e259b6a-23ce-44a3-9fbe-b6535a234bac" group-title="Kanchipuram",City TV 
 https://hd.singamcloud.in/citytv/citytv/index.m3u8
 #EXTINF:-1 tvg-chno="2" tvg-id="DharshanTV" tvg-logo="https://dvdh7g0f0hwck.cloudfront.net/assets/images/channel/DHARSANTV_Transparent_616466fe-382a-4a91-980c-53b030dd81db.png" group-title="Kanchipuram",Dharshan TV 
@@ -403,16 +415,6 @@ https://notvstream.in/hitechtv/hitechtv.m3u8
 rtmp://103.78.164.62/static/SHALINITVHD
 #EXTINF:-1 tvg-chno="5" tvg-id="TembleTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1748265127_ttv%2520logo%2520png.png&w=1920&q=75" group-title="Kanchipuram",Temble TV 
 https://notvstream.in/tembletv/tembletv.m3u8
-#EXTINF:-1 tvg-chno="1" tvg-id="AaryaaTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1751968987_AARYAA%2520TV.png&w=1080&q=75" group-title="Erode",Aaryaa TV 
-https://live.sscloud7.in/live/aaryaatv/index.m3u8
-#EXTINF:-1 tvg-chno="2" tvg-id="OrangeTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1733810867_ORANGE%2520TV.png&w=1080&q=75" group-title="Erode",Orange TV 
-https://notvstream.in/orangetv/orangetv.m3u8
-#EXTINF:-1 tvg-chno="3" tvg-id="RCNTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1731942805_RAINBOW%2520TV.png&w=1080&q=75" group-title="Erode",Rainbow TV 
-https://live.skystream.in/live/rainbowtv/index.m3u8?hls_ctx=a7618r13
-#EXTINF:-1 tvg-chno="4" tvg-id="SangamamTVErode" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1733896875_IMG-20241210-WA0271.jpg&w=1080&q=75" group-title="Erode",Sangamam TV Erode 
-https://stream.onecloudlive.in/sangamamtv/sangamamtvhd/index.m3u8
-#EXTINF:-1 tvg-chno="5" tvg-id="SriKrishnaTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1732431684_227461593_220794490025454_2506413802748050177_n-removebg-preview.png&w=1920&q=75" group-title="Erode",Sri Krishna TV 
-http://krishnatv.7starcloud.com:1935/erodekrishnatv/livestream/playlist.m3u8
 #EXTINF:-1 tvg-chno="1" tvg-id="EagleTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1746463528_WhatsApp_Image_2025-05-05_at_8.17.32_PM-removebg-preview.png&w=1080&q=75" group-title="Namakkal",Eagle TV 
 https://rtmp.bmlive.net/bms/eagletv/stream.m3u8
 #EXTINF:-1 tvg-chno="2" tvg-id="JayamTVNamakkal" group-title="Namakkal",Jayam TV Namakkal 
