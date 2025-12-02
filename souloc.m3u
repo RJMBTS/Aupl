@@ -1,7 +1,7 @@
 # 🔹 Pushed and Updated by Kittujk
 # 🔸 Coded & Maintained by @RJMBTS
-# 🕒 Last updated: 2025-12-02 10:06:16 IST
-# 📺 Channels : Total - 447 | Updated - 447
+# 🕒 Last updated: 2025-12-02 10:57:04 IST
+# 📺 Channels : Total - 448 | Updated - 448
 
 #EXTM3U billed-msg="RJM Tv - RJMBTS Network"
 
@@ -299,6 +299,22 @@ https://app.ashokadigital.net/app/a3e0b02f/index.m3u8
 https://stream.onecloudlive.in/deepamtv/sailamtv/index.m3u8
 #EXTINF:-1 tvg-chno="9" tvg-id="TamilStarTV" tvg-logo="https://yt3.googleusercontent.com/5jWU9n12RzHy-xHpVUbCAQEbqjJJ75nUsfvtHYA5Syg4XF6c2FwLcR3_I35Du_0mzU7edCS4wA=s900-c-k-c0x00ffffff-no-rj" group-title="Salem",Tamil Star TV 
 http://acv.7starcloud.com:1935/tamilstar/tv/playlist.m3u8
+#EXTINF:-1 tvg-chno="1" tvg-id="AasaiTV" tvg-logo="https://i.imgur.com/5p42C3t.jpg" group-title="Karur",Aasai TV 
+https://notvstream.in/aasaitv/aasaitv.m3u8
+#EXTINF:-1 tvg-chno="2" tvg-id="EesanTV" tvg-logo="https://play-lh.googleusercontent.com/RMiNiCrv0ymLmCykkA5IC05A9EsDtm5292Q64K34s9EKzrjgxTHdp5Li7HsmRE3dG7af=w480-h960-rw" group-title="Karur",Eesan TV 
+https://live.singamcloud.in/eesantv/eesantv/index.m3u8
+#EXTINF:-1 tvg-chno="3" tvg-id="IWorldTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1746326505_iworldtv%2520logo1.png&w=1920&q=75" group-title="Karur",IWorld TV [Not 24/7] 
+https://view.apserver.in/tmp_hls10/iworldtv/index.m3u8
+#EXTINF:-1 tvg-chno="4" tvg-id="JayamTVKarur" tvg-logo="https://play-lh.googleusercontent.com/c6mTAt5hkqZtmfRu_xJiZLY8kTGEcSC2Z2bDZuhYbRvfRrFYZsMCQX_qF8GJEd4KA2At=w512-h960-rw" group-title="Karur",Jayam TV Karur 
+https://view.rcserver.in/tmp_hls10/jayamtvkarur/index.m3u8
+#EXTINF:-1 tvg-chno="5" tvg-id="KarurCity" group-title="Karur",Karur City 
+https://view.rcserver.in/tmp_hls17/karurcity/index.m3u8
+#EXTINF:-1 tvg-chno="6" tvg-id="KarurTV" group-title="Karur",Karur TV 
+https://view.rcserver.in/tmp_hls16/karurtv/index.m3u8
+#EXTINF:-1 tvg-chno="7" tvg-id="SkyTVKarur" group-title="Karur",Sky TV Karur 
+https://view.rcserver.in/tmp_hls6/skytv/index.m3u8
+#EXTINF:-1 tvg-chno="8" tvg-id="ThirumalaiTV" tvg-logo="https://play-lh.googleusercontent.com/t6nqr53rVr6cvLKpluVQNVdTbkqsekjTaxKzOsL3xSJS4HHexNM0CNuF6cXMX09t-Q=w512-h960-rw" group-title="Karur",Thirumalai TV 
+https://notvstream.in/thirumalaitv/thirumalaitv.m3u8
 #EXTINF:-1 tvg-chno="1" tvg-id="DuraiTV" tvg-logo="https://firebasestorage.googleapis.com/v0/b/cloud-multiapp.appspot.com/o/durai%20tv-4k.png?alt=media&token=632d3193-0055-4c0f-85a0-d912660239c8" group-title="Alangulam; Tenkasi Dist.",Durai TV 
 https://ipcloud.live/duraitv/live/index.m3u8
 #EXTINF:-1 tvg-chno="2" tvg-id="JRMalarTV" tvg-logo="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1721812585.png" group-title="Alangulam; Tenkasi Dist.",JR Malar TV 
@@ -329,20 +345,6 @@ https://stream.onecloudlive.in/jeyam/jeyammdu/index.m3u8
 https://stream.onecloudlive.in/saitvmdu/saitvmdu/index.m3u8
 #EXTINF:-1 tvg-chno="7" tvg-id="ThendralTVMadurai" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1748264819_thendral%2520tv%2520madurai.png&w=1920&q=75" group-title="Madurai",Thendral TV Madurai [Not 24/7] 
 https://ipcloud.live/thendralmdu/madurai/index.m3u8
-#EXTINF:-1 tvg-chno="1" tvg-id="AasaiTV" tvg-logo="https://i.imgur.com/5p42C3t.jpg" group-title="Karur",Aasai TV 
-https://notvstream.in/aasaitv/aasaitv.m3u8
-#EXTINF:-1 tvg-chno="2" tvg-id="IWorldTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1746326505_iworldtv%2520logo1.png&w=1920&q=75" group-title="Karur",IWorld TV [Not 24/7] 
-https://view.apserver.in/tmp_hls10/iworldtv/index.m3u8
-#EXTINF:-1 tvg-chno="3" tvg-id="JayamTVKarur" tvg-logo="https://play-lh.googleusercontent.com/c6mTAt5hkqZtmfRu_xJiZLY8kTGEcSC2Z2bDZuhYbRvfRrFYZsMCQX_qF8GJEd4KA2At=w512-h960-rw" group-title="Karur",Jayam TV Karur 
-https://view.rcserver.in/tmp_hls10/jayamtvkarur/index.m3u8
-#EXTINF:-1 tvg-chno="4" tvg-id="KarurCity" group-title="Karur",Karur City 
-https://view.rcserver.in/tmp_hls17/karurcity/index.m3u8
-#EXTINF:-1 tvg-chno="5" tvg-id="KarurTV" group-title="Karur",Karur TV 
-https://view.rcserver.in/tmp_hls16/karurtv/index.m3u8
-#EXTINF:-1 tvg-chno="6" tvg-id="SkyTVKarur" group-title="Karur",Sky TV Karur 
-https://view.rcserver.in/tmp_hls6/skytv/index.m3u8
-#EXTINF:-1 tvg-chno="7" tvg-id="ThirumalaiTV" tvg-logo="https://play-lh.googleusercontent.com/t6nqr53rVr6cvLKpluVQNVdTbkqsekjTaxKzOsL3xSJS4HHexNM0CNuF6cXMX09t-Q=w512-h960-rw" group-title="Karur",Thirumalai TV 
-https://notvstream.in/thirumalaitv/thirumalaitv.m3u8
 #EXTINF:-1 tvg-chno="1" tvg-id="BossTelevision" tvg-logo="https://tvchannel.in/wp-content/uploads/2025/04/boss-300x169.jpg" group-title="Kanyakumari",Boss Television 
 https://play.applelive.in/vasantv/vasantv.m3u8
 #EXTINF:-1 tvg-chno="2" tvg-id="DarkTelevision" tvg-logo="https://play-lh.googleusercontent.com/GPwEalUw7RIHmutwfZpIS1RtFSIXYk6nzvht_bnRj8nT2PW-WqcDX4LjZeqTSLDwwT0=w512-h960-rw" group-title="Kanyakumari",Dark Television 
