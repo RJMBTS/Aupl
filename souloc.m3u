@@ -1,6 +1,6 @@
 # 🔹 Pushed and Updated by Kittujk
 # 🔸 Coded & Maintained by @RJMBTS
-# 🕒 Last updated: 2025-12-04 22:08:29 IST
+# 🕒 Last updated: 2025-12-04 22:58:25 IST
 # 📺 Channels : Total - 448 | Updated - 448
 
 #EXTM3U billed-msg="RJM Tv - RJMBTS Network"
@@ -209,11 +209,11 @@ https://crimson-sea-7857.aayushmansinghrajpurohit95.workers.dev/3768.m3u8
 https://crimson-sea-7857.aayushmansinghrajpurohit95.workers.dev/3769.m3u8
 #EXTINF:-1 tvg-chno="21" tvg-id="Default" tvg-logo="http://tv.fusion4k.cc/stalker_portal/misc/logos/320/76310.png" tvg-name="MALAYALAM UPCOMING MOVIES (4K)" group-title="MALAYALAM | 24X7 MOVIES",MALAYALAM UPCOMING MOVIES (4K) 
 https://crimson-sea-7857.aayushmansinghrajpurohit95.workers.dev/479942.m3u8
-#EXTINF:-1 tvg-chno="1" tvg-id="AnandamAbiTV" tvg-logo="" group-title="State-wide",Anandam Abi TV [RTMP] 
-rtmp://in-2.castr.io/static/live_40fb69e0107211f0adde2f394a2bbc0f
-#EXTINF:-1 tvg-chno="2" tvg-id="AnandamTV3" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1746452472_lo.png&w=1920&q=75" group-title="State-wide",Anandam TV [RTMP] 
-rtmp://in-2.castr.io/static/live_a617dda0c02c11eeb02035c643a92b1e
-#EXTINF:-1 tvg-chno="3" tvg-id="AnandhamTV" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/transparentImages/Anandham-TV-logo_2000_X_1125_Transpharent.png" group-title="State-wide",Anandham TV 
+#EXTINF:-1 tvg-chno="1" tvg-id="AnandamAbiTV" tvg-logo="" group-title="State-wide",Anandam Abi TV 
+#EXTVLCOPT:http-referrer=https://oxolive.com
+#EXTINF:-1 tvg-chno="2" tvg-id="AnandamTV2" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1746452472_lo.png&w=1920&q=75" group-title="State-wide",Anandam TV 
+#EXTVLCOPT:http-referrer=https://oxolive.com
+#EXTINF:-1 tvg-chno="3" tvg-id="AnandhamTV" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/transparentImages/Anandham-TV-logo_2000_X_1125_Transpharent.png" group-title="State-wide",Anandham TV (GalaxyOTT/JioTV) 
 https://stream.galaxyott.live/live/anandhamtv/index.m3u8
 #EXTINF:-1 tvg-chno="4" tvg-id="JJNewsTamil" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1742060000_1000825080.jpg&w=1080&q=75" group-title="State-wide",JJ News Tamil 
 https://live.skystream.in/live/jjnewstamil/index.m3u8?hls_ctx=141308l7
@@ -371,7 +371,7 @@ https://stream.onecloudlive.in/nellaitv/nellaitv/index.m3u8
 https://ipcloud.live/nilatvnellai/nilahd/index.m3u8
 #EXTINF:-1 tvg-chno="6" tvg-id="SJSuryaTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1760613543_Sjsurya.png&w=1080&q=75" group-title="Tirunelveli",SJ Surya TV 
 https://ipcloud.live/nellaitv/suriyatv/index.m3u8
-#EXTINF:-1 tvg-chno="1" tvg-id="AnandamTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1753975377_ANANTHAM%2520TV%2520LOGO.png&w=1080&q=75" group-title="Tenkasi",Anandam TV 
+#EXTINF:-1 tvg-chno="1" tvg-id="AnandhamTVCloud7" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1753975377_ANANTHAM%2520TV%2520LOGO.png&w=1080&q=75" group-title="Tenkasi",Anandham TV (Cloud7) 
 https://live1.sscloud7.com/live/anandhamtv/index.m3u8
 #EXTINF:-1 tvg-chno="2" tvg-id="MaranTV" tvg-logo="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1721757327.PNG" group-title="Tenkasi",Maran TV 
 https://server.sscloud7.in/marantv/marantv/index.m3u8
