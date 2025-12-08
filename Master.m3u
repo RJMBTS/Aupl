@@ -1,7 +1,7 @@
 #EXTM3U billed-msg="RJM Tv - RJMBTS Network"
 # Pushed and Updated by Kittujk
 # Coded & Maintained @RJMBTS
-# Last updated: 2025-12-08 23:44:37 IST
+# Last updated: 2025-12-09 00:16:58 IST
 
 
 #EXTINF:-1 tvg-id="" group-logo="https://www.etvwin.com/assets/img/logo-25.png" tvg-logo="https://etv-win-image.akamaized.net/etvwin/live/channel/28270/etv-telugu-320x240.jpg" group-title="ETv",ETv Telugu
@@ -5483,7 +5483,7 @@ https://z5ak-cmaflive.zee5.com/cmaf/live/2105538/ZeeTalkiesELE/master.m3u8?hdntl
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 https://aasthaott.akamaized.net/110923/smil:aasthatv.smil/playlist.m3u8?hdntl=exp=1765284139~acl=%2f*~id=abf935d7-9876-468a-83b2-a38c8fdc7908~data=hdntl~hmac=ad6a61c60a35e0ce743d4e2094792d1fde2c7ced550d88f6c69f6cdb7f041c61
 
-#Generated on 1765197971
+#Generated on 1765218819
 
 #EXTINF:-1 tvg-id="144" group-title="Entertainment" tvg-logo="https://v3img.voot.com/resizeMedium,w_1090,h_613/v3Storage/assets/colors-hindi--16x9-1714557869344.jpg",Colors HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
